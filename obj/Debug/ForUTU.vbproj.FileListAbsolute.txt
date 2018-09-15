@@ -1,0 +1,100 @@
+C:\Users\jeanr\source\repos\ForUTU\ForUTU\bin\Debug\ForUTU.exe.config
+C:\Users\jeanr\source\repos\ForUTU\ForUTU\bin\Debug\ForUTU.exe
+C:\Users\jeanr\source\repos\ForUTU\ForUTU\bin\Debug\ForUTU.pdb
+C:\Users\jeanr\source\repos\ForUTU\ForUTU\bin\Debug\ForUTU.xml
+C:\Users\jeanr\source\repos\ForUTU\ForUTU\obj\Debug\ForUTU.vbprojAssemblyReference.cache
+C:\Users\jeanr\source\repos\ForUTU\ForUTU\obj\Debug\ForUTU.Mine.resources
+C:\Users\jeanr\source\repos\ForUTU\ForUTU\obj\Debug\ForUTU.Resources.resources
+C:\Users\jeanr\source\repos\ForUTU\ForUTU\obj\Debug\ForUTU.vbproj.GenerateResource.cache
+C:\Users\jeanr\source\repos\ForUTU\ForUTU\obj\Debug\ForUTU.vbproj.CoreCompileInputs.cache
+C:\Users\jeanr\source\repos\ForUTU\ForUTU\obj\Debug\ForUTU.exe
+C:\Users\jeanr\source\repos\ForUTU\ForUTU\obj\Debug\ForUTU.xml
+C:\Users\jeanr\source\repos\ForUTU\ForUTU\obj\Debug\ForUTU.pdb
+C:\Users\jeanr\source\repos\ForUTU\ForUTU\obj\Debug\ForUTU.Form1.resources
+C:\Users\jeanr\source\repos\ForUTU\ForUTU\obj\Debug\ForUTU.Agragar_Grupos.resources
+C:\Users\jeanr\source\repos\ForUTU\ForUTU\obj\Debug\ForUTU.Eventos.resources
+C:\Users\alex\Desktop\ForUTU\ForUTU\bin\Debug\ForUTU.exe.config
+C:\Users\alex\Desktop\ForUTU\ForUTU\bin\Debug\ForUTU.exe
+C:\Users\alex\Desktop\ForUTU\ForUTU\bin\Debug\ForUTU.pdb
+C:\Users\alex\Desktop\ForUTU\ForUTU\bin\Debug\ForUTU.xml
+C:\Users\alex\Desktop\ForUTU\ForUTU\obj\Debug\ForUTU.vbprojAssemblyReference.cache
+C:\Users\alex\Desktop\ForUTU\ForUTU\obj\Debug\ForUTU.Resources.resources
+C:\Users\alex\Desktop\ForUTU\ForUTU\obj\Debug\ForUTU.vbproj.GenerateResource.cache
+C:\Users\alex\Desktop\ForUTU\ForUTU\obj\Debug\ForUTU.vbproj.CoreCompileInputs.cache
+C:\Users\alex\Desktop\ForUTU\ForUTU\obj\Debug\ForUTU.exe
+C:\Users\alex\Desktop\ForUTU\ForUTU\obj\Debug\ForUTU.xml
+C:\Users\alex\Desktop\ForUTU\ForUTU\obj\Debug\ForUTU.pdb
+C:\Users\alex\Desktop\ForUTU\ForUTU\obj\Debug\ForUTU.addGroupsToEvent.resources
+C:\Users\alex\Desktop\ForUTU\ForUTU\obj\Debug\ForUTU.StartMenu.resources
+C:\Users\alex\Desktop\ForUTU\ForUTU\obj\Debug\ForUTU.sellTickets.resources
+C:\Users\alex\Desktop\ForUTU\ForUTU\obj\Debug\ForUTU.addorEditEvent.resources
+C:\Users\alex\Desktop\ForUTU\ForUTU\obj\Debug\ForUTU.addorEditGroup.resources
+C:\Users\alex\Desktop\ForUTU\ForUTU\obj\Debug\ForUTU.frmDeleteGroups.resources
+C:\Users\alex\Desktop\ForUTU\ForUTU\obj\Debug\ForUTU.EventsHistory.resources
+C:\Users\alex\Desktop\ForUTU\ForUTU\bin\Debug\MySql.Data.dll
+C:\Users\alex\Desktop\ForUTU\ForUTU\bin\Debug\MySql.Data.xml
+C:\Users\alex\Desktop\ForUTU\ForUTU\obj\Debug\ForUTU.vbproj.CopyComplete
+C:\Users\alex\Desktop\ForUTU2\ForUTU\bin\Debug\ForUTU.exe.config
+C:\Users\alex\Desktop\ForUTU2\ForUTU\bin\Debug\ForUTU.exe
+C:\Users\alex\Desktop\ForUTU2\ForUTU\bin\Debug\ForUTU.pdb
+C:\Users\alex\Desktop\ForUTU2\ForUTU\bin\Debug\ForUTU.xml
+C:\Users\alex\Desktop\ForUTU2\ForUTU\bin\Debug\MySql.Data.xml
+C:\Users\alex\Desktop\ForUTU2\ForUTU\obj\Debug\ForUTU.vbprojAssemblyReference.cache
+C:\Users\alex\Desktop\ForUTU2\ForUTU\obj\Debug\ForUTU.addorEditGroup.resources
+C:\Users\alex\Desktop\ForUTU2\ForUTU\obj\Debug\ForUTU.addGroupsToEvent.resources
+C:\Users\alex\Desktop\ForUTU2\ForUTU\obj\Debug\ForUTU.addorEditEvent.resources
+C:\Users\alex\Desktop\ForUTU2\ForUTU\obj\Debug\ForUTU.EventsHistory.resources
+C:\Users\alex\Desktop\ForUTU2\ForUTU\obj\Debug\ForUTU.StartMenu.resources
+C:\Users\alex\Desktop\ForUTU2\ForUTU\obj\Debug\ForUTU.Resources.resources
+C:\Users\alex\Desktop\ForUTU2\ForUTU\obj\Debug\ForUTU.sellTickets.resources
+C:\Users\alex\Desktop\ForUTU2\ForUTU\obj\Debug\ForUTU.vbproj.GenerateResource.cache
+C:\Users\alex\Desktop\ForUTU2\ForUTU\obj\Debug\ForUTU.vbproj.CoreCompileInputs.cache
+C:\Users\alex\Desktop\ForUTU2\ForUTU\obj\Debug\ForUTU.vbproj.CopyComplete
+C:\Users\alex\Desktop\ForUTU2\ForUTU\obj\Debug\ForUTU.exe
+C:\Users\alex\Desktop\ForUTU2\ForUTU\obj\Debug\ForUTU.xml
+C:\Users\alex\Desktop\ForUTU2\ForUTU\obj\Debug\ForUTU.pdb
+C:\Users\alex\Desktop\ForUTU2\ForUTU\obj\Debug\ForUTU.DeleteGroups.resources
+C:\Users\alex\Desktop\ForUTU2\TCE\ForUTU\bin\Debug\ForUTU.exe.config
+C:\Users\alex\Desktop\ForUTU2\TCE\ForUTU\bin\Debug\ForUTU.exe
+C:\Users\alex\Desktop\ForUTU2\TCE\ForUTU\bin\Debug\ForUTU.pdb
+C:\Users\alex\Desktop\ForUTU2\TCE\ForUTU\bin\Debug\ForUTU.xml
+C:\Users\alex\Desktop\ForUTU2\TCE\ForUTU\bin\Debug\MySql.Data.xml
+C:\Users\alex\Desktop\ForUTU2\TCE\ForUTU\obj\Debug\ForUTU.vbprojAssemblyReference.cache
+C:\Users\alex\Desktop\ForUTU2\TCE\ForUTU\obj\Debug\ForUTU.addorEditGroup.resources
+C:\Users\alex\Desktop\ForUTU2\TCE\ForUTU\obj\Debug\ForUTU.addGroupsToEvent.resources
+C:\Users\alex\Desktop\ForUTU2\TCE\ForUTU\obj\Debug\ForUTU.addorEditEvent.resources
+C:\Users\alex\Desktop\ForUTU2\TCE\ForUTU\obj\Debug\ForUTU.DeleteGroups.resources
+C:\Users\alex\Desktop\ForUTU2\TCE\ForUTU\obj\Debug\ForUTU.EventsHistory.resources
+C:\Users\alex\Desktop\ForUTU2\TCE\ForUTU\obj\Debug\ForUTU.StartMenu.resources
+C:\Users\alex\Desktop\ForUTU2\TCE\ForUTU\obj\Debug\ForUTU.Resources.resources
+C:\Users\alex\Desktop\ForUTU2\TCE\ForUTU\obj\Debug\ForUTU.sellTickets.resources
+C:\Users\alex\Desktop\ForUTU2\TCE\ForUTU\obj\Debug\ForUTU.vbproj.GenerateResource.cache
+C:\Users\alex\Desktop\ForUTU2\TCE\ForUTU\obj\Debug\ForUTU.vbproj.CoreCompileInputs.cache
+C:\Users\alex\Desktop\ForUTU2\TCE\ForUTU\obj\Debug\ForUTU.vbproj.CopyComplete
+C:\Users\alex\Desktop\ForUTU2\TCE\ForUTU\obj\Debug\ForUTU.exe
+C:\Users\alex\Desktop\ForUTU2\TCE\ForUTU\obj\Debug\ForUTU.xml
+C:\Users\alex\Desktop\ForUTU2\TCE\ForUTU\obj\Debug\ForUTU.pdb
+C:\Users\alex\Desktop\ForUTU2\TCE\ForUTU\obj\Debug\ForUTU.reembolso.resources
+C:\Users\alex\Desktop\ForUTU2\TCE\ForUTU\obj\Debug\ForUTU.configuraciones.resources
+D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\bin\Debug\ForUTU.exe.config
+D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\bin\Debug\ForUTU.exe
+D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\bin\Debug\ForUTU.pdb
+D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\bin\Debug\ForUTU.xml
+D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\bin\Debug\MySql.Data.xml
+D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\obj\Debug\ForUTU.vbprojAssemblyReference.cache
+D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\obj\Debug\ForUTU.addorEditGroup.resources
+D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\obj\Debug\ForUTU.addGroupsToEvent.resources
+D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\obj\Debug\ForUTU.addorEditEvent.resources
+D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\obj\Debug\ForUTU.configuraciones.resources
+D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\obj\Debug\ForUTU.DeleteGroups.resources
+D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\obj\Debug\ForUTU.EventsHistory.resources
+D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\obj\Debug\ForUTU.reembolso.resources
+D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\obj\Debug\ForUTU.StartMenu.resources
+D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\obj\Debug\ForUTU.Resources.resources
+D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\obj\Debug\ForUTU.sellTickets.resources
+D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\obj\Debug\ForUTU.vbproj.GenerateResource.cache
+D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\obj\Debug\ForUTU.vbproj.CoreCompileInputs.cache
+D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\obj\Debug\ForUTU.vbproj.CopyComplete
+D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\obj\Debug\ForUTU.exe
+D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\obj\Debug\ForUTU.xml
+D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\obj\Debug\ForUTU.pdb
