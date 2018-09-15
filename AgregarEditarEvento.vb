@@ -1,7 +1,6 @@
 ﻿Imports System.Threading
 
 Public Class addorEditEvent
-    Private iDB As DBConnection = New DBConnection
     Private uMod As Boolean = Nothing
     Private idEvent As Integer = Nothing
     Private defaultmask As String
@@ -46,17 +45,28 @@ Public Class addorEditEvent
 
     Private Sub SlcEventSIC(sender As Object, e As EventArgs) Handles cbSlcEventToEdit.SelectedIndexChanged
         If cbSlcEventToEdit.SelectedIndex = 0 Then
+            layoutAddNewEvent.Enabled = False
             TBoxEventName.Text = String.Empty
             TBoxCityEvent.Text = String.Empty
             TBoxEventDirec.Text = String.Empty
             TBoxEventPrice.Text = String.Empty
             mTBoxStartEventDate.Text = defaultmask
             mTBoxEndEventDate.Text = defaultmask
-            nudCtnEntradas.Value = 0
+            nudCtnEntradas.Value = 1
             nudMinimumAge.Value = 0
-            nudStagesNumbers.Value = 0
+            nudStagesNumbers.Value = 1
         Else
-
+            layoutAddNewEvent.Enabled = True
+            idEvent = returnID(cbSlcEventToEdit.SelectedItem.ToString)
+            TBoxEventName.Text = iDB.returnData($"SELECT name_events FROM Events WHERE idEvents={idEvent}")
+            TBoxCityEvent.Text = iDB.returnData($"SELECT city FROM Events WHERE idEvents={idEvent}")
+            TBoxEventDirec.Text = iDB.returnData($"SELECT direcc FROM Events WHERE idEvents={idEvent}")
+            TBoxEventPrice.Text = iDB.returnData($"SELECT priceEvent FROM Events WHERE idEvents={idEvent}")
+            mTBoxStartEventDate.Text = iDB.returnData($"SELECT datei FROM Events WHERE idEvents={idEvent}")
+            mTBoxEndEventDate.Text = iDB.returnData($"SELECT datef FROM Events WHERE idEvents={idEvent}")
+            nudCtnEntradas.Value = iDB.returnData($"SELECT ticketsopen FROM Events WHERE idEvents={idEvent}")
+            nudMinimumAge.Value = iDB.returnData($"SELECT minimumAge FROM Events WHERE idEvents={idEvent}")
+            nudStagesNumbers.Value = iDB.returnData($"SELECT stages FROM Events WHERE idEvents={idEvent}")
         End If
     End Sub
 End Class

@@ -116,7 +116,7 @@
     <Compile Include="EliminarGrupos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="getIds.vb" />
+    <Compile Include="getIDConnections.vb" />
     <Compile Include="HistorialdeEventos.Designer.vb">
       <DependentUpon>HistorialdeEventos.vb</DependentUpon>
     </Compile>
