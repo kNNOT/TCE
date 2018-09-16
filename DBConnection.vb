@@ -9,7 +9,7 @@ Public Class DBConnection
     'Método que devuelve los datos de la conexion
     Private Function dConexion() As MySqlConnectionStringBuilder
         datos = New MySqlConnectionStringBuilder
-        datos.Server = "thecodeeye.sytes.net"
+        datos.Server = "192.168.1.225" 'IP: thecodeeye.sytes.net
         datos.Port = 3306
         datos.UserID = "alexuy"
         datos.Password = "416C65785F31113A"
@@ -18,11 +18,11 @@ Public Class DBConnection
     End Function
 
     'Método que devuelve la conexion ya abierta.
-    Private Async Function Conexion() As Task(Of MySqlConnection)
+    Private Function Conexion() As MySqlConnection
         con = New MySqlConnection(dConexion().ToString)
         Try
             If con.State = ConnectionState.Closed Then
-                Await con.OpenAsync()
+                con.Open()
             End If
         Catch e As MySqlException
             MessageBox.Show("Error al conectar con la base de datos", "Error de conexion", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -31,9 +31,9 @@ Public Class DBConnection
     End Function
 
     'Método que ejecuta los comandos: INSERT, UPDATE y DELETE.
-    Public Function Query(ByVal qry As String) As Boolean
+    Public Function Query(qry As String) As Boolean
         Try
-            cmd = New MySqlCommand(qry, Conexion().Result)
+            cmd = New MySqlCommand(qry, Conexion())
             cmd.ExecuteNonQuery()
             Return True
         Catch ex As MySqlException
@@ -49,7 +49,7 @@ Public Class DBConnection
     'Es necesario utilizar solo una columna y un WHERE, o sino; devolverá solo el elemento de la primera columna y fila (0, 0).
     Public Function returnData(qry As String) As String
         Try
-            cmd = New MySqlCommand(qry, Conexion().Result)
+            cmd = New MySqlCommand(qry, Conexion())
             reader = cmd.ExecuteReader()
             reader.Read()
             Return reader.GetString(0)
@@ -64,11 +64,11 @@ Public Class DBConnection
 
     'Método que llena todo un combobox con elementos, estos elementos son el ID (la llave primaria de las tablas de la base de datos)
     'y el nombre correspondiendo (evento o grupo).
-    Public Async Sub returnData(qry As String, cb As ComboBox)
+    Public Sub returnData(qry As String, cb As ComboBox)
         Try
-            cmd = New MySqlCommand(qry, Conexion().Result)
+            cmd = New MySqlCommand(qry, Conexion())
             reader = cmd.ExecuteReader()
-            While Await reader.ReadAsync() 'si hay alguna fila para leer, devuelve True (entra al código del While); si no hay, devuelve False y no entra al código del While.
+            While reader.Read() 'si hay alguna fila para leer, devuelve True (entra al código del While); si no hay, devuelve False y no entra al código del While.
                 cb.Items.Add(reader.GetString(0) & ". " & reader.GetString(1))
             End While
         Catch ex As MySqlException
@@ -81,12 +81,12 @@ Public Class DBConnection
     End Sub
 
     'Método que llena todo un datagridview con elemntos, estos elementos comunmente son todas las columnas y filas de la tabla necesaria.
-    Public Async Sub returnData(qry As String, dgv As DataGridView, clmnCount As Integer)
+    Public Sub returnData(qry As String, dgv As DataGridView, clmnCount As Integer)
         Try
-            cmd = New MySqlCommand(qry, Conexion().Result)
+            cmd = New MySqlCommand(qry, Conexion())
             reader = cmd.ExecuteReader()
             dgv.Rows.Clear() 'Limpia todas las filas que hay en el datagridview
-            While Await reader.ReadAsync() 'si hay alguna fila para leer, devuelve True (entra al código del While); si no hay, devuelve False y no entra al código del While.
+            While reader.Read() 'si hay alguna fila para leer, devuelve True (entra al código del While); si no hay, devuelve False y no entra al código del While.
                 If clmnCount = 10 Then 'Numero de columnas de la ventana StartMenu
                     dgv.Rows.Add(reader.GetString(0), reader.GetString(1), $"{reader.GetString(2)}, {reader.GetString(3)}", $"{reader.GetString(4)} - {reader.GetString(5)}",
                                             reader.GetString(6), reader.GetString(7), reader.GetString(8), reader.GetString(9))
