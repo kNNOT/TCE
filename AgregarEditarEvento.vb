@@ -93,6 +93,7 @@ Public Class addorEditEvent
     End Sub
 
     Private Sub SlcEventSIC(sender As Object, e As EventArgs) Handles cbSlcEventToEdit.SelectedIndexChanged
+        'Deja todos los campos con valores por defecto.
         If cbSlcEventToEdit.SelectedIndex = 0 Then
             layoutAddNewEvent.Enabled = False
             TBoxEventName.Text = String.Empty
@@ -120,6 +121,7 @@ Public Class addorEditEvent
         End If
     End Sub
 
+    'Validacion de la fecha
     Private Sub StartEndEventDateTVC(sender As Object, e As TypeValidationEventArgs) Handles mTBoxStartEventDate.TypeValidationCompleted, mTBoxEndEventDate.TypeValidationCompleted
         If sender.Equals(mTBoxStartEventDate) And Not e.IsValidInput Then
             MessageBox.Show("La fecha no es válida.", "Fecha inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
