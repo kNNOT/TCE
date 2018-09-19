@@ -23,17 +23,17 @@ Partial Class DeleteGroups
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.dgvShowGroups = New System.Windows.Forms.DataGridView()
-        Me.TBoxgroupName = New System.Windows.Forms.TextBox()
-        Me.btnSearchGroup = New System.Windows.Forms.Button()
-        Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.btnRestoreList = New System.Windows.Forms.PictureBox()
-        Me.btnHelp = New System.Windows.Forms.PictureBox()
         Me.dgvSEID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvSENameEvent = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvSECityDir = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvSEDateStr = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvSEDateEnd = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvSEimgDelete = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.TBoxgroupName = New System.Windows.Forms.TextBox()
+        Me.btnSearchGroup = New System.Windows.Forms.Button()
+        Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.btnRestoreList = New System.Windows.Forms.PictureBox()
+        Me.btnHelp = New System.Windows.Forms.PictureBox()
         CType(Me.dgvShowGroups, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnRestoreList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -60,6 +60,46 @@ Partial Class DeleteGroups
         Me.dgvShowGroups.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvShowGroups.Size = New System.Drawing.Size(813, 425)
         Me.dgvShowGroups.TabIndex = 23
+        '
+        'dgvSEID
+        '
+        Me.dgvSEID.HeaderText = "Identificación"
+        Me.dgvSEID.Name = "dgvSEID"
+        Me.dgvSEID.ReadOnly = True
+        '
+        'dgvSENameEvent
+        '
+        Me.dgvSENameEvent.HeaderText = "Nombre del grupo"
+        Me.dgvSENameEvent.Name = "dgvSENameEvent"
+        Me.dgvSENameEvent.ReadOnly = True
+        '
+        'dgvSECityDir
+        '
+        Me.dgvSECityDir.HeaderText = "Fecha de creación"
+        Me.dgvSECityDir.Name = "dgvSECityDir"
+        Me.dgvSECityDir.ReadOnly = True
+        '
+        'dgvSEDateStr
+        '
+        Me.dgvSEDateStr.HeaderText = "Género musical"
+        Me.dgvSEDateStr.Name = "dgvSEDateStr"
+        Me.dgvSEDateStr.ReadOnly = True
+        '
+        'dgvSEDateEnd
+        '
+        Me.dgvSEDateEnd.HeaderText = "Cantidad de miembros"
+        Me.dgvSEDateEnd.Name = "dgvSEDateEnd"
+        Me.dgvSEDateEnd.ReadOnly = True
+        '
+        'dgvSEimgDelete
+        '
+        Me.dgvSEimgDelete.HeaderText = "Eliminar grupo"
+        Me.dgvSEimgDelete.Image = Global.ForUTU.My.Resources.Resources.baseline_delete_forever_black_18dp
+        Me.dgvSEimgDelete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
+        Me.dgvSEimgDelete.Name = "dgvSEimgDelete"
+        Me.dgvSEimgDelete.ReadOnly = True
+        Me.dgvSEimgDelete.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvSEimgDelete.ToolTipText = "Haz clic para eliminar este evento"
         '
         'TBoxgroupName
         '
@@ -108,46 +148,6 @@ Partial Class DeleteGroups
         Me.btnHelp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.btnHelp.TabIndex = 22
         Me.btnHelp.TabStop = False
-        '
-        'dgvSEID
-        '
-        Me.dgvSEID.HeaderText = "Identificación"
-        Me.dgvSEID.Name = "dgvSEID"
-        Me.dgvSEID.ReadOnly = True
-        '
-        'dgvSENameEvent
-        '
-        Me.dgvSENameEvent.HeaderText = "Nombre del grupo"
-        Me.dgvSENameEvent.Name = "dgvSENameEvent"
-        Me.dgvSENameEvent.ReadOnly = True
-        '
-        'dgvSECityDir
-        '
-        Me.dgvSECityDir.HeaderText = "Fecha de creación"
-        Me.dgvSECityDir.Name = "dgvSECityDir"
-        Me.dgvSECityDir.ReadOnly = True
-        '
-        'dgvSEDateStr
-        '
-        Me.dgvSEDateStr.HeaderText = "Género musical"
-        Me.dgvSEDateStr.Name = "dgvSEDateStr"
-        Me.dgvSEDateStr.ReadOnly = True
-        '
-        'dgvSEDateEnd
-        '
-        Me.dgvSEDateEnd.HeaderText = "Cantidad de miembros"
-        Me.dgvSEDateEnd.Name = "dgvSEDateEnd"
-        Me.dgvSEDateEnd.ReadOnly = True
-        '
-        'dgvSEimgDelete
-        '
-        Me.dgvSEimgDelete.HeaderText = "Eliminar grupo"
-        Me.dgvSEimgDelete.Image = Global.ForUTU.My.Resources.Resources.baseline_delete_forever_black_18dp
-        Me.dgvSEimgDelete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
-        Me.dgvSEimgDelete.Name = "dgvSEimgDelete"
-        Me.dgvSEimgDelete.ReadOnly = True
-        Me.dgvSEimgDelete.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvSEimgDelete.ToolTipText = "Haz clic para eliminar este evento"
         '
         'DeleteGroups
         '
