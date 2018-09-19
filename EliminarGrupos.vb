@@ -12,8 +12,8 @@
         If e.ColumnIndex = 5 Then
             Dim dlg As DialogResult = MessageBox.Show($"¿Desea eliminar el grupo #{dgvShowGroups.Item(0, e.RowIndex).Value.ToString}. {dgvShowGroups.Item(1, e.RowIndex).Value.ToString}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If dlg = DialogResult.Yes Then
-                If iDB.Query($"DELETE FROM Groups WHERE idGroups={dgvShowGroups.Item(0, e.RowIndex).Value.ToString}") = True And
-                    iDB.Query($"DELETE FROM Participants WHERE idGroups={dgvShowGroups.Item(0, e.RowIndex).Value.ToString}") = True Then
+                If iDB.Query($"DELETE FROM Groups WHERE idGroups={dgvShowGroups.Item(0, e.RowIndex).Value.ToString}; 
+                                        DELETE FROM Participants WHERE idGroups={dgvShowGroups.Item(0, e.RowIndex).Value.ToString};") = True Then
                     MessageBox.Show("Se ha eliminado el grupo!", "¡Hecho!", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     refreshData()
                 End If

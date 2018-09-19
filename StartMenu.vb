@@ -37,8 +37,8 @@
         If e.ColumnIndex = 8 Then 'Solo si le damos clic a la papelera, se borrará el evento.
             Dim dlg As DialogResult = MessageBox.Show($"¿Desea borrar el evento #{dgvShowEvents.Item(0, e.RowIndex).Value.ToString}. {dgvShowEvents.Item(1, e.RowIndex).Value.ToString}?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If dlg = DialogResult.Yes Then 'Si le da clic al boton Si, se borra el evento
-                If iDB.Query($"DELETE FROM Events WHERE idEvents={dgvShowEvents.Item(0, e.RowIndex).Value.ToString}") = True And
-                    iDB.Query($"DELETE FROM Participants WHERE idEvents={dgvShowEvents.Item(0, e.RowIndex).Value.ToString}") Then
+                If iDB.Query($"DELETE FROM Events WHERE idEvents={dgvShowEvents.Item(0, e.RowIndex).Value.ToString};
+                                        DELETE FROM Participants WHERE idEvents={dgvShowEvents.Item(0, e.RowIndex).Value.ToString};") = True Then
                     MessageBox.Show("Se ha eliminado el evento!", "¡Hecho!", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     refreshData()
                 End If
