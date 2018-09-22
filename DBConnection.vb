@@ -9,7 +9,7 @@ Public Class DBConnection
     'Método que devuelve los datos de la conexion
     Private Function dConexion() As MySqlConnectionStringBuilder
         datos = New MySqlConnectionStringBuilder
-        datos.Server = "192.168.1.225" 'IP: thecodeeye.sytes.net
+        datos.Server = "thecodeeye.sytes.net" 'IP: thecodeeye.sytes.net
         datos.Port = 3306
         datos.UserID = "alexuy"
         datos.Password = "416C65785F31113A"
@@ -61,6 +61,22 @@ Public Class DBConnection
             End If
         End Try
     End Function
+
+    Public Sub returnData(qry As String, ByRef values As List(Of Object))
+        Try
+            cmd = New MySqlCommand(qry, Conexion())
+            reader = cmd.ExecuteReader()
+            While reader.Read()
+                values.Add(reader.GetString(0))
+            End While
+        Catch ex As Exception
+            MessageBox.Show("Error al ejecutar el comando", "Error en consulta", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            If con.State = ConnectionState.Open Then
+                con.Close()
+            End If
+        End Try
+    End Sub
 
     'Método que llena todo un combobox con elementos, estos elementos son el ID (la llave primaria de las tablas de la base de datos)
     'y el nombre correspondiendo (evento o grupo).

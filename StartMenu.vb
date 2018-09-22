@@ -1,11 +1,7 @@
 ﻿Public Class StartMenu
     Public Sub New()
         InitializeComponent()
-        refreshData()
-    End Sub
-
-    Private Sub refreshData()
-        iDB.returnData("SELECT * FROM Events", dgvShowEvents, 10)
+        refreshData("SELECT * FROM Events", dgvShowEvents, 10)
     End Sub
 
     Private Sub btnAddEventClic(sender As Object, e As EventArgs) Handles btnAddEvent.Click
@@ -40,9 +36,14 @@
                 If iDB.Query($"DELETE FROM Events WHERE idEvents={dgvShowEvents.Item(0, e.RowIndex).Value.ToString};
                                         DELETE FROM Participants WHERE idEvents={dgvShowEvents.Item(0, e.RowIndex).Value.ToString};") = True Then
                     MessageBox.Show("Se ha eliminado el evento!", "¡Hecho!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    refreshData()
+                    refreshData("SELECT * FROM Events", dgvShowEvents, 10)
                 End If
             End If
         End If
+    End Sub
+
+    Private Sub btnReembolsoClic(sender As Object, e As EventArgs) Handles btnReembolso.Click
+        Dim r As reembolso = New reembolso
+        r.ShowDialog()
     End Sub
 End Class

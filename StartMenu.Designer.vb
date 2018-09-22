@@ -57,11 +57,11 @@ Partial Class StartMenu
         Me.btnEditGroups = New System.Windows.Forms.Button()
         Me.btnDeleteGroup = New System.Windows.Forms.Button()
         Me.btnNewGroup = New System.Windows.Forms.Button()
-        Me.btnEventsHistory = New System.Windows.Forms.Button()
         Me.btnReembolso = New System.Windows.Forms.Button()
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.btnHelp = New System.Windows.Forms.PictureBox()
         Me.btnSettings = New System.Windows.Forms.PictureBox()
+        Me.btnEventsHistorys = New System.Windows.Forms.Button()
         Me.msUser.SuspendLayout()
         CType(Me.dgvShowEvents, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbEventMenu.SuspendLayout()
@@ -356,18 +356,6 @@ Partial Class StartMenu
         Me.btnNewGroup.Text = "Agregar grupos"
         Me.btnNewGroup.UseVisualStyleBackColor = True
         '
-        'btnEventsHistory
-        '
-        Me.btnEventsHistory.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnEventsHistory.BackColor = System.Drawing.SystemColors.Control
-        Me.btnEventsHistory.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.btnEventsHistory.Location = New System.Drawing.Point(23, 430)
-        Me.btnEventsHistory.Name = "btnEventsHistory"
-        Me.btnEventsHistory.Size = New System.Drawing.Size(142, 34)
-        Me.btnEventsHistory.TabIndex = 21
-        Me.btnEventsHistory.Text = "Historial de eventos"
-        Me.btnEventsHistory.UseVisualStyleBackColor = True
-        '
         'btnReembolso
         '
         Me.btnReembolso.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
@@ -413,14 +401,26 @@ Partial Class StartMenu
         Me.btnSettings.TabIndex = 20
         Me.btnSettings.TabStop = False
         '
+        'btnEventsHistorys
+        '
+        Me.btnEventsHistorys.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnEventsHistorys.BackColor = System.Drawing.SystemColors.Control
+        Me.btnEventsHistorys.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.btnEventsHistorys.Location = New System.Drawing.Point(23, 430)
+        Me.btnEventsHistorys.Name = "btnEventsHistorys"
+        Me.btnEventsHistorys.Size = New System.Drawing.Size(142, 34)
+        Me.btnEventsHistorys.TabIndex = 23
+        Me.btnEventsHistorys.Text = "Historial de Eventos"
+        Me.btnEventsHistorys.UseVisualStyleBackColor = True
+        '
         'StartMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(1237, 555)
+        Me.Controls.Add(Me.btnEventsHistorys)
         Me.Controls.Add(Me.btnReembolso)
-        Me.Controls.Add(Me.btnEventsHistory)
         Me.Controls.Add(Me.btnHelp)
         Me.Controls.Add(Me.btnSettings)
         Me.Controls.Add(Me.gcGroupMenu)
@@ -461,7 +461,6 @@ Partial Class StartMenu
     Friend WithEvents btnHelp As PictureBox
     Friend WithEvents btnEditEvents As Button
     Friend WithEvents btnEditGroups As Button
-    Friend WithEvents btnEventsHistory As Button
     Friend WithEvents DataGridViewImageColumn1 As DataGridViewImageColumn
     Friend WithEvents AgregarEventosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ModificarEventosToolStripMenuItem As ToolStripMenuItem
@@ -486,4 +485,5 @@ Partial Class StartMenu
     Friend WithEvents dgvSEPriceEvent As DataGridViewTextBoxColumn
     Friend WithEvents dgvSEimgDelete As DataGridViewImageColumn
     Friend WithEvents btnReembolso As Button
+    Friend WithEvents btnEventsHistorys As Button
 End Class

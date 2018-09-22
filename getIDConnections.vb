@@ -12,4 +12,9 @@
         Next
         Return id 'Retorna el ID que se le ha asignado.
     End Function
+
+    'Se puede llamar en todo el proyecto, cuando se necesite hacer un refresh de los datos del datagridview.
+    Public Sub refreshData(qry As String, dgv As DataGridView, columnsCount As Integer)
+        iDB.returnData(qry, dgv, columnsCount)
+    End Sub
 End Module
