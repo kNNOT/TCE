@@ -29,4 +29,24 @@
             End If
         End If
     End Sub
+
+    Private Sub CIClientTC(sender As Object, e As EventArgs) Handles TBoxCiClient.TextChanged
+        If TBoxCiClient.Text.Length = 8 And cbSlcEvents.SelectedIndex <> 0 Then
+            refreshData($"SELECT * FROM Tickets WHERE CI={TBoxCiClient.Text} AND idEvent={idEvent}", dgvSSells, 6)
+        ElseIf TBoxCiClient.Text.Length < 8 And cbSlcEvents.SelectedIndex <> 0 Then
+            refreshData($"SELECT * FROM Tickets WHERE idEvent={idEvent}", dgvSSells, 6)
+        End If
+    End Sub
+
+    Private Sub TBoxCIClientClic(sender As Object, e As EventArgs) Handles TBoxCiClient.Click
+        If TBoxCiClient.Text = "Introduzca la cédula del cliente" Then
+            TBoxCiClient.Text = String.Empty
+        End If
+    End Sub
+
+    Private Sub CiClientLeave(sender As Object, e As EventArgs) Handles TBoxCiClient.Leave
+        If TBoxCiClient.Text = String.Empty Then
+            TBoxCiClient.Text = "Introduzca la cédula del cliente"
+        End If
+    End Sub
 End Class
