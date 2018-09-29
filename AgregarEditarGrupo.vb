@@ -10,7 +10,7 @@
         If uMod = True Then
             cbSlcGroup.Visible = True
             cbSlcGroup.SelectedIndex = 0
-            iDB.returnData("SELECT idGroups, nameGroup FROM Groups", cbSlcGroup)
+            iDB.ExSelect("SELECT idGroups, nameGroup FROM Groups", cbSlcGroup)
             Me.Size = New Size(263, 255)
             layoutNewGroup.Location = New Point(-2, 20)
             Me.Text = "Modificar grupo"
@@ -103,10 +103,10 @@
             'si no es el index 0, importara los datos (CON SELECT) de la BD segun el IDGRUPO que agarro el metodo returnID
             layoutNewGroup.Enabled = True
             idGrupo = returnID(cbSlcGroup.SelectedItem.ToString)
-            TBoxGroupName.Text = iDB.returnData($"SELECT nameGroup FROM Groups WHERE idGroups={idGrupo}")
-            mTBoxCreationData.Text = iDB.returnData($"SELECT dataCreation FROM Groups WHERE idGroups={idGrupo}")
+            TBoxGroupName.Text = iDB.ExSelect($"SELECT nameGroup FROM Groups WHERE idGroups={idGrupo}")
+            mTBoxCreationData.Text = iDB.ExSelect($"SELECT dataCreation FROM Groups WHERE idGroups={idGrupo}")
             'creamos una variable con el genero de la banda importado de la BD, para poder hacer una comparacion en el FOR de abajo
-            Dim generom As String = iDB.returnData($"SELECT genre FROM Groups WHERE idGroups={idGrupo}")
+            Dim generom As String = iDB.ExSelect($"SELECT genre FROM Groups WHERE idGroups={idGrupo}")
             'creamos un for para recorrer todos los generos almacenados en el combobox (cbMusicalGenre)
             For i = 0 To cbMusicalGenre.Items.Count - 1
                 'cuando el genero del combobox sea igual al de la banda, tomara la posicion(index) para que el item seleccionado
@@ -116,7 +116,7 @@
                     Exit For
                 End If
             Next
-            TBoxMembersCnt.Text = iDB.returnData($"SELECT memberCount FROM Groups WHERE idGroups={idGrupo}")
+            TBoxMembersCnt.Text = iDB.ExSelect($"SELECT memberCount FROM Groups WHERE idGroups={idGrupo}")
         End If
     End Sub
 

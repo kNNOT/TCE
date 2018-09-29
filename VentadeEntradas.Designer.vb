@@ -23,11 +23,8 @@ Partial Class sellTickets
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.layout = New System.Windows.Forms.Panel()
-        Me.TBoxAditionalValue = New System.Windows.Forms.TextBox()
-        Me.lblAditionalValue = New System.Windows.Forms.Label()
         Me.lblAvailableTickets = New System.Windows.Forms.Label()
         Me.nudTicketsNmbr = New System.Windows.Forms.NumericUpDown()
-        Me.CBSlcTEntrada = New System.Windows.Forms.ComboBox()
         Me.gbClientInfo = New System.Windows.Forms.GroupBox()
         Me.TBoxClientAge = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -38,12 +35,15 @@ Partial Class sellTickets
         Me.TBoxClientName = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lblCountTickets = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.CBSlcEvent = New System.Windows.Forms.ComboBox()
         Me.btnHelp = New System.Windows.Forms.PictureBox()
         Me.lblShowTotalPrice = New System.Windows.Forms.Label()
         Me.btnCcrtSell = New System.Windows.Forms.Button()
+        Me.TBoxAditionalValue = New System.Windows.Forms.TextBox()
+        Me.lblAditionalValue = New System.Windows.Forms.Label()
+        Me.CBSlcTEntrada = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.CBSlcEvent = New System.Windows.Forms.ComboBox()
         Me.layout.SuspendLayout()
         CType(Me.nudTicketsNmbr, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbClientInfo.SuspendLayout()
@@ -52,49 +52,23 @@ Partial Class sellTickets
         '
         'layout
         '
-        Me.layout.Controls.Add(Me.TBoxAditionalValue)
-        Me.layout.Controls.Add(Me.lblAditionalValue)
         Me.layout.Controls.Add(Me.lblAvailableTickets)
         Me.layout.Controls.Add(Me.nudTicketsNmbr)
-        Me.layout.Controls.Add(Me.CBSlcTEntrada)
         Me.layout.Controls.Add(Me.gbClientInfo)
         Me.layout.Controls.Add(Me.lblCountTickets)
-        Me.layout.Controls.Add(Me.Label2)
-        Me.layout.Controls.Add(Me.Label1)
-        Me.layout.Controls.Add(Me.CBSlcEvent)
         Me.layout.Controls.Add(Me.btnHelp)
         Me.layout.Controls.Add(Me.lblShowTotalPrice)
         Me.layout.Controls.Add(Me.btnCcrtSell)
-        Me.layout.Location = New System.Drawing.Point(-2, -4)
+        Me.layout.Location = New System.Drawing.Point(-4, 68)
         Me.layout.Name = "layout"
-        Me.layout.Size = New System.Drawing.Size(321, 299)
+        Me.layout.Size = New System.Drawing.Size(321, 229)
         Me.layout.TabIndex = 0
-        '
-        'TBoxAditionalValue
-        '
-        Me.TBoxAditionalValue.Location = New System.Drawing.Point(127, 79)
-        Me.TBoxAditionalValue.MaxLength = 300
-        Me.TBoxAditionalValue.Name = "TBoxAditionalValue"
-        Me.TBoxAditionalValue.Size = New System.Drawing.Size(184, 20)
-        Me.TBoxAditionalValue.TabIndex = 8
-        Me.TBoxAditionalValue.Visible = False
-        '
-        'lblAditionalValue
-        '
-        Me.lblAditionalValue.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
-        Me.lblAditionalValue.AutoSize = True
-        Me.lblAditionalValue.Location = New System.Drawing.Point(41, 82)
-        Me.lblAditionalValue.Name = "lblAditionalValue"
-        Me.lblAditionalValue.Size = New System.Drawing.Size(80, 14)
-        Me.lblAditionalValue.TabIndex = 28
-        Me.lblAditionalValue.Text = "Valor adicional:"
-        Me.lblAditionalValue.Visible = False
         '
         'lblAvailableTickets
         '
         Me.lblAvailableTickets.AutoSize = True
         Me.lblAvailableTickets.Font = New System.Drawing.Font("Arial", 8.0!)
-        Me.lblAvailableTickets.Location = New System.Drawing.Point(169, 83)
+        Me.lblAvailableTickets.Location = New System.Drawing.Point(171, 14)
         Me.lblAvailableTickets.Name = "lblAvailableTickets"
         Me.lblAvailableTickets.Size = New System.Drawing.Size(110, 14)
         Me.lblAvailableTickets.TabIndex = 27
@@ -103,24 +77,13 @@ Partial Class sellTickets
         'nudTicketsNmbr
         '
         Me.nudTicketsNmbr.Enabled = False
-        Me.nudTicketsNmbr.Location = New System.Drawing.Point(127, 79)
+        Me.nudTicketsNmbr.Location = New System.Drawing.Point(129, 10)
         Me.nudTicketsNmbr.Maximum = New Decimal(New Integer() {99, 0, 0, 0})
         Me.nudTicketsNmbr.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.nudTicketsNmbr.Name = "nudTicketsNmbr"
         Me.nudTicketsNmbr.Size = New System.Drawing.Size(36, 20)
         Me.nudTicketsNmbr.TabIndex = 26
         Me.nudTicketsNmbr.Value = New Decimal(New Integer() {1, 0, 0, 0})
-        '
-        'CBSlcTEntrada
-        '
-        Me.CBSlcTEntrada.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CBSlcTEntrada.Enabled = False
-        Me.CBSlcTEntrada.FormattingEnabled = True
-        Me.CBSlcTEntrada.Items.AddRange(New Object() {"---Seleccione un Tipo de Entrada---", "Normal", "VIP"})
-        Me.CBSlcTEntrada.Location = New System.Drawing.Point(127, 45)
-        Me.CBSlcTEntrada.Name = "CBSlcTEntrada"
-        Me.CBSlcTEntrada.Size = New System.Drawing.Size(184, 22)
-        Me.CBSlcTEntrada.TabIndex = 22
         '
         'gbClientInfo
         '
@@ -133,7 +96,7 @@ Partial Class sellTickets
         Me.gbClientInfo.Controls.Add(Me.TBoxClientName)
         Me.gbClientInfo.Controls.Add(Me.Label3)
         Me.gbClientInfo.Enabled = False
-        Me.gbClientInfo.Location = New System.Drawing.Point(8, 112)
+        Me.gbClientInfo.Location = New System.Drawing.Point(10, 43)
         Me.gbClientInfo.Name = "gbClientInfo"
         Me.gbClientInfo.Size = New System.Drawing.Size(303, 135)
         Me.gbClientInfo.TabIndex = 16
@@ -211,44 +174,16 @@ Partial Class sellTickets
         'lblCountTickets
         '
         Me.lblCountTickets.AutoSize = True
-        Me.lblCountTickets.Location = New System.Drawing.Point(8, 82)
+        Me.lblCountTickets.Location = New System.Drawing.Point(10, 13)
         Me.lblCountTickets.Name = "lblCountTickets"
         Me.lblCountTickets.Size = New System.Drawing.Size(113, 14)
         Me.lblCountTickets.TabIndex = 20
         Me.lblCountTickets.Text = "Cantidad de entradas:"
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(35, 48)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(85, 14)
-        Me.Label2.TabIndex = 19
-        Me.Label2.Text = "Tipo de Entrada:"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(18, 16)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(103, 14)
-        Me.Label1.TabIndex = 18
-        Me.Label1.Text = "Seleccionar Evento:"
-        '
-        'CBSlcEvent
-        '
-        Me.CBSlcEvent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CBSlcEvent.FormattingEnabled = True
-        Me.CBSlcEvent.Items.AddRange(New Object() {"---Seleccione un Evento---"})
-        Me.CBSlcEvent.Location = New System.Drawing.Point(127, 13)
-        Me.CBSlcEvent.Name = "CBSlcEvent"
-        Me.CBSlcEvent.Size = New System.Drawing.Size(184, 22)
-        Me.CBSlcEvent.TabIndex = 17
-        '
         'btnHelp
         '
         Me.btnHelp.Image = Global.ForUTU.My.Resources.Resources.baseline_help_outline_black_18dp
-        Me.btnHelp.Location = New System.Drawing.Point(286, 260)
+        Me.btnHelp.Location = New System.Drawing.Point(288, 191)
         Me.btnHelp.Name = "btnHelp"
         Me.btnHelp.Size = New System.Drawing.Size(25, 25)
         Me.btnHelp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -259,7 +194,7 @@ Partial Class sellTickets
         '
         Me.lblShowTotalPrice.AutoSize = True
         Me.lblShowTotalPrice.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
-        Me.lblShowTotalPrice.Location = New System.Drawing.Point(12, 261)
+        Me.lblShowTotalPrice.Location = New System.Drawing.Point(14, 192)
         Me.lblShowTotalPrice.Name = "lblShowTotalPrice"
         Me.lblShowTotalPrice.Size = New System.Drawing.Size(37, 15)
         Me.lblShowTotalPrice.TabIndex = 23
@@ -268,19 +203,84 @@ Partial Class sellTickets
         'btnCcrtSell
         '
         Me.btnCcrtSell.Enabled = False
-        Me.btnCcrtSell.Location = New System.Drawing.Point(102, 253)
+        Me.btnCcrtSell.Location = New System.Drawing.Point(104, 184)
         Me.btnCcrtSell.Name = "btnCcrtSell"
         Me.btnCcrtSell.Size = New System.Drawing.Size(126, 32)
         Me.btnCcrtSell.TabIndex = 24
         Me.btnCcrtSell.Text = "Concretar Venta"
         Me.btnCcrtSell.UseVisualStyleBackColor = True
         '
+        'TBoxAditionalValue
+        '
+        Me.TBoxAditionalValue.Location = New System.Drawing.Point(119, 78)
+        Me.TBoxAditionalValue.MaxLength = 300
+        Me.TBoxAditionalValue.Name = "TBoxAditionalValue"
+        Me.TBoxAditionalValue.Size = New System.Drawing.Size(184, 20)
+        Me.TBoxAditionalValue.TabIndex = 29
+        Me.TBoxAditionalValue.Visible = False
+        '
+        'lblAditionalValue
+        '
+        Me.lblAditionalValue.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
+        Me.lblAditionalValue.AutoSize = True
+        Me.lblAditionalValue.Location = New System.Drawing.Point(33, 81)
+        Me.lblAditionalValue.Name = "lblAditionalValue"
+        Me.lblAditionalValue.Size = New System.Drawing.Size(80, 14)
+        Me.lblAditionalValue.TabIndex = 34
+        Me.lblAditionalValue.Text = "Valor adicional:"
+        Me.lblAditionalValue.Visible = False
+        '
+        'CBSlcTEntrada
+        '
+        Me.CBSlcTEntrada.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CBSlcTEntrada.Enabled = False
+        Me.CBSlcTEntrada.FormattingEnabled = True
+        Me.CBSlcTEntrada.Items.AddRange(New Object() {"---Seleccione un Tipo de Entrada---", "Normal", "VIP"})
+        Me.CBSlcTEntrada.Location = New System.Drawing.Point(119, 44)
+        Me.CBSlcTEntrada.Name = "CBSlcTEntrada"
+        Me.CBSlcTEntrada.Size = New System.Drawing.Size(184, 22)
+        Me.CBSlcTEntrada.TabIndex = 33
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(27, 47)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(85, 14)
+        Me.Label2.TabIndex = 32
+        Me.Label2.Text = "Tipo de Entrada:"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(10, 15)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(103, 14)
+        Me.Label1.TabIndex = 31
+        Me.Label1.Text = "Seleccionar Evento:"
+        '
+        'CBSlcEvent
+        '
+        Me.CBSlcEvent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CBSlcEvent.FormattingEnabled = True
+        Me.CBSlcEvent.Items.AddRange(New Object() {"---Seleccione un Evento---"})
+        Me.CBSlcEvent.Location = New System.Drawing.Point(119, 12)
+        Me.CBSlcEvent.Name = "CBSlcEvent"
+        Me.CBSlcEvent.Size = New System.Drawing.Size(184, 22)
+        Me.CBSlcEvent.TabIndex = 30
+        '
         'sellTickets
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.ClientSize = New System.Drawing.Size(315, 290)
+        Me.ClientSize = New System.Drawing.Size(315, 294)
+        Me.Controls.Add(Me.TBoxAditionalValue)
+        Me.Controls.Add(Me.lblAditionalValue)
+        Me.Controls.Add(Me.CBSlcTEntrada)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.CBSlcEvent)
         Me.Controls.Add(Me.layout)
         Me.Font = New System.Drawing.Font("Arial", 8.25!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
@@ -294,11 +294,11 @@ Partial Class sellTickets
         Me.gbClientInfo.PerformLayout()
         CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents layout As Panel
-    Friend WithEvents CBSlcTEntrada As ComboBox
     Friend WithEvents gbClientInfo As GroupBox
     Friend WithEvents TBoxClientAge As TextBox
     Friend WithEvents Label6 As Label
@@ -309,9 +309,6 @@ Partial Class sellTickets
     Friend WithEvents TBoxClientName As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents lblCountTickets As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents CBSlcEvent As ComboBox
     Friend WithEvents btnHelp As PictureBox
     Friend WithEvents lblShowTotalPrice As Label
     Friend WithEvents btnCcrtSell As Button
@@ -319,4 +316,8 @@ Partial Class sellTickets
     Friend WithEvents lblAvailableTickets As Label
     Friend WithEvents TBoxAditionalValue As TextBox
     Friend WithEvents lblAditionalValue As Label
+    Friend WithEvents CBSlcTEntrada As ComboBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents CBSlcEvent As ComboBox
 End Class

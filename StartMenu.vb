@@ -1,11 +1,12 @@
 ﻿Public Class StartMenu
     Public Sub New()
         InitializeComponent()
-        refreshData("SELECT * FROM Events", dgvShowEvents, 10)
+        FillDGV("SELECT * FROM Events", dgvShowEvents, 10)
     End Sub
 
+    'estos metodos llaman a las ventanas, con un valor en los parametros del constructor de las clases que los requieran: addorEditEvent y addorEditGroup
     Private Sub btnAddEventClic(sender As Object, e As EventArgs) Handles btnAddEvent.Click
-        Dim addEvent As addorEditEvent = New addorEditEvent(False)
+        Dim addEvent As addorEditEvent = New addorEditEvent(False) 'se puso el parametro en falso por que no es para editar
         addEvent.ShowDialog()
     End Sub
 
@@ -36,7 +37,7 @@
                 If iDB.Query($"DELETE FROM Events WHERE idEvents={dgvShowEvents.Item(0, e.RowIndex).Value.ToString};
                                         DELETE FROM Participants WHERE idEvents={dgvShowEvents.Item(0, e.RowIndex).Value.ToString};") = True Then
                     MessageBox.Show("Se ha eliminado el evento!", "¡Hecho!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    refreshData("SELECT * FROM Events", dgvShowEvents, 10)
+                    FillDGV("SELECT * FROM Events", dgvShowEvents, 10)
                 End If
             End If
         End If
@@ -45,5 +46,10 @@
     Private Sub btnReembolsoClic(sender As Object, e As EventArgs) Handles btnReembolso.Click
         Dim r As reembolso = New reembolso
         r.ShowDialog()
+    End Sub
+
+    Private Sub btnSellTicketsClic(sender As Object, e As EventArgs) Handles btnSellTickets.Click
+        Dim sellTickets As sellTickets = New sellTickets()
+        sellTickets.ShowDialog()
     End Sub
 End Class

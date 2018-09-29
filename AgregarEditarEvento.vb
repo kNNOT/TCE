@@ -25,9 +25,10 @@ Public Class addorEditEvent
     End Sub
 
     Sub FillCbEvents()
-        iDB.returnData("SELECT idEvents, name_events FROM Events", cbSlcEventToEdit)
+        iDB.ExSelect("SELECT idEvents, name_events FROM Events", cbSlcEventToEdit)
     End Sub
 
+    'Validacion de exepciones "sentencias IF´s"
     Private Sub addoreditEvent(sender As Object, e As EventArgs) Handles btnAddEvent.Click
         If TBoxEventName.Text = String.Empty Then
             MessageBox.Show("Falta el nombre del evento", "Campo vacío", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -44,12 +45,12 @@ Public Class addorEditEvent
             Return
         End If
 
-        If mTBoxStartEventDate.Text = defaultmask Then
+        If mTBoxStartEventDate.Text = defaultmask Then 'si no se modifico el campo de fecha inicial (vacio), muestra un msg de error
             MessageBox.Show("Falta la fecha de inicio del evento", "Campo vacío", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         End If
 
-        If mTBoxEndEventDate.Text = defaultmask Then
+        If mTBoxEndEventDate.Text = defaultmask Then 'si no se modifico el campo de fecha final (vacio), muestra un msg de error
             MessageBox.Show("Falta la fecha final del evento", "Campo vacío", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         End If
@@ -59,10 +60,10 @@ Public Class addorEditEvent
             Return
         End If
 
-        Dim fechaInicial As Date = mTBoxStartEventDate.Text
-        Dim fechaFinal As Date = mTBoxEndEventDate.Text
+        Dim fechaInicial As Date = mTBoxStartEventDate.Text 'guarda la fecha inicial en formato DATE
+        Dim fechaFinal As Date = mTBoxEndEventDate.Text 'guarda la fecha final en formato DATE
 
-        If fechaInicial > fechaFinal Then
+        If fechaInicial > fechaFinal Then 'si la fecha inicial esta ubicada en un futuro, muestra un msg de error
             MessageBox.Show("La fecha inicial del evento no puede ser mayor a la fecha final.", "Orden de fechas incorrectas", MessageBoxButtons.OK, MessageBoxIcon.Error)
             mTBoxStartEventDate.Select()
             Return
@@ -75,6 +76,7 @@ Public Class addorEditEvent
         End If
     End Sub
 
+    'creamos un metodo para añadir un evento (INSERT), para usarlo despues
     Private Sub addEvent()
         If iDB.Query($"INSERT INTO Events(name_events,city,direcc,datei,datef,stages,minimumAge,ticketsopen,priceEvent)
                      VALUES('{TBoxEventName.Text}', '{TBoxCityEvent.Text}', '{TBoxEventDirec.Text}', '{mTBoxStartEventDate.Text}', 
@@ -83,6 +85,7 @@ Public Class addorEditEvent
         End If
     End Sub
 
+    'creamos un metodo para editar un evento (UPDATE), para usarlo despues
     Private Sub editEvent()
         If iDB.Query($"UPDATE Events SET name_events='{TBoxEventName.Text}', city='{TBoxCityEvent.Text}', direcc='{TBoxEventDirec.Text}',
                      datei='{mTBoxStartEventDate.Text}', datef='{mTBoxEndEventDate.Text}', stages={nudStagesNumbers.Value}, minimumAge={nudMinimumAge.Value}, ticketsopen={nudCtnEntradas.Value}, priceEvent={TBoxEventPrice.Text}
@@ -109,15 +112,15 @@ Public Class addorEditEvent
             layoutAddNewEvent.Enabled = True
             idEvent = returnID(cbSlcEventToEdit.SelectedItem.ToString) 'Obtiene el ID del item seleccionado en el combobox
             'Llenar cada TextBox, NumericUpDown y MaskedTextBox con valores de la base de datos segun el evento seleccionado.
-            TBoxEventName.Text = iDB.returnData($"SELECT name_events FROM Events WHERE idEvents={idEvent}") 'Nombre del evento
-            TBoxCityEvent.Text = iDB.returnData($"SELECT city FROM Events WHERE idEvents={idEvent}") 'Ciudad del evento
-            TBoxEventDirec.Text = iDB.returnData($"SELECT direcc FROM Events WHERE idEvents={idEvent}") 'Direccion del evento
-            TBoxEventPrice.Text = iDB.returnData($"SELECT priceEvent FROM Events WHERE idEvents={idEvent}") 'Precio del evento
-            mTBoxStartEventDate.Text = iDB.returnData($"SELECT datei FROM Events WHERE idEvents={idEvent}") 'Fecha de inicio del evento
-            mTBoxEndEventDate.Text = iDB.returnData($"SELECT datef FROM Events WHERE idEvents={idEvent}") 'Fecha final del evento
-            nudCtnEntradas.Value = iDB.returnData($"SELECT ticketsopen FROM Events WHERE idEvents={idEvent}") 'Cantidad de entradas disponibles
-            nudMinimumAge.Value = iDB.returnData($"SELECT minimumAge FROM Events WHERE idEvents={idEvent}") 'Edad minima para asistir al evento
-            nudStagesNumbers.Value = iDB.returnData($"SELECT stages FROM Events WHERE idEvents={idEvent}") 'Cantidad de palcos.
+            TBoxEventName.Text = iDB.ExSelect($"SELECT name_events FROM Events WHERE idEvents={idEvent}") 'Nombre del evento
+            TBoxCityEvent.Text = iDB.ExSelect($"SELECT city FROM Events WHERE idEvents={idEvent}") 'Ciudad del evento
+            TBoxEventDirec.Text = iDB.ExSelect($"SELECT direcc FROM Events WHERE idEvents={idEvent}") 'Direccion del evento
+            TBoxEventPrice.Text = iDB.ExSelect($"SELECT priceEvent FROM Events WHERE idEvents={idEvent}") 'Precio del evento
+            mTBoxStartEventDate.Text = iDB.ExSelect($"SELECT datei FROM Events WHERE idEvents={idEvent}") 'Fecha de inicio del evento
+            mTBoxEndEventDate.Text = iDB.ExSelect($"SELECT datef FROM Events WHERE idEvents={idEvent}") 'Fecha final del evento
+            nudCtnEntradas.Value = iDB.ExSelect($"SELECT ticketsopen FROM Events WHERE idEvents={idEvent}") 'Cantidad de entradas disponibles
+            nudMinimumAge.Value = iDB.ExSelect($"SELECT minimumAge FROM Events WHERE idEvents={idEvent}") 'Edad minima para asistir al evento
+            nudStagesNumbers.Value = iDB.ExSelect($"SELECT stages FROM Events WHERE idEvents={idEvent}") 'Cantidad de palcos.
         End If
     End Sub
 
