@@ -213,7 +213,7 @@ Partial Class sellTickets
         'TBoxAditionalValue
         '
         Me.TBoxAditionalValue.Location = New System.Drawing.Point(119, 78)
-        Me.TBoxAditionalValue.MaxLength = 300
+        Me.TBoxAditionalValue.MaxLength = 4
         Me.TBoxAditionalValue.Name = "TBoxAditionalValue"
         Me.TBoxAditionalValue.Size = New System.Drawing.Size(184, 20)
         Me.TBoxAditionalValue.TabIndex = 29
