@@ -24,7 +24,7 @@ Public Class addorEditEvent
     End Sub
 
     Sub FillCbEvents()
-        iDB.returnData("SELECT idEvents, name_events FROM Events", cbSlcEventToEdit)
+        iDB.ExSelect("SELECT idEvents, name_events FROM Events", cbSlcEventToEdit)
     End Sub
 
     'Validacion de exepciones "sentencias IF´s"
@@ -116,15 +116,15 @@ Public Class addorEditEvent
             layoutAddNewEvent.Enabled = True
             idEvent = returnID(cbSlcEventToEdit.SelectedItem.ToString) 'Obtiene el ID del item seleccionado en el combobox
             'Llenar cada TextBox, NumericUpDown y MaskedTextBox con valores de la base de datos segun el evento seleccionado.
-            TBoxEventName.Text = iDB.returnData($"SELECT name_events FROM Events WHERE idEvents={idEvent}") 'Nombre del evento
-            TBoxCityEvent.Text = iDB.returnData($"SELECT city FROM Events WHERE idEvents={idEvent}") 'Ciudad del evento
-            TBoxEventDirec.Text = iDB.returnData($"SELECT direcc FROM Events WHERE idEvents={idEvent}") 'Direccion del evento
-            TBoxEventPrice.Text = iDB.returnData($"SELECT priceEvent FROM Events WHERE idEvents={idEvent}") 'Precio del evento
-            mTBoxStartEventDate.Text = iDB.returnData($"SELECT datei FROM Events WHERE idEvents={idEvent}") 'Fecha de inicio del evento
-            mTBoxEndEventDate.Text = iDB.returnData($"SELECT datef FROM Events WHERE idEvents={idEvent}") 'Fecha final del evento
-            nudCtnEntradas.Value = iDB.returnData($"SELECT ticketsopen FROM Events WHERE idEvents={idEvent}") 'Cantidad de entradas disponibles
-            nudMinimumAge.Value = iDB.returnData($"SELECT minimumAge FROM Events WHERE idEvents={idEvent}") 'Edad minima para asistir al evento
-            nudStagesNumbers.Value = iDB.returnData($"SELECT stages FROM Events WHERE idEvents={idEvent}") 'Cantidad de palcos.
+            TBoxEventName.Text = iDB.ExSelect($"SELECT name_events FROM Events WHERE idEvents={idEvent}") 'Nombre del evento
+            TBoxCityEvent.Text = iDB.ExSelect($"SELECT city FROM Events WHERE idEvents={idEvent}") 'Ciudad del evento
+            TBoxEventDirec.Text = iDB.ExSelect($"SELECT direcc FROM Events WHERE idEvents={idEvent}") 'Direccion del evento
+            TBoxEventPrice.Text = iDB.ExSelect($"SELECT priceEvent FROM Events WHERE idEvents={idEvent}") 'Precio del evento
+            mTBoxStartEventDate.Text = iDB.ExSelect($"SELECT datei FROM Events WHERE idEvents={idEvent}") 'Fecha de inicio del evento
+            mTBoxEndEventDate.Text = iDB.ExSelect($"SELECT datef FROM Events WHERE idEvents={idEvent}") 'Fecha final del evento
+            nudCtnEntradas.Value = iDB.ExSelect($"SELECT ticketsopen FROM Events WHERE idEvents={idEvent}") 'Cantidad de entradas disponibles
+            nudMinimumAge.Value = iDB.ExSelect($"SELECT minimumAge FROM Events WHERE idEvents={idEvent}") 'Edad minima para asistir al evento
+            nudStagesNumbers.Value = iDB.ExSelect($"SELECT stages FROM Events WHERE idEvents={idEvent}") 'Cantidad de palcos.
         End If
     End Sub
 

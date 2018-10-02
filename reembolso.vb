@@ -4,7 +4,7 @@
     'rellena el combobox de eventos, y deja el index seleccionado en 0
     Public Sub New()
         InitializeComponent()
-        iDB.returnData("SELECT idEvents, name_events FROM Events", cbSlcEvents)
+        iDB.ExSelect("SELECT idEvents, name_events FROM Events", cbSlcEvents)
         cbSlcEvents.SelectedIndex = 0
     End Sub
 
@@ -23,8 +23,8 @@
         If e.ColumnIndex = 6 Then
 
             'segun la cedula de la fila, va a guardar en variables separadas el nombre y apellido del cliente para usarlas en el mensaje de confirmacion
-            Dim clientName As String = iDB.returnData($"SELECT name FROM Clients WHERE CI={dgvSSells.Item(2, e.RowIndex).Value}")
-            Dim surname As String = iDB.returnData($"SELECT surname FROM Clients WHERE CI={dgvSSells.Item(2, e.RowIndex).Value}")
+            Dim clientName As String = iDB.ExSelect($"SELECT name FROM Clients WHERE CI={dgvSSells.Item(2, e.RowIndex).Value}")
+            Dim surname As String = iDB.ExSelect($"SELECT surname FROM Clients WHERE CI={dgvSSells.Item(2, e.RowIndex).Value}")
 
             'va a mostrar un mensaje para confirmar la accion borrar
             Dim dlg As DialogResult = MessageBox.Show($"¿Desea eliminar el ticket #{dgvSSells.Item(0, e.RowIndex).Value}?.{vbLf}Cliente: {clientName} {surname}", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question)

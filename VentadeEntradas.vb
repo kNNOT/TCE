@@ -11,7 +11,7 @@
     End Sub
 
     Sub FillCBEvents()
-        iDB.returnData("SELECT idEvents, name_events FROM Events", CBSlcEvent)
+        iDB.ExSelect("SELECT idEvents, name_events FROM Events", CBSlcEvent)
     End Sub
 
     Private Sub cbSlcEventSIC(sender As Object, e As EventArgs) Handles CBSlcEvent.SelectedIndexChanged
@@ -36,9 +36,9 @@
             CBSlcTEntrada.Enabled = True
 
             idEvent = returnID(CBSlcEvent.SelectedItem.ToString)
-            entradasDisponibles = iDB.returnData($"SELECT ticketsopen FROM Events WHERE idEvents={idEvent}")
+            entradasDisponibles = iDB.ExSelect($"SELECT ticketsopen FROM Events WHERE idEvents={idEvent}")
             nudTicketsNmbr.Maximum = entradasDisponibles
-            Dim cprice As Integer = iDB.returnData($"SELECT priceEvent FROM Events WHERE idEvents={idEvent}")
+            Dim cprice As Integer = iDB.ExSelect($"SELECT priceEvent FROM Events WHERE idEvents={idEvent}")
             lblShowTotalPrice.Text = $"Total: ${cprice}"
             lblAvailableTickets.Text = $"Entradas disponibles: {entradasDisponibles - nudTicketsNmbr.Value}"
         End If
@@ -54,7 +54,7 @@
     End Sub
 
     Private Sub CBSlcEntradaSIC(sender As Object, e As EventArgs) Handles CBSlcTEntrada.SelectedIndexChanged
-        totalPrice = iDB.returnData($"SELECT priceEvent FROM Events WHERE idEvents={idEvent}")
+        totalPrice = iDB.ExSelect($"SELECT priceEvent FROM Events WHERE idEvents={idEvent}")
         lblShowTotalPrice.Text = $"Total: ${totalPrice}"
 
         If CBSlcTEntrada.SelectedIndex = 2 Then
@@ -143,7 +143,7 @@
             Return
         End If
 
-        Dim edadRequerida As Integer = iDB.returnData($"SELECT minimumAge FROM Events WHERE idEvents={idEvent}")
+        Dim edadRequerida As Integer = iDB.ExSelect($"SELECT minimumAge FROM Events WHERE idEvents={idEvent}")
         If CType(TBoxClientAge.Text, Integer) < edadRequerida Then
             MessageBox.Show("La edad del cliente es menor a la requerida", "Edad insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
