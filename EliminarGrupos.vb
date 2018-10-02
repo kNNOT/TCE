@@ -5,6 +5,7 @@
     Public Sub New()
         InitializeComponent()
         FillDGV(qry, dgvShowGroups, 5) 'Llena el datagrid con datos.
+        MsgModal.SetToolTip(btnRestoreList, "Reestablece todos los valores de la lista")
     End Sub
 
     'Cuando se le hace clic al contenido de una X celda (la utlima en este caso) se borra un grupo y todo lo relacionado.

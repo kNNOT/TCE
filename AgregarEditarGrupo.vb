@@ -10,7 +10,7 @@
         If uMod = True Then
             cbSlcGroup.Visible = True
             cbSlcGroup.SelectedIndex = 0
-            iDB.ExSelect("SELECT idGroups, nameGroup FROM Groups", cbSlcGroup)
+            iDB.returnData("SELECT idGroups, nameGroup FROM Groups", cbSlcGroup)
             Me.Size = New Size(263, 255)
             layoutNewGroup.Location = New Point(-2, 20)
             Me.Text = "Modificar grupo"
@@ -58,7 +58,7 @@
 
         'si la fecha de creacion es superior a la actual, ...
         If fechadeCreacion > DateTime.Now.ToString("dd/MM/yyyy") Then
-            MessageBox.Show("No se puede agregar un grupo que aún no existe.", "El grupo no existe", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("No se puede agregar un grupo el cual su fecha de creacion es mayor a la actual", "Fecha invalida", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         End If
 
@@ -69,8 +69,13 @@
         End If
 
         'si el usuario no modifico el campo textboxcantmiembros, ...
-        If TBoxMembersCnt.Text = String.Empty Or TBoxMembersCnt.Text = "Escribe el número de integrantes" Or CType(TBoxMembersCnt.Text, Integer) = 0 Then
+        If TBoxMembersCnt.Text = String.Empty Or TBoxMembersCnt.Text = "Escribe el número de integrantes" Then
             MessageBox.Show("Cantidad de integrante no válida.", "Campo vacío(0)", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
+        If CType(TBoxMembersCnt.Text, Integer) = 0 Then
+            MessageBox.Show("Cantidad de integrantes no puede ser 0.", "Valor incorrecto(0)", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         End If
 
@@ -103,10 +108,10 @@
             'si no es el index 0, importara los datos (CON SELECT) de la BD segun el IDGRUPO que agarro el metodo returnID
             layoutNewGroup.Enabled = True
             idGrupo = returnID(cbSlcGroup.SelectedItem.ToString)
-            TBoxGroupName.Text = iDB.ExSelect($"SELECT nameGroup FROM Groups WHERE idGroups={idGrupo}")
-            mTBoxCreationData.Text = iDB.ExSelect($"SELECT dataCreation FROM Groups WHERE idGroups={idGrupo}")
+            TBoxGroupName.Text = iDB.returnData($"SELECT nameGroup FROM Groups WHERE idGroups={idGrupo}")
+            mTBoxCreationData.Text = iDB.returnData($"SELECT dataCreation FROM Groups WHERE idGroups={idGrupo}")
             'creamos una variable con el genero de la banda importado de la BD, para poder hacer una comparacion en el FOR de abajo
-            Dim generom As String = iDB.ExSelect($"SELECT genre FROM Groups WHERE idGroups={idGrupo}")
+            Dim generom As String = iDB.returnData($"SELECT genre FROM Groups WHERE idGroups={idGrupo}")
             'creamos un for para recorrer todos los generos almacenados en el combobox (cbMusicalGenre)
             For i = 0 To cbMusicalGenre.Items.Count - 1
                 'cuando el genero del combobox sea igual al de la banda, tomara la posicion(index) para que el item seleccionado
@@ -116,7 +121,7 @@
                     Exit For
                 End If
             Next
-            TBoxMembersCnt.Text = iDB.ExSelect($"SELECT memberCount FROM Groups WHERE idGroups={idGrupo}")
+            TBoxMembersCnt.Text = iDB.returnData($"SELECT memberCount FROM Groups WHERE idGroups={idGrupo}")
         End If
     End Sub
 

@@ -22,6 +22,7 @@ Partial Class DeleteGroups
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.dgvShowGroups = New System.Windows.Forms.DataGridView()
         Me.dgvSEID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvSENameEvent = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -34,6 +35,7 @@ Partial Class DeleteGroups
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.btnRestoreList = New System.Windows.Forms.PictureBox()
         Me.btnHelp = New System.Windows.Forms.PictureBox()
+        Me.MsgModal = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.dgvShowGroups, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnRestoreList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -185,4 +187,5 @@ Partial Class DeleteGroups
     Friend WithEvents dgvSEDateStr As DataGridViewTextBoxColumn
     Friend WithEvents dgvSEDateEnd As DataGridViewTextBoxColumn
     Friend WithEvents dgvSEimgDelete As DataGridViewImageColumn
+    Friend WithEvents MsgModal As ToolTip
 End Class

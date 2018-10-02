@@ -82,10 +82,10 @@ Partial Class addorEditEvent
         'nudCtnEntradas
         '
         Me.nudCtnEntradas.Location = New System.Drawing.Point(213, 94)
-        Me.nudCtnEntradas.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
+        Me.nudCtnEntradas.Maximum = New Decimal(New Integer() {1000000, 0, 0, 0})
         Me.nudCtnEntradas.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.nudCtnEntradas.Name = "nudCtnEntradas"
-        Me.nudCtnEntradas.Size = New System.Drawing.Size(56, 20)
+        Me.nudCtnEntradas.Size = New System.Drawing.Size(82, 20)
         Me.nudCtnEntradas.TabIndex = 64
         Me.nudCtnEntradas.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
@@ -111,7 +111,7 @@ Partial Class addorEditEvent
         'TBoxEventPrice
         '
         Me.TBoxEventPrice.Location = New System.Drawing.Point(101, 141)
-        Me.TBoxEventPrice.MaxLength = 5
+        Me.TBoxEventPrice.MaxLength = 7
         Me.TBoxEventPrice.Name = "TBoxEventPrice"
         Me.TBoxEventPrice.Size = New System.Drawing.Size(60, 20)
         Me.TBoxEventPrice.TabIndex = 61

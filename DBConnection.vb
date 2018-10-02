@@ -47,7 +47,7 @@ Public Class DBConnection
 
     'Método que ejecuta y retorna SOLO un valor de la base de datos.
     'Es necesario utilizar solo una columna y un WHERE, o sino; devolverá solo el elemento de la primera columna y fila (0, 0).
-    Public Function ExSelect(qry As String) As String
+    Public Function returnData(qry As String) As String
         Try
             cmd = New MySqlCommand(qry, Conexion())
             reader = cmd.ExecuteReader()
@@ -62,7 +62,7 @@ Public Class DBConnection
         End Try
     End Function
 
-    Public Sub ExSelect(qry As String, ByRef values As List(Of Object))
+    Public Sub returnData(qry As String, ByRef values As List(Of Object))
         Try
             cmd = New MySqlCommand(qry, Conexion())
             reader = cmd.ExecuteReader()
@@ -80,7 +80,7 @@ Public Class DBConnection
 
     'Método que llena todo un combobox con elementos, estos elementos son el ID (la llave primaria de las tablas de la base de datos)
     'y el nombre correspondiendo (evento o grupo).
-    Public Sub ExSelect(qry As String, cb As ComboBox)
+    Public Sub returnData(qry As String, cb As ComboBox)
         Try
             cmd = New MySqlCommand(qry, Conexion())
             reader = cmd.ExecuteReader()
@@ -97,7 +97,7 @@ Public Class DBConnection
     End Sub
 
     'Método que llena todo un datagridview con elemntos, estos elementos comunmente son todas las columnas y filas de la tabla necesaria.
-    Public Sub ExSelect(qry As String, dgv As DataGridView, clmnCount As Integer)
+    Public Sub returnData(qry As String, dgv As DataGridView, clmnCount As Integer)
         Try
             cmd = New MySqlCommand(qry, Conexion())
             reader = cmd.ExecuteReader()

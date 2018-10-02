@@ -8,11 +8,13 @@
     Private Sub btnAddEventClic(sender As Object, e As EventArgs) Handles btnAddEvent.Click
         Dim addEvent As addorEditEvent = New addorEditEvent(False) 'se puso el parametro en falso por que no es para editar
         addEvent.ShowDialog()
+        FillDGV("SELECT * FROM Events", dgvShowEvents, 10)
     End Sub
 
     Private Sub btnEditEventsClic(sender As Object, e As EventArgs) Handles btnEditEvents.Click
         Dim editEvent As addorEditEvent = New addorEditEvent(True)
         editEvent.ShowDialog()
+        FillDGV("SELECT * FROM Events", dgvShowEvents, 10)
     End Sub
 
     Private Sub btnDeleteGroupClic(sender As Object, e As EventArgs) Handles btnDeleteGroup.Click
@@ -51,5 +53,6 @@
     Private Sub btnSellTicketsClic(sender As Object, e As EventArgs) Handles btnSellTickets.Click
         Dim sellTickets As sellTickets = New sellTickets()
         sellTickets.ShowDialog()
+        FillDGV("SELECT * FROM Events", dgvShowEvents, 10)
     End Sub
 End Class

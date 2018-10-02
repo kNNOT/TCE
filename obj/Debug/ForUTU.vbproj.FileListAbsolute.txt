@@ -98,3 +98,25 @@ D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\obj\Debug\ForUTU.vbproj.CopyCom
 D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\obj\Debug\ForUTU.exe
 D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\obj\Debug\ForUTU.xml
 D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\obj\Debug\ForUTU.pdb
+C:\Users\Timophobia\Desktop\TCE-master\bin\Debug\ForUTU.exe.config
+C:\Users\Timophobia\Desktop\TCE-master\bin\Debug\ForUTU.exe
+C:\Users\Timophobia\Desktop\TCE-master\bin\Debug\ForUTU.pdb
+C:\Users\Timophobia\Desktop\TCE-master\bin\Debug\ForUTU.xml
+C:\Users\Timophobia\Desktop\TCE-master\bin\Debug\MySql.Data.xml
+C:\Users\Timophobia\Desktop\TCE-master\obj\Debug\ForUTU.vbprojAssemblyReference.cache
+C:\Users\Timophobia\Desktop\TCE-master\obj\Debug\ForUTU.addorEditGroup.resources
+C:\Users\Timophobia\Desktop\TCE-master\obj\Debug\ForUTU.addGroupsToEvent.resources
+C:\Users\Timophobia\Desktop\TCE-master\obj\Debug\ForUTU.addorEditEvent.resources
+C:\Users\Timophobia\Desktop\TCE-master\obj\Debug\ForUTU.configuraciones.resources
+C:\Users\Timophobia\Desktop\TCE-master\obj\Debug\ForUTU.DeleteGroups.resources
+C:\Users\Timophobia\Desktop\TCE-master\obj\Debug\ForUTU.EventsHistory.resources
+C:\Users\Timophobia\Desktop\TCE-master\obj\Debug\ForUTU.reembolso.resources
+C:\Users\Timophobia\Desktop\TCE-master\obj\Debug\ForUTU.StartMenu.resources
+C:\Users\Timophobia\Desktop\TCE-master\obj\Debug\ForUTU.Resources.resources
+C:\Users\Timophobia\Desktop\TCE-master\obj\Debug\ForUTU.sellTickets.resources
+C:\Users\Timophobia\Desktop\TCE-master\obj\Debug\ForUTU.vbproj.GenerateResource.cache
+C:\Users\Timophobia\Desktop\TCE-master\obj\Debug\ForUTU.vbproj.CoreCompileInputs.cache
+C:\Users\Timophobia\Desktop\TCE-master\obj\Debug\ForUTU.vbproj.CopyComplete
+C:\Users\Timophobia\Desktop\TCE-master\obj\Debug\ForUTU.exe
+C:\Users\Timophobia\Desktop\TCE-master\obj\Debug\ForUTU.xml
+C:\Users\Timophobia\Desktop\TCE-master\obj\Debug\ForUTU.pdb

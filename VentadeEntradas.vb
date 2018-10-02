@@ -11,7 +11,7 @@
     End Sub
 
     Sub FillCBEvents()
-        iDB.ExSelect("SELECT idEvents, name_events FROM Events", CBSlcEvent)
+        iDB.returnData("SELECT idEvents, name_events FROM Events", CBSlcEvent)
     End Sub
 
     Private Sub cbSlcEventSIC(sender As Object, e As EventArgs) Handles CBSlcEvent.SelectedIndexChanged
@@ -28,6 +28,7 @@
             TBoxClientIdentification.Text = String.Empty
             TBoxClientSurname.Text = String.Empty
             nudTicketsNmbr.Value = 1
+            lblShowTotalPrice.Text = "Total: "
         Else
             gbClientInfo.Enabled = True
             btnCcrtSell.Enabled = True
@@ -35,9 +36,9 @@
             CBSlcTEntrada.Enabled = True
 
             idEvent = returnID(CBSlcEvent.SelectedItem.ToString)
-            entradasDisponibles = iDB.ExSelect($"SELECT ticketsopen FROM Events WHERE idEvents={idEvent}")
+            entradasDisponibles = iDB.returnData($"SELECT ticketsopen FROM Events WHERE idEvents={idEvent}")
             nudTicketsNmbr.Maximum = entradasDisponibles
-            Dim cprice As Integer = iDB.ExSelect($"SELECT priceEvent FROM Events WHERE idEvents={idEvent}")
+            Dim cprice As Integer = iDB.returnData($"SELECT priceEvent FROM Events WHERE idEvents={idEvent}")
             lblShowTotalPrice.Text = $"Total: ${cprice}"
             lblAvailableTickets.Text = $"Entradas disponibles: {entradasDisponibles - nudTicketsNmbr.Value}"
         End If
@@ -45,14 +46,15 @@
 
     Private Sub addTicket()
         If iDB.Query($"INSERT INTO Clients(CI, name, surname, age) VALUES({TBoxClientIdentification.Text},'{TBoxClientName.Text}','{TBoxClientSurname.Text}',
-            {TBoxClientAge.Text}") = True Or iDB.Query($"INSERT INTO Tickets(idEvent, CI, countTicketBuy, ticketType, price) VALUES({idEvent},{TBoxClientIdentification.Text},
+            {TBoxClientAge.Text})") = True Or iDB.Query($"INSERT INTO Tickets(idEvent, CI, countTicketBuy, ticketType, price) VALUES({idEvent},{TBoxClientIdentification.Text},
                     {nudTicketsNmbr.Value},'{CBSlcTEntrada.SelectedItem.ToString}',{totalPrice});") = True Then
+            iDB.Query($"UPDATE Events SET ticketsopen=ticketsopen - {nudTicketsNmbr.Value} WHERE idEvents={idEvent}")
             MessageBox.Show("Compra Finalizada", "Hecho!", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
 
     Private Sub CBSlcEntradaSIC(sender As Object, e As EventArgs) Handles CBSlcTEntrada.SelectedIndexChanged
-        totalPrice = iDB.ExSelect($"SELECT priceEvent FROM Events WHERE idEvents={idEvent}")
+        totalPrice = iDB.returnData($"SELECT priceEvent FROM Events WHERE idEvents={idEvent}")
         lblShowTotalPrice.Text = $"Total: ${totalPrice}"
 
         If CBSlcTEntrada.SelectedIndex = 2 Then
@@ -141,12 +143,13 @@
             Return
         End If
 
-        Dim edadRequerida As Integer = iDB.ExSelect($"SELECT minimumAge FROM Events WHERE idEvents={idEvent}")
+        Dim edadRequerida As Integer = iDB.returnData($"SELECT minimumAge FROM Events WHERE idEvents={idEvent}")
         If CType(TBoxClientAge.Text, Integer) < edadRequerida Then
             MessageBox.Show("La edad del cliente es menor a la requerida", "Edad insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         End If
 
         addTicket()
+        CBSlcEvent.SelectedIndex = 0
     End Sub
 End Class
