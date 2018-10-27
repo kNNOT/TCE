@@ -85,6 +85,37 @@
     End Sub
 
     Private Sub configuraciones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Me.Size = New Size(167, 522)
+
+    End Sub
+
+    Private Sub btnApplyClicDataConecction(sender As Object, e As EventArgs) Handles btnApply.Click
+        If rbRemoteServer.Checked Then
+            My.Settings.server = TBoxIP.Text
+            My.Settings.port = Convert.ToUInt32(TBoxPort.Text)
+            My.Settings.userid = TBoxUser.Text
+            My.Settings.dbpassword = TBoxPass.Text
+            My.Settings.db = TBoxDB.Text
+        ElseIf rbLocalServer.Checked Then
+            My.Settings.server = "127.0.0.1"
+            My.Settings.port = 3306
+            My.Settings.userid = TBoxUser.Text
+            My.Settings.dbpassword = TBoxPass.Text
+            My.Settings.db = TBoxDB.Text
+        End If
+        My.Settings.Save()
+    End Sub
+
+    Private Sub ifCheked(sender As Object, e As EventArgs) Handles rbLocalServer.CheckedChanged
+        If rbLocalServer.Checked Then
+            TBoxIP.Enabled = False
+            TBoxPort.Enabled = False
+            TBoxIP.Text = My.Settings.server
+            TBoxPort.Text = My.Settings.port
+        Else
+            TBoxIP.Enabled = True
+            TBoxPass.Enabled = True
+            TBoxIP.Text = String.Empty
+            TBoxPort.Text = String.Empty
+        End If
     End Sub
 End Class

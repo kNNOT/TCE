@@ -328,6 +328,7 @@ Partial Class configuraciones
         Me.btnTheme.Name = "btnTheme"
         Me.btnTheme.Size = New System.Drawing.Size(136, 35)
         Me.btnTheme.TabIndex = 5
+        Me.btnTheme.Visible = False
         '
         'imgBtnTheme
         '

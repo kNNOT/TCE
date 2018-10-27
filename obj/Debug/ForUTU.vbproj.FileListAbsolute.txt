@@ -120,3 +120,26 @@ C:\Users\Timophobia\Desktop\TCE-master\obj\Debug\ForUTU.vbproj.CopyComplete
 C:\Users\Timophobia\Desktop\TCE-master\obj\Debug\ForUTU.exe
 C:\Users\Timophobia\Desktop\TCE-master\obj\Debug\ForUTU.xml
 C:\Users\Timophobia\Desktop\TCE-master\obj\Debug\ForUTU.pdb
+C:\Users\alumno\Desktop\TCE-master (1)\TCE-master\bin\Debug\ForUTU.exe.config
+C:\Users\alumno\Desktop\TCE-master (1)\TCE-master\bin\Debug\ForUTU.exe
+C:\Users\alumno\Desktop\TCE-master (1)\TCE-master\bin\Debug\ForUTU.pdb
+C:\Users\alumno\Desktop\TCE-master (1)\TCE-master\bin\Debug\ForUTU.xml
+C:\Users\alumno\Desktop\TCE-master (1)\TCE-master\bin\Debug\MySql.Data.dll
+C:\Users\alumno\Desktop\TCE-master (1)\TCE-master\bin\Debug\MySql.Data.xml
+C:\Users\alumno\Desktop\TCE-master (1)\TCE-master\obj\Debug\ForUTU.vbprojAssemblyReference.cache
+C:\Users\alumno\Desktop\TCE-master (1)\TCE-master\obj\Debug\ForUTU.addorEditGroup.resources
+C:\Users\alumno\Desktop\TCE-master (1)\TCE-master\obj\Debug\ForUTU.addGroupsToEvent.resources
+C:\Users\alumno\Desktop\TCE-master (1)\TCE-master\obj\Debug\ForUTU.addorEditEvent.resources
+C:\Users\alumno\Desktop\TCE-master (1)\TCE-master\obj\Debug\ForUTU.configuraciones.resources
+C:\Users\alumno\Desktop\TCE-master (1)\TCE-master\obj\Debug\ForUTU.DeleteGroups.resources
+C:\Users\alumno\Desktop\TCE-master (1)\TCE-master\obj\Debug\ForUTU.EventsHistory.resources
+C:\Users\alumno\Desktop\TCE-master (1)\TCE-master\obj\Debug\ForUTU.reembolso.resources
+C:\Users\alumno\Desktop\TCE-master (1)\TCE-master\obj\Debug\ForUTU.StartMenu.resources
+C:\Users\alumno\Desktop\TCE-master (1)\TCE-master\obj\Debug\ForUTU.Resources.resources
+C:\Users\alumno\Desktop\TCE-master (1)\TCE-master\obj\Debug\ForUTU.sellTickets.resources
+C:\Users\alumno\Desktop\TCE-master (1)\TCE-master\obj\Debug\ForUTU.vbproj.GenerateResource.cache
+C:\Users\alumno\Desktop\TCE-master (1)\TCE-master\obj\Debug\ForUTU.vbproj.CoreCompileInputs.cache
+C:\Users\alumno\Desktop\TCE-master (1)\TCE-master\obj\Debug\ForUTU.vbproj.CopyComplete
+C:\Users\alumno\Desktop\TCE-master (1)\TCE-master\obj\Debug\ForUTU.exe
+C:\Users\alumno\Desktop\TCE-master (1)\TCE-master\obj\Debug\ForUTU.xml
+C:\Users\alumno\Desktop\TCE-master (1)\TCE-master\obj\Debug\ForUTU.pdb

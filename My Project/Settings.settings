@@ -5,13 +5,6 @@
     <Setting Name="empresaName" Type="System.String" Scope="User">
       <Value Profile="(Default)">{nombre de la empresa}</Value>
     </Setting>
-    <Setting Name="server" Type="System.Collections.Specialized.StringCollection" Scope="User">
-      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;127.0.0.1&lt;/string&gt;
-  &lt;string&gt;thecodeeye.sytes.net&lt;/string&gt;
-&lt;/ArrayOfString&gt;</Value>
-    </Setting>
     <Setting Name="userid" Type="System.String" Scope="User">
       <Value Profile="(Default)">alexuy</Value>
     </Setting>
@@ -29,6 +22,12 @@
     </Setting>
     <Setting Name="password" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="server" Type="System.String" Scope="User">
+      <Value Profile="(Default)">thecodeeye.sytes.net</Value>
+    </Setting>
+    <Setting Name="port" Type="System.UInt32" Scope="User">
+      <Value Profile="(Default)">3306</Value>
     </Setting>
   </Settings>
 </SettingsFile>

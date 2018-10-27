@@ -9,11 +9,11 @@ Public Class DBConnection
     'Método que devuelve los datos de la conexion
     Private Function dConexion() As MySqlConnectionStringBuilder
         datos = New MySqlConnectionStringBuilder
-        datos.Server = "thecodeeye.sytes.net" 'IP: thecodeeye.sytes.net
-        datos.Port = 3306
-        datos.UserID = "alexuy"
-        datos.Password = "416C65785F31113A"
-        datos.Database = "TCodeERVShows"
+        datos.Server = My.Settings.server 'IP: thecodeeye.sytes.net
+        datos.Port = My.Settings.port
+        datos.UserID = My.Settings.userid
+        datos.Password = My.Settings.dbpassword
+        datos.Database = My.Settings.db
         Return datos
     End Function
 

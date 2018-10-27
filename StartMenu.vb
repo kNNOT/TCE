@@ -55,4 +55,9 @@
         sellTickets.ShowDialog()
         FillDGV("SELECT * FROM Events", dgvShowEvents, 10)
     End Sub
+
+    Private Sub btnSettingsClic(sender As Object, e As EventArgs) Handles btnSettings.Click
+        Dim settings As configuraciones = New configuraciones
+        settings.ShowDialog()
+    End Sub
 End Class
