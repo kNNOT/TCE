@@ -75,6 +75,7 @@
     Private Sub TBoxGroupNameTC(sender As Object, e As EventArgs) Handles TBoxgroupName.TextChanged
         If TBoxgroupName.Text = String.Empty Or TBoxgroupName.Text = "Escriba el nombre del grupo" Then
             FillDGV(qry, dgvShowGroups, 5)
+            lblNoData.Visible = False
             Return
         End If
 

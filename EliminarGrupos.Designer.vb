@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class DeleteGroups
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,9 +20,10 @@ Partial Class DeleteGroups
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvShowGroups = New System.Windows.Forms.DataGridView()
         Me.dgvSEID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvSENameEvent = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -35,8 +36,11 @@ Partial Class DeleteGroups
         Me.btnHelp = New System.Windows.Forms.PictureBox()
         Me.MsgModal = New System.Windows.Forms.ToolTip(Me.components)
         Me.lblNoData = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         CType(Me.dgvShowGroups, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'dgvShowGroups
@@ -51,8 +55,19 @@ Partial Class DeleteGroups
         Me.dgvShowGroups.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvShowGroups.BackgroundColor = System.Drawing.Color.WhiteSmoke
         Me.dgvShowGroups.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.dgvShowGroups.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
+        Me.dgvShowGroups.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.dgvShowGroups.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvShowGroups.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvSEID, Me.dgvSENameEvent, Me.dgvSECityDir, Me.dgvSEDateStr, Me.dgvSEDateEnd, Me.dgvSEimgDelete})
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Arial", 8.25!)
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkMagenta
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvShowGroups.DefaultCellStyle = DataGridViewCellStyle2
+        Me.dgvShowGroups.GridColor = System.Drawing.Color.DarkMagenta
         Me.dgvShowGroups.Location = New System.Drawing.Point(12, 46)
         Me.dgvShowGroups.Name = "dgvShowGroups"
         Me.dgvShowGroups.ReadOnly = True
@@ -103,9 +118,12 @@ Partial Class DeleteGroups
         '
         'TBoxgroupName
         '
-        Me.TBoxgroupName.Location = New System.Drawing.Point(13, 13)
+        Me.TBoxgroupName.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TBoxgroupName.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TBoxgroupName.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.TBoxgroupName.Location = New System.Drawing.Point(3, 8)
         Me.TBoxgroupName.Name = "TBoxgroupName"
-        Me.TBoxgroupName.Size = New System.Drawing.Size(237, 20)
+        Me.TBoxgroupName.Size = New System.Drawing.Size(776, 16)
         Me.TBoxgroupName.TabIndex = 24
         Me.TBoxgroupName.Text = "Escriba el nombre del grupo"
         '
@@ -134,12 +152,30 @@ Partial Class DeleteGroups
         Me.lblNoData.AutoSize = True
         Me.lblNoData.Font = New System.Drawing.Font("Arial", 16.0!)
         Me.lblNoData.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.lblNoData.Location = New System.Drawing.Point(290, 248)
+        Me.lblNoData.Location = New System.Drawing.Point(284, 245)
         Me.lblNoData.Name = "lblNoData"
         Me.lblNoData.Size = New System.Drawing.Size(284, 25)
         Me.lblNoData.TabIndex = 27
         Me.lblNoData.Text = "No se han encontrado datos"
         Me.lblNoData.Visible = False
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.Panel2)
+        Me.Panel1.Controls.Add(Me.TBoxgroupName)
+        Me.Panel1.Location = New System.Drawing.Point(12, 12)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(782, 28)
+        Me.Panel1.TabIndex = 28
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.DarkMagenta
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel2.Location = New System.Drawing.Point(0, 27)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(782, 1)
+        Me.Panel2.TabIndex = 29
         '
         'DeleteGroups
         '
@@ -147,8 +183,8 @@ Partial Class DeleteGroups
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(837, 485)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.lblNoData)
-        Me.Controls.Add(Me.TBoxgroupName)
         Me.Controls.Add(Me.dgvShowGroups)
         Me.Controls.Add(Me.btnHelp)
         Me.Font = New System.Drawing.Font("Arial", 8.25!)
@@ -158,6 +194,8 @@ Partial Class DeleteGroups
         Me.Text = "Eliminar grupos"
         CType(Me.dgvShowGroups, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -175,4 +213,6 @@ Partial Class DeleteGroups
     Friend WithEvents dgvSEimgDelete As DataGridViewImageColumn
     Friend WithEvents MsgModal As ToolTip
     Friend WithEvents lblNoData As Label
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Panel2 As Panel
 End Class
