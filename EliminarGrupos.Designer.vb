@@ -31,13 +31,11 @@ Partial Class DeleteGroups
         Me.dgvSEDateEnd = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvSEimgDelete = New System.Windows.Forms.DataGridViewImageColumn()
         Me.TBoxgroupName = New System.Windows.Forms.TextBox()
-        Me.btnSearchGroup = New System.Windows.Forms.Button()
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.btnRestoreList = New System.Windows.Forms.PictureBox()
         Me.btnHelp = New System.Windows.Forms.PictureBox()
         Me.MsgModal = New System.Windows.Forms.ToolTip(Me.components)
+        Me.lblNoData = New System.Windows.Forms.Label()
         CType(Me.dgvShowGroups, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.btnRestoreList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -111,15 +109,6 @@ Partial Class DeleteGroups
         Me.TBoxgroupName.TabIndex = 24
         Me.TBoxgroupName.Text = "Escriba el nombre del grupo"
         '
-        'btnSearchGroup
-        '
-        Me.btnSearchGroup.Location = New System.Drawing.Point(257, 12)
-        Me.btnSearchGroup.Name = "btnSearchGroup"
-        Me.btnSearchGroup.Size = New System.Drawing.Size(75, 25)
-        Me.btnSearchGroup.TabIndex = 25
-        Me.btnSearchGroup.Text = "Buscar"
-        Me.btnSearchGroup.UseVisualStyleBackColor = True
-        '
         'DataGridViewImageColumn1
         '
         Me.DataGridViewImageColumn1.HeaderText = "Eliminar grupo"
@@ -128,17 +117,6 @@ Partial Class DeleteGroups
         Me.DataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridViewImageColumn1.ToolTipText = "Haz clic para eliminar este grupo"
         Me.DataGridViewImageColumn1.Width = 135
-        '
-        'btnRestoreList
-        '
-        Me.btnRestoreList.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnRestoreList.Image = Global.ForUTU.My.Resources.Resources.baseline_history_black_18dp
-        Me.btnRestoreList.Location = New System.Drawing.Point(338, 12)
-        Me.btnRestoreList.Name = "btnRestoreList"
-        Me.btnRestoreList.Size = New System.Drawing.Size(25, 25)
-        Me.btnRestoreList.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.btnRestoreList.TabIndex = 26
-        Me.btnRestoreList.TabStop = False
         '
         'btnHelp
         '
@@ -151,14 +129,25 @@ Partial Class DeleteGroups
         Me.btnHelp.TabIndex = 22
         Me.btnHelp.TabStop = False
         '
+        'lblNoData
+        '
+        Me.lblNoData.AutoSize = True
+        Me.lblNoData.Font = New System.Drawing.Font("Arial", 16.0!)
+        Me.lblNoData.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.lblNoData.Location = New System.Drawing.Point(290, 248)
+        Me.lblNoData.Name = "lblNoData"
+        Me.lblNoData.Size = New System.Drawing.Size(284, 25)
+        Me.lblNoData.TabIndex = 27
+        Me.lblNoData.Text = "No se han encontrado datos"
+        Me.lblNoData.Visible = False
+        '
         'DeleteGroups
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(837, 485)
-        Me.Controls.Add(Me.btnRestoreList)
-        Me.Controls.Add(Me.btnSearchGroup)
+        Me.Controls.Add(Me.lblNoData)
         Me.Controls.Add(Me.TBoxgroupName)
         Me.Controls.Add(Me.dgvShowGroups)
         Me.Controls.Add(Me.btnHelp)
@@ -168,7 +157,6 @@ Partial Class DeleteGroups
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Eliminar grupos"
         CType(Me.dgvShowGroups, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btnRestoreList, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -178,9 +166,7 @@ Partial Class DeleteGroups
     Friend WithEvents btnHelp As PictureBox
     Friend WithEvents dgvShowGroups As DataGridView
     Friend WithEvents TBoxgroupName As TextBox
-    Friend WithEvents btnSearchGroup As Button
     Friend WithEvents DataGridViewImageColumn1 As DataGridViewImageColumn
-    Friend WithEvents btnRestoreList As PictureBox
     Friend WithEvents dgvSEID As DataGridViewTextBoxColumn
     Friend WithEvents dgvSENameEvent As DataGridViewTextBoxColumn
     Friend WithEvents dgvSECityDir As DataGridViewTextBoxColumn
@@ -188,4 +174,5 @@ Partial Class DeleteGroups
     Friend WithEvents dgvSEDateEnd As DataGridViewTextBoxColumn
     Friend WithEvents dgvSEimgDelete As DataGridViewImageColumn
     Friend WithEvents MsgModal As ToolTip
+    Friend WithEvents lblNoData As Label
 End Class
