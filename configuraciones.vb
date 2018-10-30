@@ -85,7 +85,11 @@
     End Sub
 
     Private Sub configuraciones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        If My.Settings.firstSession = False Then
+            chbDisableEmp.Checked = True
+        Else
+            chbDisableEmp.Checked = False
+        End If
     End Sub
 
     Private Sub btnApplyClicDataConecction(sender As Object, e As EventArgs) Handles btnApply.Click
@@ -109,13 +113,27 @@
         If rbLocalServer.Checked Then
             TBoxIP.Enabled = False
             TBoxPort.Enabled = False
-            TBoxIP.Text = My.Settings.server
-            TBoxPort.Text = My.Settings.port
+            TBoxIP.Text = "127.0.0.1"
+            TBoxPort.Text = "3306"
         Else
             TBoxIP.Enabled = True
             TBoxPass.Enabled = True
             TBoxIP.Text = String.Empty
             TBoxPort.Text = String.Empty
+        End If
+    End Sub
+
+    Private Sub btnApplySClic(sender As Object, e As EventArgs) Handles btnApplyS.Click
+        My.Settings.password = TBoxAcessPass.Text
+    End Sub
+
+    Private Sub chbDisableEmp_CheckedChanged(sender As Object, e As EventArgs) Handles chbDisableEmp.CheckedChanged
+        If chbDisableEmp.Checked = True Then
+            My.Settings.firstSession = False
+            My.Settings.Save()
+        Else
+            My.Settings.firstSession = True
+            My.Settings.Save()
         End If
     End Sub
 End Class

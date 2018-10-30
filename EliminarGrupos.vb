@@ -1,10 +1,12 @@
 ﻿Public Class DeleteGroups
     Private qry As String = "SELECT * FROM Groups" 'Se utiliza para que no se repita en la llamada del método refreshData (al momento de usarla como parametro).
-
+    Private filter As TCEFilter
     'El public sub new() es el constructor, se utiliza para llenar todo el datagrid al momento de inciiar la ventana.
     Public Sub New()
         InitializeComponent()
         FillDGV(qry, dgvShowGroups, 5) 'Llena el datagrid con datos.
+        filter = New TCEFilter(dgvShowGroups, 5)
+        filter.setArrayData()
         'MsgModal.SetToolTip(btnRestoreList, "Reestablece todos los valores de la lista")
     End Sub
 
@@ -79,31 +81,12 @@
             Return
         End If
 
-        Dim indexesdgv(rowsCount) As Integer?
-        For dgvArrayIndex = 0 To rowsCount - 1
-            If dgvDatafilter(1, dgvArrayIndex).Contains(TBoxgroupName.Text) Then
-                indexesdgv(dgvArrayIndex) = dgvArrayIndex
-            Else
-                indexesdgv(dgvArrayIndex) = Nothing
-            End If
-        Next
-
-        dgvShowGroups.Rows.Clear()
-        For i = 0 To rowsCount - 1
-            If indexesdgv(i) IsNot Nothing Then
-                dgvShowGroups.Rows.Add(dgvDatafilter(0, indexesdgv(i)), dgvDatafilter(1, indexesdgv(i)), dgvDatafilter(2, indexesdgv(i)), dgvDatafilter(3, indexesdgv(i)), dgvDatafilter(4, indexesdgv(i)))
-            End If
-        Next
+        filter.Filter(TBoxgroupName.Text)
 
         If dgvShowGroups.Rows.Count = 0 Then
             lblNoData.Visible = True
         Else
             lblNoData.Visible = False
         End If
-    End Sub
-
-    Private Sub DeleteGroups_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        setDgvDataFilter(5, dgvShowGroups)
-        rowsCount = dgvShowGroups.Rows.Count
     End Sub
 End Class

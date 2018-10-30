@@ -2,6 +2,36 @@
     Public Sub New()
         InitializeComponent()
         FillDGV("SELECT * FROM Events", dgvShowEvents, 10)
+
+        If My.Settings.empresaName = "{nombre de la empresa}" And My.Settings.firstSession = True Then
+            Dim emName As String = InputBox("Introduce el nombre de tu empresa", "Nombre de la empresa")
+            My.Settings.empresaName = emName
+            If emName = String.Empty Then
+                My.Settings.empresaName = "{nombre de la empresa}"
+            End If
+            My.Settings.Save()
+        End If
+
+        Me.Text = $"Inicio - {My.Settings.empresaName} [V&R]"
+
+        Dim countpass As Integer = 1
+        If My.Settings.password IsNot String.Empty Then
+            While countpass < 5
+                Dim pass As String = InputBox("Introduce la contraseña para iniciar sessión", "Introducir contraseña")
+                If My.Settings.password = pass Then
+                    Exit While
+                Else
+                    countpass = countpass + 1
+                End If
+
+                If countpass = 5 Then
+                    Dim mpass = InputBox("Introduce la contraseña maestra para recuperar la sessión.\nLa contraseña maestra se encuentra en el manual del usuario.", "introduce la contraseña maestra")
+                    If My.Settings.masterPassword = mpass Then
+                        Exit While
+                    End If
+                End If
+            End While
+        End If
     End Sub
 
     'estos metodos llaman a las ventanas, con un valor en los parametros del constructor de las clases que los requieran: addorEditEvent y addorEditGroup
