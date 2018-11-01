@@ -21,6 +21,9 @@
                     FillDGV(qry, dgvShowGroups, 5) 'Actualiza los datos del datagridview
                     ' btnSearchGroup.Enabled = True
                     'btnRestoreList.Enabled = False
+                    filter.Filas = dgvShowGroups.Rows.Count
+                    filter.setArrayData()
+                    TBoxgroupName.Text = "Escriba el nombre del grupo"
                 End If
             End If
         End If

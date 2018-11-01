@@ -1,7 +1,11 @@
 ﻿Public Class StartMenu
+    Private filter As TCEFilter
+
     Public Sub New()
         InitializeComponent()
         FillDGV("SELECT * FROM Events", dgvShowEvents, 10)
+        filter = New TCEFilter(dgvShowEvents, 8)
+        filter.setArrayData()
 
         If My.Settings.empresaName = "{nombre de la empresa}" And My.Settings.firstSession = True Then
             Dim emName As String = InputBox("Introduce el nombre de tu empresa", "Nombre de la empresa")
@@ -39,12 +43,16 @@
         Dim addEvent As addorEditEvent = New addorEditEvent(False) 'se puso el parametro en falso por que no es para editar
         addEvent.ShowDialog()
         FillDGV("SELECT * FROM Events", dgvShowEvents, 10)
+        filter.Filas = dgvShowEvents.Rows.Count
+        filter.setArrayData()
     End Sub
 
     Private Sub btnEditEventsClic(sender As Object, e As EventArgs) Handles btnEditEvents.Click
         Dim editEvent As addorEditEvent = New addorEditEvent(True)
         editEvent.ShowDialog()
         FillDGV("SELECT * FROM Events", dgvShowEvents, 10)
+        filter.Filas = dgvShowEvents.Rows.Count
+        filter.setArrayData()
     End Sub
 
     Private Sub btnDeleteGroupClic(sender As Object, e As EventArgs) Handles btnDeleteGroup.Click
@@ -70,6 +78,9 @@
                                         DELETE FROM Participants WHERE idEvents={dgvShowEvents.Item(0, e.RowIndex).Value.ToString};") = True Then
                     MessageBox.Show("Se ha eliminado el evento!", "¡Hecho!", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     FillDGV("SELECT * FROM Events", dgvShowEvents, 10)
+                    filter.Filas = dgvShowEvents.Rows.Count
+                    filter.setArrayData()
+                    TBoxEventName.Text = "Escriba el nombre del evento"
                 End If
             End If
         End If
@@ -89,5 +100,41 @@
     Private Sub btnSettingsClic(sender As Object, e As EventArgs) Handles btnSettings.Click
         Dim settings As configuraciones = New configuraciones
         settings.ShowDialog()
+    End Sub
+
+    Private Sub TBoxEventNameTC(sender As Object, e As EventArgs) Handles TBoxEventName.TextChanged
+        If TBoxEventName.Text = String.Empty Or TBoxEventName.Text = "Escriba el nombre del evento" Then
+            FillDGV("SELECT * FROM Events", dgvShowEvents, 10)
+            lblNoData.Visible = False
+            Return
+        End If
+
+        filter.Filter(TBoxEventName.Text)
+
+        If dgvShowEvents.Rows.Count = 0 Then
+            lblNoData.Visible = True
+        Else
+            lblNoData.Visible = False
+        End If
+    End Sub
+
+    Private Sub TBoxEventNameClic(sender As Object, e As EventArgs) Handles TBoxEventName.Click
+        If TBoxEventName.Text = "Escriba el nombre del evento" Then
+            TBoxEventName.Text = String.Empty
+        End If
+    End Sub
+
+    Private Sub TBoxEventNameLeave(sender As Object, e As EventArgs) Handles TBoxEventName.Leave
+        If TBoxEventName.Text = String.Empty Then
+            TBoxEventName.Text = "Escriba el nombre del evento"
+        End If
+    End Sub
+
+    Private Sub btnSettingsME(sender As Object, e As EventArgs) Handles btnSettings.MouseEnter
+        btnSettings.BackColor = Color.FromArgb(210, 210, 210)
+    End Sub
+
+    Private Sub btnSettingsML(sender As Object, e As EventArgs) Handles btnSettings.MouseLeave
+        btnSettings.BackColor = BackColor
     End Sub
 End Class

@@ -62,12 +62,17 @@ Partial Class StartMenu
         Me.btnHelp = New System.Windows.Forms.PictureBox()
         Me.btnSettings = New System.Windows.Forms.PictureBox()
         Me.btnEventsHistorys = New System.Windows.Forms.Button()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.TBoxEventName = New System.Windows.Forms.TextBox()
+        Me.lblNoData = New System.Windows.Forms.Label()
         Me.msUser.SuspendLayout()
         CType(Me.dgvShowEvents, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbEventMenu.SuspendLayout()
         Me.gcGroupMenu.SuspendLayout()
         CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnSettings, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnSellTickets
@@ -410,8 +415,50 @@ Partial Class StartMenu
         Me.btnEventsHistorys.Name = "btnEventsHistorys"
         Me.btnEventsHistorys.Size = New System.Drawing.Size(142, 34)
         Me.btnEventsHistorys.TabIndex = 23
-        Me.btnEventsHistorys.Text = "Historial de Eventos"
+        Me.btnEventsHistorys.Text = "Filtrar eventos"
         Me.btnEventsHistorys.UseVisualStyleBackColor = True
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.Panel2)
+        Me.Panel1.Controls.Add(Me.TBoxEventName)
+        Me.Panel1.Location = New System.Drawing.Point(185, 12)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(978, 28)
+        Me.Panel1.TabIndex = 29
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.DarkMagenta
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel2.Location = New System.Drawing.Point(0, 27)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(978, 1)
+        Me.Panel2.TabIndex = 29
+        '
+        'TBoxEventName
+        '
+        Me.TBoxEventName.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TBoxEventName.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TBoxEventName.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.TBoxEventName.Location = New System.Drawing.Point(3, 8)
+        Me.TBoxEventName.Name = "TBoxEventName"
+        Me.TBoxEventName.Size = New System.Drawing.Size(972, 16)
+        Me.TBoxEventName.TabIndex = 24
+        Me.TBoxEventName.Text = "Escriba el nombre del evento"
+        '
+        'lblNoData
+        '
+        Me.lblNoData.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
+        Me.lblNoData.AutoSize = True
+        Me.lblNoData.Font = New System.Drawing.Font("Arial", 16.0!)
+        Me.lblNoData.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.lblNoData.Location = New System.Drawing.Point(563, 300)
+        Me.lblNoData.Name = "lblNoData"
+        Me.lblNoData.Size = New System.Drawing.Size(284, 25)
+        Me.lblNoData.TabIndex = 30
+        Me.lblNoData.Text = "No se han encontrado datos"
+        Me.lblNoData.Visible = False
         '
         'StartMenu
         '
@@ -419,6 +466,8 @@ Partial Class StartMenu
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(1237, 555)
+        Me.Controls.Add(Me.lblNoData)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnEventsHistorys)
         Me.Controls.Add(Me.btnReembolso)
         Me.Controls.Add(Me.btnHelp)
@@ -441,6 +490,8 @@ Partial Class StartMenu
         Me.gcGroupMenu.ResumeLayout(False)
         CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnSettings, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -486,4 +537,8 @@ Partial Class StartMenu
     Friend WithEvents dgvSEimgDelete As DataGridViewImageColumn
     Friend WithEvents btnReembolso As Button
     Friend WithEvents btnEventsHistorys As Button
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents TBoxEventName As TextBox
+    Friend WithEvents lblNoData As Label
 End Class

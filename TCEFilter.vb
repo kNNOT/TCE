@@ -11,10 +11,16 @@
         rowsCount = dgv.Rows.Count
     End Sub
 
+    Public WriteOnly Property Filas() As Integer
+        Set(value As Integer)
+            rowsCount = value
+        End Set
+    End Property
+
     'Método que establece todos los datos del datagrid en memoria
     Public Sub setArrayData()
-        ReDim dgvData(clmnCount, dgv.Rows.Count)
-        For i = 0 To dgv.Rows.Count - 1
+        ReDim dgvData(clmnCount, rowsCount)
+        For i = 0 To rowsCount - 1
             For c = 0 To clmnCount - 1
                 dgvData(c, i) = dgv.Item(c, i).Value
             Next
@@ -36,7 +42,12 @@
         dgv.Rows.Clear()
         For i = 0 To rowsCount - 1
             If indexesdgv(i) IsNot Nothing Then
-                dgv.Rows.Add(dgvData(0, indexesdgv(i)), dgvData(1, indexesdgv(i)), dgvData(2, indexesdgv(i)), dgvData(3, indexesdgv(i)), dgvData(4, indexesdgv(i)))
+                If clmnCount = 5 Then
+                    dgv.Rows.Add(dgvData(0, indexesdgv(i)), dgvData(1, indexesdgv(i)), dgvData(2, indexesdgv(i)), dgvData(3, indexesdgv(i)), dgvData(4, indexesdgv(i)))
+                ElseIf clmnCount = 8 Then
+                    dgv.Rows.Add(dgvData(0, indexesdgv(i)), dgvData(1, indexesdgv(i)), dgvData(2, indexesdgv(i)), dgvData(3, indexesdgv(i)), dgvData(4, indexesdgv(i)),
+                                 dgvData(5, indexesdgv(i)), dgvData(6, indexesdgv(i)), dgvData(7, indexesdgv(i)))
+                End If
             End If
         Next
     End Sub
