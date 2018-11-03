@@ -415,7 +415,7 @@ Partial Class StartMenu
         Me.btnEventsHistorys.Name = "btnEventsHistorys"
         Me.btnEventsHistorys.Size = New System.Drawing.Size(142, 34)
         Me.btnEventsHistorys.TabIndex = 23
-        Me.btnEventsHistorys.Text = "Filtrar eventos"
+        Me.btnEventsHistorys.Text = "Filtrado de datos"
         Me.btnEventsHistorys.UseVisualStyleBackColor = True
         '
         'Panel1

@@ -79,7 +79,6 @@ Partial Class sellTickets
         Me.nudTicketsNmbr.Enabled = False
         Me.nudTicketsNmbr.Location = New System.Drawing.Point(129, 10)
         Me.nudTicketsNmbr.Maximum = New Decimal(New Integer() {99, 0, 0, 0})
-        Me.nudTicketsNmbr.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.nudTicketsNmbr.Name = "nudTicketsNmbr"
         Me.nudTicketsNmbr.Size = New System.Drawing.Size(36, 20)
         Me.nudTicketsNmbr.TabIndex = 26
@@ -105,16 +104,16 @@ Partial Class sellTickets
         '
         'TBoxClientAge
         '
-        Me.TBoxClientAge.Location = New System.Drawing.Point(217, 92)
+        Me.TBoxClientAge.Location = New System.Drawing.Point(64, 105)
         Me.TBoxClientAge.MaxLength = 2
         Me.TBoxClientAge.Name = "TBoxClientAge"
-        Me.TBoxClientAge.Size = New System.Drawing.Size(25, 20)
+        Me.TBoxClientAge.Size = New System.Drawing.Size(233, 20)
         Me.TBoxClientAge.TabIndex = 7
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(176, 95)
+        Me.Label6.Location = New System.Drawing.Point(24, 108)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(34, 14)
         Me.Label6.TabIndex = 6
@@ -122,16 +121,16 @@ Partial Class sellTickets
         '
         'TBoxClientIdentification
         '
-        Me.TBoxClientIdentification.Location = New System.Drawing.Point(63, 92)
+        Me.TBoxClientIdentification.Location = New System.Drawing.Point(64, 19)
         Me.TBoxClientIdentification.MaxLength = 8
         Me.TBoxClientIdentification.Name = "TBoxClientIdentification"
-        Me.TBoxClientIdentification.Size = New System.Drawing.Size(105, 20)
+        Me.TBoxClientIdentification.Size = New System.Drawing.Size(233, 20)
         Me.TBoxClientIdentification.TabIndex = 5
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(31, 96)
+        Me.Label5.Location = New System.Drawing.Point(33, 22)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(25, 14)
         Me.Label5.TabIndex = 4
@@ -139,7 +138,7 @@ Partial Class sellTickets
         '
         'TBoxClientSurname
         '
-        Me.TBoxClientSurname.Location = New System.Drawing.Point(63, 64)
+        Me.TBoxClientSurname.Location = New System.Drawing.Point(63, 76)
         Me.TBoxClientSurname.MaxLength = 300
         Me.TBoxClientSurname.Name = "TBoxClientSurname"
         Me.TBoxClientSurname.Size = New System.Drawing.Size(234, 20)
@@ -148,7 +147,7 @@ Partial Class sellTickets
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(10, 64)
+        Me.Label4.Location = New System.Drawing.Point(10, 79)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(48, 14)
         Me.Label4.TabIndex = 2
@@ -156,7 +155,7 @@ Partial Class sellTickets
         '
         'TBoxClientName
         '
-        Me.TBoxClientName.Location = New System.Drawing.Point(63, 36)
+        Me.TBoxClientName.Location = New System.Drawing.Point(63, 47)
         Me.TBoxClientName.MaxLength = 300
         Me.TBoxClientName.Name = "TBoxClientName"
         Me.TBoxClientName.Size = New System.Drawing.Size(234, 20)
@@ -165,7 +164,7 @@ Partial Class sellTickets
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(10, 36)
+        Me.Label3.Location = New System.Drawing.Point(10, 49)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(47, 14)
         Me.Label3.TabIndex = 0

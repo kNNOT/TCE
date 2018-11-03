@@ -114,6 +114,8 @@ Public Class DBConnection
                     dgv.Rows.Add(reader.GetString(0))
                 ElseIf clmnCount = 6 Then 'Numero de columnas de la ventana reembolso
                     dgv.Rows.Add(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5))
+                ElseIf clmnCount = 3 Then
+                    dgv.Rows.Add(reader.GetString(0), reader.GetString(1), reader.GetString(2))
                 End If
             End While
         Catch ex As MySqlException

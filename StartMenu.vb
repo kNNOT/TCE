@@ -137,4 +137,9 @@
     Private Sub btnSettingsML(sender As Object, e As EventArgs) Handles btnSettings.MouseLeave
         btnSettings.BackColor = BackColor
     End Sub
+
+    Private Sub btnEventsHistoryClic(sender As Object, e As EventArgs) Handles btnEventsHistorys.Click
+        Dim filtradodedatos As EventsHistory = New EventsHistory
+        filtradodedatos.ShowDialog()
+    End Sub
 End Class

@@ -3,6 +3,10 @@
     Private entradasDisponibles As Integer
     Private totalPrice As Integer
 
+    Private nameClient As String
+    Private surnameClient As String
+    Private ageClient As Integer?
+
     Public Sub New()
         InitializeComponent()
         FillCBEvents()
@@ -27,8 +31,9 @@
             TBoxClientName.Text = String.Empty
             TBoxClientIdentification.Text = String.Empty
             TBoxClientSurname.Text = String.Empty
-            nudTicketsNmbr.Value = 1
+            nudTicketsNmbr.Value = 0
             lblShowTotalPrice.Text = "Total: "
+            lblAvailableTickets.Text = "Entradas disponibles: "
         Else
             gbClientInfo.Enabled = True
             btnCcrtSell.Enabled = True
@@ -38,6 +43,15 @@
             idEvent = returnID(CBSlcEvent.SelectedItem.ToString)
             entradasDisponibles = iDB.ExSelect($"SELECT ticketsopen FROM Events WHERE idEvents={idEvent}")
             nudTicketsNmbr.Maximum = entradasDisponibles
+            If entradasDisponibles = 0 Then
+                btnCcrtSell.Enabled = False
+                btnCcrtSell.Text = "Entradas agotadas"
+                lblShowTotalPrice.Text = "Total:"
+                Return
+            Else
+                btnCcrtSell.Text = "Concretar venta"
+                nudTicketsNmbr.Value = 1
+            End If
             Dim cprice As Integer = iDB.ExSelect($"SELECT priceEvent FROM Events WHERE idEvents={idEvent}")
             lblShowTotalPrice.Text = $"Total: ${cprice}"
             lblAvailableTickets.Text = $"Entradas disponibles: {entradasDisponibles - nudTicketsNmbr.Value}"
@@ -45,8 +59,14 @@
     End Sub
 
     Private Sub addTicket()
-        If iDB.Query($"INSERT INTO Clients(CI, name, surname, age) VALUES({TBoxClientIdentification.Text},'{TBoxClientName.Text}','{TBoxClientSurname.Text}',
-            {TBoxClientAge.Text})") = True Or iDB.Query($"INSERT INTO Tickets(idEvent, CI, countTicketBuy, ticketType, price) VALUES({idEvent},{TBoxClientIdentification.Text},
+        If nameClient IsNot String.Empty And surnameClient IsNot String.Empty And ageClient IsNot Nothing Then
+            iDB.Query($"UPDATE Clients SET name='{TBoxClientName.Text}', surname='{TBoxClientSurname.Text}', age={TBoxClientAge.Text} WHERE CI={TBoxClientIdentification.Text}")
+        Else
+            iDB.Query($"INSERT INTO Clients(CI, name, surname, age) VALUES({TBoxClientIdentification.Text},'{TBoxClientName.Text}','{TBoxClientSurname.Text}',
+            {TBoxClientAge.Text})")
+        End If
+
+        If iDB.Query($"INSERT INTO Tickets(idEvent, CI, countTicketBuy, ticketType, price) VALUES({idEvent},{TBoxClientIdentification.Text},
                     {nudTicketsNmbr.Value},'{CBSlcTEntrada.SelectedItem.ToString}',{totalPrice});") = True Then
             iDB.Query($"UPDATE Events SET ticketsopen=ticketsopen - {nudTicketsNmbr.Value} WHERE idEvents={idEvent}")
             MessageBox.Show("Compra Finalizada", "Hecho!", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -123,6 +143,11 @@
             Return
         End If
 
+        If nudTicketsNmbr.Value = 0 Then
+            MessageBox.Show("Cantidad de entradas no válida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
         If TBoxClientName.Text = String.Empty Then
             MessageBox.Show("No se ha introducido el nombre del cliente", "Campo Vacio", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
@@ -151,5 +176,35 @@
 
         addTicket()
         CBSlcEvent.SelectedIndex = 0
+    End Sub
+
+    Private Sub TBoxClienteIdentificationTC(sender As Object, e As EventArgs) Handles TBoxClientIdentification.TextChanged
+        If TBoxClientIdentification.TextLength = 8 Then
+            TBoxClientName.Text = iDB.ExSelect($"SELECT name FROM Clients WHERE CI={TBoxClientIdentification.Text}")
+            TBoxClientSurname.Text = iDB.ExSelect($"SELECT surname FROM Clients WHERE CI={TBoxClientIdentification.Text}")
+            TBoxClientAge.Text = iDB.ExSelect($"SELECT age FROM Clients WHERE CI={TBoxClientIdentification.Text}")
+
+            If TBoxClientName.Text <> String.Empty Then
+                nameClient = TBoxClientName.Text
+            Else
+                nameClient = String.Empty
+            End If
+
+            If TBoxClientSurname.Text <> String.Empty Then
+                surnameClient = TBoxClientSurname.Text
+            Else
+                surnameClient = String.Empty
+            End If
+
+            If TBoxClientAge.Text <> String.Empty Then
+                ageClient = CType(TBoxClientAge.Text, Integer)
+            Else
+                ageClient = Nothing
+            End If
+        ElseIf TBoxClientIdentification.TextLength < 8 Then
+            TBoxClientName.Text = String.Empty
+            TBoxClientSurname.Text = String.Empty
+            TBoxClientAge.Text = String.Empty
+        End If
     End Sub
 End Class
