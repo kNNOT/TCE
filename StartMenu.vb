@@ -3,7 +3,7 @@
 
     Public Sub New()
         InitializeComponent()
-        FillDGV("SELECT * FROM Events", dgvShowEvents, 10)
+        FillDGV("SELECT * FROM Events", dgvShowEvents, 10, True)
         filter = New TCEFilter(dgvShowEvents, 8)
         filter.setArrayData()
 
@@ -42,7 +42,7 @@
     Private Sub btnAddEventClic(sender As Object, e As EventArgs) Handles btnAddEvent.Click
         Dim addEvent As addorEditEvent = New addorEditEvent(False) 'se puso el parametro en falso por que no es para editar
         addEvent.ShowDialog()
-        FillDGV("SELECT * FROM Events", dgvShowEvents, 10)
+        FillDGV("SELECT * FROM Events", dgvShowEvents, 10, True)
         filter.Filas = dgvShowEvents.Rows.Count
         filter.setArrayData()
     End Sub
@@ -50,7 +50,7 @@
     Private Sub btnEditEventsClic(sender As Object, e As EventArgs) Handles btnEditEvents.Click
         Dim editEvent As addorEditEvent = New addorEditEvent(True)
         editEvent.ShowDialog()
-        FillDGV("SELECT * FROM Events", dgvShowEvents, 10)
+        FillDGV("SELECT * FROM Events", dgvShowEvents, 10, True)
         filter.Filas = dgvShowEvents.Rows.Count
         filter.setArrayData()
     End Sub
@@ -77,7 +77,7 @@
                 If iDB.Query($"DELETE FROM Events WHERE idEvents={dgvShowEvents.Item(0, e.RowIndex).Value.ToString};
                                         DELETE FROM Participants WHERE idEvents={dgvShowEvents.Item(0, e.RowIndex).Value.ToString};") = True Then
                     MessageBox.Show("Se ha eliminado el evento!", "¡Hecho!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    FillDGV("SELECT * FROM Events", dgvShowEvents, 10)
+                    FillDGV("SELECT * FROM Events", dgvShowEvents, 10, True)
                     filter.Filas = dgvShowEvents.Rows.Count
                     filter.setArrayData()
                     TBoxEventName.Text = "Escriba el nombre del evento"
@@ -94,7 +94,7 @@
     Private Sub btnSellTicketsClic(sender As Object, e As EventArgs) Handles btnSellTickets.Click
         Dim sellTickets As sellTickets = New sellTickets()
         sellTickets.ShowDialog()
-        FillDGV("SELECT * FROM Events", dgvShowEvents, 10)
+        FillDGV("SELECT * FROM Events", dgvShowEvents, 10, True)
     End Sub
 
     Private Sub btnSettingsClic(sender As Object, e As EventArgs) Handles btnSettings.Click
@@ -104,7 +104,7 @@
 
     Private Sub TBoxEventNameTC(sender As Object, e As EventArgs) Handles TBoxEventName.TextChanged
         If TBoxEventName.Text = String.Empty Or TBoxEventName.Text = "Escriba el nombre del evento" Then
-            FillDGV("SELECT * FROM Events", dgvShowEvents, 10)
+            FillDGV("SELECT * FROM Events", dgvShowEvents, 10, True)
             lblNoData.Visible = False
             Return
         End If

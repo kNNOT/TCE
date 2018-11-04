@@ -32,33 +32,34 @@ Partial Class EventsHistory
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.MaskedTextBox2 = New System.Windows.Forms.MaskedTextBox()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.mTBoxDateF = New System.Windows.Forms.MaskedTextBox()
+        Me.dgvShowEventsPerDate = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.MaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
+        Me.mTBoxDateI = New System.Windows.Forms.MaskedTextBox()
         Me.tabHistoryClient = New System.Windows.Forms.TabPage()
         Me.dgvShowClientsGoE = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cbSlcEvent = New System.Windows.Forms.ComboBox()
         Me.tabShowGroups = New System.Windows.Forms.TabPage()
         Me.dgvShowGroups = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tabShowClients = New System.Windows.Forms.TabPage()
         Me.dgvShowClients = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnSearchEventDate = New System.Windows.Forms.Button()
         CType(Me.dgvShowGroupsHE, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabHistoryEvents.SuspendLayout()
         Me.tabHistoryGroups.SuspendLayout()
         Me.tabHistoryDate.SuspendLayout()
         Me.Panel3.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvShowEventsPerDate, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.tabHistoryClient.SuspendLayout()
         CType(Me.dgvShowClientsGoE, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -136,9 +137,10 @@ Partial Class EventsHistory
         '
         'tabHistoryDate
         '
+        Me.tabHistoryDate.Controls.Add(Me.btnSearchEventDate)
         Me.tabHistoryDate.Controls.Add(Me.Label1)
         Me.tabHistoryDate.Controls.Add(Me.Panel3)
-        Me.tabHistoryDate.Controls.Add(Me.DataGridView1)
+        Me.tabHistoryDate.Controls.Add(Me.dgvShowEventsPerDate)
         Me.tabHistoryDate.Controls.Add(Me.Panel1)
         Me.tabHistoryDate.Location = New System.Drawing.Point(4, 23)
         Me.tabHistoryDate.Name = "tabHistoryDate"
@@ -151,7 +153,7 @@ Partial Class EventsHistory
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(223, 10)
+        Me.Label1.Location = New System.Drawing.Point(168, 11)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(11, 14)
         Me.Label1.TabIndex = 26
@@ -161,10 +163,10 @@ Partial Class EventsHistory
         '
         Me.Panel3.Controls.Add(Me.Label3)
         Me.Panel3.Controls.Add(Me.Panel4)
-        Me.Panel3.Controls.Add(Me.MaskedTextBox2)
-        Me.Panel3.Location = New System.Drawing.Point(240, 6)
+        Me.Panel3.Controls.Add(Me.mTBoxDateF)
+        Me.Panel3.Location = New System.Drawing.Point(185, 6)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(206, 24)
+        Me.Panel3.Size = New System.Drawing.Size(163, 24)
         Me.Panel3.TabIndex = 2
         '
         'Label3
@@ -182,41 +184,41 @@ Partial Class EventsHistory
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel4.Location = New System.Drawing.Point(0, 23)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(206, 1)
+        Me.Panel4.Size = New System.Drawing.Size(163, 1)
         Me.Panel4.TabIndex = 1
         '
-        'MaskedTextBox2
+        'mTBoxDateF
         '
-        Me.MaskedTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.MaskedTextBox2.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.MaskedTextBox2.Location = New System.Drawing.Point(93, 3)
-        Me.MaskedTextBox2.Mask = "00/00/0000"
-        Me.MaskedTextBox2.Name = "MaskedTextBox2"
-        Me.MaskedTextBox2.Size = New System.Drawing.Size(60, 16)
-        Me.MaskedTextBox2.TabIndex = 0
-        Me.MaskedTextBox2.ValidatingType = GetType(Date)
+        Me.mTBoxDateF.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.mTBoxDateF.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.mTBoxDateF.Location = New System.Drawing.Point(93, 3)
+        Me.mTBoxDateF.Mask = "00/00/0000"
+        Me.mTBoxDateF.Name = "mTBoxDateF"
+        Me.mTBoxDateF.Size = New System.Drawing.Size(60, 16)
+        Me.mTBoxDateF.TabIndex = 0
+        Me.mTBoxDateF.ValidatingType = GetType(Date)
         '
-        'DataGridView1
+        'dgvShowEventsPerDate
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.AllowUserToResizeColumns = False
-        Me.DataGridView1.AllowUserToResizeRows = False
-        Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.dgvShowEventsPerDate.AllowUserToAddRows = False
+        Me.dgvShowEventsPerDate.AllowUserToDeleteRows = False
+        Me.dgvShowEventsPerDate.AllowUserToResizeColumns = False
+        Me.dgvShowEventsPerDate.AllowUserToResizeRows = False
+        Me.dgvShowEventsPerDate.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1})
-        Me.DataGridView1.Location = New System.Drawing.Point(3, 36)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(446, 415)
-        Me.DataGridView1.TabIndex = 25
+        Me.dgvShowEventsPerDate.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvShowEventsPerDate.BackgroundColor = System.Drawing.Color.WhiteSmoke
+        Me.dgvShowEventsPerDate.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.dgvShowEventsPerDate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvShowEventsPerDate.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1})
+        Me.dgvShowEventsPerDate.Location = New System.Drawing.Point(3, 36)
+        Me.dgvShowEventsPerDate.Name = "dgvShowEventsPerDate"
+        Me.dgvShowEventsPerDate.ReadOnly = True
+        Me.dgvShowEventsPerDate.RowHeadersVisible = False
+        Me.dgvShowEventsPerDate.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvShowEventsPerDate.Size = New System.Drawing.Size(446, 415)
+        Me.dgvShowEventsPerDate.TabIndex = 25
         '
         'DataGridViewTextBoxColumn1
         '
@@ -228,10 +230,10 @@ Partial Class EventsHistory
         '
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Panel2)
-        Me.Panel1.Controls.Add(Me.MaskedTextBox1)
+        Me.Panel1.Controls.Add(Me.mTBoxDateI)
         Me.Panel1.Location = New System.Drawing.Point(6, 6)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(211, 24)
+        Me.Panel1.Size = New System.Drawing.Size(159, 24)
         Me.Panel1.TabIndex = 1
         '
         'Label2
@@ -249,19 +251,19 @@ Partial Class EventsHistory
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel2.Location = New System.Drawing.Point(0, 23)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(211, 1)
+        Me.Panel2.Size = New System.Drawing.Size(159, 1)
         Me.Panel2.TabIndex = 1
         '
-        'MaskedTextBox1
+        'mTBoxDateI
         '
-        Me.MaskedTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.MaskedTextBox1.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.MaskedTextBox1.Location = New System.Drawing.Point(86, 3)
-        Me.MaskedTextBox1.Mask = "00/00/0000"
-        Me.MaskedTextBox1.Name = "MaskedTextBox1"
-        Me.MaskedTextBox1.Size = New System.Drawing.Size(70, 16)
-        Me.MaskedTextBox1.TabIndex = 0
-        Me.MaskedTextBox1.ValidatingType = GetType(Date)
+        Me.mTBoxDateI.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.mTBoxDateI.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.mTBoxDateI.Location = New System.Drawing.Point(86, 3)
+        Me.mTBoxDateI.Mask = "00/00/0000"
+        Me.mTBoxDateI.Name = "mTBoxDateI"
+        Me.mTBoxDateI.Size = New System.Drawing.Size(70, 16)
+        Me.mTBoxDateI.TabIndex = 0
+        Me.mTBoxDateI.ValidatingType = GetType(Date)
         '
         'tabHistoryClient
         '
@@ -295,6 +297,24 @@ Partial Class EventsHistory
         Me.dgvShowClientsGoE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvShowClientsGoE.Size = New System.Drawing.Size(440, 411)
         Me.dgvShowClientsGoE.TabIndex = 27
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Identificación del cliente"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Nombre"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Apellido"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
         '
         'cbSlcEvent
         '
@@ -379,24 +399,6 @@ Partial Class EventsHistory
         Me.dgvShowClients.Size = New System.Drawing.Size(446, 444)
         Me.dgvShowClients.TabIndex = 26
         '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Identificación del cliente"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Nombre"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Apellido"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        '
         'Column3
         '
         Me.Column3.HeaderText = "Identificación del cliente"
@@ -414,6 +416,15 @@ Partial Class EventsHistory
         Me.Column4.HeaderText = "Apellido"
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
+        '
+        'btnSearchEventDate
+        '
+        Me.btnSearchEventDate.Location = New System.Drawing.Point(354, 7)
+        Me.btnSearchEventDate.Name = "btnSearchEventDate"
+        Me.btnSearchEventDate.Size = New System.Drawing.Size(92, 23)
+        Me.btnSearchEventDate.TabIndex = 27
+        Me.btnSearchEventDate.Text = "Buscar"
+        Me.btnSearchEventDate.UseVisualStyleBackColor = True
         '
         'EventsHistory
         '
@@ -434,7 +445,7 @@ Partial Class EventsHistory
         Me.tabHistoryDate.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvShowEventsPerDate, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.tabHistoryClient.ResumeLayout(False)
@@ -453,14 +464,14 @@ Partial Class EventsHistory
     Friend WithEvents tabHistoryEvents As TabControl
     Friend WithEvents tabHistoryGroups As TabPage
     Friend WithEvents tabHistoryDate As TabPage
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dgvShowEventsPerDate As DataGridView
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents MaskedTextBox1 As MaskedTextBox
+    Friend WithEvents mTBoxDateI As MaskedTextBox
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel4 As Panel
-    Friend WithEvents MaskedTextBox2 As MaskedTextBox
+    Friend WithEvents mTBoxDateF As MaskedTextBox
     Friend WithEvents tabHistoryClient As TabPage
     Friend WithEvents tabShowGroups As TabPage
     Friend WithEvents tabShowClients As TabPage
@@ -478,4 +489,5 @@ Partial Class EventsHistory
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents btnSearchEventDate As Button
 End Class

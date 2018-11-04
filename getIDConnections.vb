@@ -14,7 +14,7 @@
     End Function
 
     'Se puede llamar en todo el proyecto, cuando se necesite hacer un refresh de los datos del datagridview.
-    Public Sub FillDGV(qry As String, dgv As DataGridView, columnsCount As Integer)
-        iDB.ExSelect(qry, dgv, columnsCount)
+    Public Sub FillDGV(qry As String, dgv As DataGridView, columnsCount As Integer, fresh As Boolean)
+        iDB.ExSelect(qry, dgv, columnsCount, fresh)
     End Sub
 End Module

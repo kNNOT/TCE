@@ -32,12 +32,13 @@ Public Class DBConnection
 
     'Método que ejecuta los comandos: INSERT, UPDATE y DELETE.
     Public Function Query(qry As String) As Boolean
-        Try
-            cmd = New MySqlCommand(qry, Conexion())
-            cmd.ExecuteNonQuery()
-            Return True
-        Catch ex As MySqlException
-            Return False
+		Try
+			cmd = New MySqlCommand(qry, Conexion())
+			cmd.ExecuteNonQuery()
+			Return True
+		Catch ex As MySqlException
+			MessageBox.Show(ex.Message)
+			Return False
         Finally
             If con.State = ConnectionState.Open Then
                 con.Close()
@@ -62,25 +63,25 @@ Public Class DBConnection
         End Try
     End Function
 
-    Public Sub ExSelect(qry As String, ByRef values As List(Of Object))
-        Try
-            cmd = New MySqlCommand(qry, Conexion())
-            reader = cmd.ExecuteReader()
-            While reader.Read()
-                values.Add(reader.GetString(0))
-            End While
-        Catch ex As Exception
-            MessageBox.Show("Error al ejecutar el comando", "Error en consulta", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        Finally
-            If con.State = ConnectionState.Open Then
-                con.Close()
-            End If
-        End Try
-    End Sub
+	Public Sub ExSelect(qry As String, ByVal values As List(Of Object))
+		Try
+			cmd = New MySqlCommand(qry, Conexion())
+			reader = cmd.ExecuteReader()
+			While reader.Read()
+				values.Add(reader.GetString(0))
+			End While
+		Catch ex As Exception
+			MessageBox.Show("Error al ejecutar el comando", "Error en consulta", MessageBoxButtons.OK, MessageBoxIcon.Error)
+		Finally
+			If con.State = ConnectionState.Open Then
+				con.Close()
+			End If
+		End Try
+	End Sub
 
-    'Método que llena todo un combobox con elementos, estos elementos son el ID (la llave primaria de las tablas de la base de datos)
-    'y el nombre correspondiendo (evento o grupo).
-    Public Sub ExSelect(qry As String, cb As ComboBox)
+	'Método que llena todo un combobox con elementos, estos elementos son el ID (la llave primaria de las tablas de la base de datos)
+	'y el nombre correspondiendo (evento o grupo).
+	Public Sub ExSelect(qry As String, cb As ComboBox)
         Try
             cmd = New MySqlCommand(qry, Conexion())
             reader = cmd.ExecuteReader()
@@ -97,11 +98,14 @@ Public Class DBConnection
     End Sub
 
     'Método que llena todo un datagridview con elemntos, estos elementos comunmente son todas las columnas y filas de la tabla necesaria.
-    Public Sub ExSelect(qry As String, dgv As DataGridView, clmnCount As Integer)
+    Public Sub ExSelect(qry As String, dgv As DataGridView, clmnCount As Integer, fresh As Boolean)
         Try
             cmd = New MySqlCommand(qry, Conexion())
             reader = cmd.ExecuteReader()
-            dgv.Rows.Clear() 'Limpia todas las filas que hay en el datagridview
+            If fresh = True Then
+                dgv.Rows.Clear() 'Limpia todas las filas que hay en el datagridview
+            End If
+
             While reader.Read() 'si hay alguna fila para leer, devuelve True (entra al código del While); si no hay, devuelve False y no entra al código del While.
                 If clmnCount = 10 Then 'Numero de columnas de la ventana StartMenu
                     dgv.Rows.Add(reader.GetString(0), reader.GetString(1), $"{reader.GetString(2)}, {reader.GetString(3)}", $"{reader.GetString(4)} - {reader.GetString(5)}",

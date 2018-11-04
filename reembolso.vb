@@ -14,7 +14,7 @@
             dgvSSells.Rows.Clear()
         Else
             idEvent = returnID(cbSlcEvents.SelectedItem.ToString)
-            FillDGV($"SELECT * FROM Tickets WHERE idEvent={idEvent}", dgvSSells, 6)
+            FillDGV($"SELECT * FROM Tickets WHERE idEvent={idEvent}", dgvSSells, 6, True)
         End If
     End Sub
 
@@ -41,10 +41,10 @@
     Private Sub CIClientTC(sender As Object, e As EventArgs) Handles TBoxCiClient.TextChanged
         'si la longitud de la cedula es 8 y el index del combobox no es 0, rellena el DGV con los resultados
         If TBoxCiClient.Text.Length = 8 And cbSlcEvents.SelectedIndex <> 0 Then
-            FillDGV($"SELECT * FROM Tickets WHERE CI={TBoxCiClient.Text} AND idEvent={idEvent}", dgvSSells, 6)
+            FillDGV($"SELECT * FROM Tickets WHERE CI={TBoxCiClient.Text} AND idEvent={idEvent}", dgvSSells, 6, True)
             'si la longitud es menor a 8, y el index del CB no es 0, va a mostrar todos los tickets
         ElseIf TBoxCiClient.Text.Length < 8 And cbSlcEvents.SelectedIndex <> 0 Then
-            FillDGV($"SELECT * FROM Tickets WHERE idEvent={idEvent}", dgvSSells, 6)
+            FillDGV($"SELECT * FROM Tickets WHERE idEvent={idEvent}", dgvSSells, 6, True)
         End If
     End Sub
 

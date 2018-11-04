@@ -4,7 +4,7 @@
     'El public sub new() es el constructor, se utiliza para llenar todo el datagrid al momento de inciiar la ventana.
     Public Sub New()
         InitializeComponent()
-        FillDGV(qry, dgvShowGroups, 5) 'Llena el datagrid con datos.
+        FillDGV(qry, dgvShowGroups, 5, True) 'Llena el datagrid con datos.
         filter = New TCEFilter(dgvShowGroups, 5)
         filter.setArrayData()
         'MsgModal.SetToolTip(btnRestoreList, "Reestablece todos los valores de la lista")
@@ -18,7 +18,7 @@
                 If iDB.Query($"DELETE FROM Groups WHERE idGroups={dgvShowGroups.Item(0, e.RowIndex).Value.ToString}; 
                                  DELETE FROM Participants WHERE idGroups={dgvShowGroups.Item(0, e.RowIndex).Value.ToString};") = True Then 'Si las dos consultas devuelven True muestra un mensaje.
                     MessageBox.Show("Se ha eliminado el grupo!", "¡Hecho!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    FillDGV(qry, dgvShowGroups, 5) 'Actualiza los datos del datagridview
+                    FillDGV(qry, dgvShowGroups, 5, True) 'Actualiza los datos del datagridview
                     ' btnSearchGroup.Enabled = True
                     'btnRestoreList.Enabled = False
                     filter.Filas = dgvShowGroups.Rows.Count
@@ -36,10 +36,10 @@
             Return
         End If
 
-        FillDGV($"SELECT * FROM Groups WHERE nameGroup='{TBoxgroupName.Text}'", dgvShowGroups, 5) 'Llena el datagrid con los valores devueltos segun el nombre del grupo
+        FillDGV($"SELECT * FROM Groups WHERE nameGroup='{TBoxgroupName.Text}'", dgvShowGroups, 5, True) 'Llena el datagrid con los valores devueltos segun el nombre del grupo
         If dgvShowGroups.Rows.Count = 0 Then 'Si no se ha llenado el datagrid, quiere decir que no se ha encontrado ningun grupo con ese nombre.
             MessageBox.Show($"No se ha encontrado el grupo: {TBoxgroupName.Text}", "Sin valor", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            FillDGV(qry, dgvShowGroups, 5) 'Le da un rifresh de nuevo al dgv
+            FillDGV(qry, dgvShowGroups, 5, True) 'Le da un rifresh de nuevo al dgv
             TBoxgroupName.Text = "Escriba el nombre del grupo"
             ' btnRestoreList.Enabled = False
             Return
@@ -50,7 +50,7 @@
     End Sub
 
     Private Sub btnRestoreListClic(sender As Object, e As EventArgs)
-        FillDGV(qry, dgvShowGroups, 5)
+        FillDGV(qry, dgvShowGroups, 5, True)
         'btnSearchGroup.Enabled = True
         'btnRestoreList.Enabled = False
     End Sub
@@ -79,7 +79,7 @@
 
     Private Sub TBoxGroupNameTC(sender As Object, e As EventArgs) Handles TBoxgroupName.TextChanged
         If TBoxgroupName.Text = String.Empty Or TBoxgroupName.Text = "Escriba el nombre del grupo" Then
-            FillDGV(qry, dgvShowGroups, 5)
+            FillDGV(qry, dgvShowGroups, 5, True)
             lblNoData.Visible = False
             Return
         End If
