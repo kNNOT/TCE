@@ -1,4 +1,6 @@
-﻿Public Class StartMenu
+﻿Imports System.Threading
+
+Public Class StartMenu
     Private filter As TCEFilter
 
     Public Sub New()
@@ -36,6 +38,39 @@
                 End If
             End While
         End If
+
+        Dim TgetEventsFinished As Thread = New Thread(AddressOf getEventsFinished)
+        TgetEventsFinished.Start()
+    End Sub
+
+    'Agregar los de participants a participated
+    Private Sub getEventsFinished()
+        Dim listIdEvents As List(Of Object) = New List(Of Object)
+        iDB.ExSelect("SELECT idEvents FROM Participants", listIdEvents)
+        Dim eventsFinished As Integer = 0
+        For Each id As Object In listIdEvents
+            Dim datefEvent As Date = iDB.ExSelect($"SELECT datef FROM Events WHERE idEvents={id}")
+            If datefEvent < Date.Now.ToString("dd/MM/yyyy") Then
+                eventsFinished = eventsFinished + 1
+                Dim listIdGroupsParticipated As List(Of Object) = New List(Of Object)
+                iDB.ExSelect($"SELECT idGroups FROM Participants WHERE idEvents={id}", listIdGroupsParticipated)
+
+                For Each idGroup As Object In listIdGroupsParticipated
+                    Dim nameGroup As String = iDB.ExSelect($"SELECT nameGroup FROM Groups WHERE idGroups={idGroup}")
+                    Dim nameEvent As String = iDB.ExSelect($"SELECT name_events FROM Events WHERE idEvents={id}")
+                    Dim dateShow As String = iDB.ExSelect($"SELECT dateShow FROM Participants WHERE idEvents={id} AND idGroups={idGroup}")
+                    iDB.Query($"INSERT INTO Participated(idEvents,idGroups,nameEvent,nameGroup,dateShow) VALUES({id},{idGroup},'{nameEvent}','{nameGroup}','{dateShow}')")
+                Next
+            End If
+        Next
+
+        'Hacer que muestre la notificacion una vez por dia...
+
+        notfIc.BalloonTipText = $"Hoy: {Date.Now.ToString("dd/MM/yyyy")} han finalizado {eventsFinished} eventos."
+        notfIc.BalloonTipTitle = "Eventos finalizados"
+        notfIc.Icon = SystemIcons.Information
+        notfIc.Visible = True
+        notfIc.ShowBalloonTip(5000)
     End Sub
 
     'estos metodos llaman a las ventanas, con un valor en los parametros del constructor de las clases que los requieran: addorEditEvent y addorEditGroup

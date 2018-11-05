@@ -22,6 +22,7 @@ Partial Class StartMenu
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.btnSellTickets = New System.Windows.Forms.Button()
         Me.msUser = New System.Windows.Forms.MenuStrip()
         Me.InicioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -66,6 +67,7 @@ Partial Class StartMenu
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.TBoxEventName = New System.Windows.Forms.TextBox()
         Me.lblNoData = New System.Windows.Forms.Label()
+        Me.notfIc = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.msUser.SuspendLayout()
         CType(Me.dgvShowEvents, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbEventMenu.SuspendLayout()
@@ -460,6 +462,11 @@ Partial Class StartMenu
         Me.lblNoData.Text = "No se han encontrado datos"
         Me.lblNoData.Visible = False
         '
+        'notfIc
+        '
+        Me.notfIc.Text = "NotifyIcon1"
+        Me.notfIc.Visible = True
+        '
         'StartMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
@@ -541,4 +548,5 @@ Partial Class StartMenu
     Friend WithEvents Panel2 As Panel
     Friend WithEvents TBoxEventName As TextBox
     Friend WithEvents lblNoData As Label
+    Friend WithEvents notfIc As NotifyIcon
 End Class
