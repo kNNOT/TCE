@@ -274,6 +274,7 @@ Partial Class addorEditEvent
         '
         'addorEditEvent
         '
+        Me.AcceptButton = Me.btnAddEvent
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.WhiteSmoke

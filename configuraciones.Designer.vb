@@ -23,6 +23,7 @@ Partial Class configuraciones
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.layouTopScreen = New System.Windows.Forms.Panel()
+        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -126,6 +127,7 @@ Partial Class configuraciones
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.layouTopScreen.SuspendLayout()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.imgTopScreen, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.layoutMC.SuspendLayout()
         Me.btnCloseOpc.SuspendLayout()
@@ -165,6 +167,7 @@ Partial Class configuraciones
         'layouTopScreen
         '
         Me.layouTopScreen.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
+        Me.layouTopScreen.Controls.Add(Me.PictureBox6)
         Me.layouTopScreen.Controls.Add(Me.Panel3)
         Me.layouTopScreen.Controls.Add(Me.Panel2)
         Me.layouTopScreen.Controls.Add(Me.Panel1)
@@ -175,6 +178,16 @@ Partial Class configuraciones
         Me.layouTopScreen.Name = "layouTopScreen"
         Me.layouTopScreen.Size = New System.Drawing.Size(980, 30)
         Me.layouTopScreen.TabIndex = 0
+        '
+        'PictureBox6
+        '
+        Me.PictureBox6.Image = Global.ForUTU.My.Resources.Resources.TCEIcon
+        Me.PictureBox6.Location = New System.Drawing.Point(930, 2)
+        Me.PictureBox6.Name = "PictureBox6"
+        Me.PictureBox6.Size = New System.Drawing.Size(47, 25)
+        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox6.TabIndex = 11
+        Me.PictureBox6.TabStop = False
         '
         'Panel3
         '
@@ -245,7 +258,7 @@ Partial Class configuraciones
         '
         Me.Label24.AutoSize = True
         Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
-        Me.Label24.Location = New System.Drawing.Point(26, 145)
+        Me.Label24.Location = New System.Drawing.Point(24, 145)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(142, 13)
         Me.Label24.TabIndex = 23
@@ -255,7 +268,7 @@ Partial Class configuraciones
         '
         Me.chbDisableEmp.AutoSize = True
         Me.chbDisableEmp.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.4!)
-        Me.chbDisableEmp.Location = New System.Drawing.Point(13, 145)
+        Me.chbDisableEmp.Location = New System.Drawing.Point(11, 145)
         Me.chbDisableEmp.Name = "chbDisableEmp"
         Me.chbDisableEmp.Size = New System.Drawing.Size(15, 14)
         Me.chbDisableEmp.TabIndex = 8
@@ -352,7 +365,7 @@ Partial Class configuraciones
         '
         'styleBtnTheme
         '
-        Me.styleBtnTheme.BackColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(154, Byte), Integer), CType(CType(186, Byte), Integer))
+        Me.styleBtnTheme.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(188, Byte), Integer))
         Me.styleBtnTheme.Dock = System.Windows.Forms.DockStyle.Left
         Me.styleBtnTheme.Location = New System.Drawing.Point(0, 0)
         Me.styleBtnTheme.Name = "styleBtnTheme"
@@ -391,7 +404,7 @@ Partial Class configuraciones
         '
         'styleBtnServers
         '
-        Me.styleBtnServers.BackColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(154, Byte), Integer), CType(CType(186, Byte), Integer))
+        Me.styleBtnServers.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(188, Byte), Integer))
         Me.styleBtnServers.Dock = System.Windows.Forms.DockStyle.Left
         Me.styleBtnServers.Location = New System.Drawing.Point(0, 0)
         Me.styleBtnServers.Name = "styleBtnServers"
@@ -430,7 +443,7 @@ Partial Class configuraciones
         '
         'styleBtnGeneral
         '
-        Me.styleBtnGeneral.BackColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(154, Byte), Integer), CType(CType(186, Byte), Integer))
+        Me.styleBtnGeneral.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(188, Byte), Integer))
         Me.styleBtnGeneral.Dock = System.Windows.Forms.DockStyle.Left
         Me.styleBtnGeneral.Location = New System.Drawing.Point(0, 0)
         Me.styleBtnGeneral.Name = "styleBtnGeneral"
@@ -1225,6 +1238,7 @@ Partial Class configuraciones
         Me.Text = "configuraciones"
         Me.layouTopScreen.ResumeLayout(False)
         Me.layouTopScreen.PerformLayout()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.imgTopScreen, System.ComponentModel.ISupportInitialize).EndInit()
         Me.layoutMC.ResumeLayout(False)
         Me.layoutMC.PerformLayout()
@@ -1386,4 +1400,5 @@ Partial Class configuraciones
     Friend WithEvents TBoxAcessPass As TextBox
     Friend WithEvents Panel21 As Panel
     Friend WithEvents Label24 As Label
+    Friend WithEvents PictureBox6 As PictureBox
 End Class

@@ -29,8 +29,8 @@ Partial Class addorEditGroup
         Me.Label1 = New System.Windows.Forms.Label()
         Me.mTBoxCreationData = New System.Windows.Forms.MaskedTextBox()
         Me.TBoxGroupName = New System.Windows.Forms.TextBox()
-        Me.btnHelp = New System.Windows.Forms.PictureBox()
         Me.cbSlcGroup = New System.Windows.Forms.ComboBox()
+        Me.btnHelp = New System.Windows.Forms.PictureBox()
         Me.layoutNewGroup.SuspendLayout()
         CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -110,6 +110,17 @@ Partial Class addorEditGroup
         Me.TBoxGroupName.Text = "Escriba el nombre del grupo"
         Me.TBoxGroupName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
+        'cbSlcGroup
+        '
+        Me.cbSlcGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbSlcGroup.FormattingEnabled = True
+        Me.cbSlcGroup.Items.AddRange(New Object() {"---Seleccione un grupo---"})
+        Me.cbSlcGroup.Location = New System.Drawing.Point(22, 4)
+        Me.cbSlcGroup.Name = "cbSlcGroup"
+        Me.cbSlcGroup.Size = New System.Drawing.Size(202, 22)
+        Me.cbSlcGroup.TabIndex = 19
+        Me.cbSlcGroup.Visible = False
+        '
         'btnHelp
         '
         Me.btnHelp.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -122,19 +133,9 @@ Partial Class addorEditGroup
         Me.btnHelp.TabIndex = 12
         Me.btnHelp.TabStop = False
         '
-        'cbSlcGroup
-        '
-        Me.cbSlcGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbSlcGroup.FormattingEnabled = True
-        Me.cbSlcGroup.Items.AddRange(New Object() {"---Seleccione un grupo---"})
-        Me.cbSlcGroup.Location = New System.Drawing.Point(22, 4)
-        Me.cbSlcGroup.Name = "cbSlcGroup"
-        Me.cbSlcGroup.Size = New System.Drawing.Size(202, 22)
-        Me.cbSlcGroup.TabIndex = 19
-        Me.cbSlcGroup.Visible = False
-        '
         'addorEditGroup
         '
+        Me.AcceptButton = Me.btnAddGroup
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(247, 191)

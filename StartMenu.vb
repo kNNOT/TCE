@@ -1,10 +1,25 @@
 ﻿Imports System.Threading
 
+Public Enum TypeResourceFire
+    addevent = 0
+    editevent
+    deleteevent
+    addgroup
+    editgroup
+    deletegroup
+    participants
+    history
+    refund
+    tickets
+End Enum
+
 Public Class StartMenu
     Private filter As TCEFilter
+    Private Typeresource As Integer
 
     Public Sub New()
         InitializeComponent()
+        CheckForIllegalCrossThreadCalls = False
         FillDGV("SELECT * FROM Events", dgvShowEvents, 10, True)
         filter = New TCEFilter(dgvShowEvents, 8)
         filter.setArrayData()
@@ -45,6 +60,16 @@ Public Class StartMenu
 
     'Agregar los de participants a participated
     Private Sub getEventsFinished()
+
+        If My.Settings.eventsFinishedDate < Date.Now.ToString("dd/MM/yyyy") Then
+            My.Settings.eventsfinished = True
+            My.Settings.eventsFinishedDate = Date.Now.ToString("dd/MM/yyyy")
+        Else
+            My.Settings.eventsfinished = False
+        End If
+
+        My.Settings.Save()
+
         Dim listIdEvents As List(Of Object) = New List(Of Object)
         iDB.ExSelect("SELECT idEvents FROM Participants", listIdEvents)
         Dim eventsFinished As Integer = 0
@@ -64,25 +89,40 @@ Public Class StartMenu
             End If
         Next
 
-        'Hacer que muestre la notificacion una vez por dia...
+            'Hacer que muestre la notificacion una vez por dia...
 
-        notfIc.BalloonTipText = $"Hoy: {Date.Now.ToString("dd/MM/yyyy")} han finalizado {eventsFinished} eventos."
-        notfIc.BalloonTipTitle = "Eventos finalizados"
-        notfIc.Icon = SystemIcons.Information
-        notfIc.Visible = True
-        notfIc.ShowBalloonTip(5000)
+            If My.Settings.eventsfinished = True Then
+                notfIc.BalloonTipIcon = ToolTipIcon.Info
+                notfIc.BalloonTipText = $"Hoy: {Date.Now.ToString("dd/MM/yyyy")} han finalizado {eventsFinished} eventos."
+                notfIc.BalloonTipTitle = "Eventos finalizados"
+                notfIc.ShowBalloonTip(5000)
+            End If
+
+    End Sub
+
+    Private Sub BallonTipClickedClic(sender As Object, e As EventArgs) Handles notfIc.BalloonTipClicked
+        Dim LastRowCount As Integer = dgvShowEvents.Rows.Count - 1
+        If Typeresource = 0 Then
+            MessageBox.Show($"Nombre del evento: {dgvShowEvents.Item(1, LastRowCount).Value}{vbLf}Ciudad y Dirección: {dgvShowEvents.Item(2, LastRowCount).Value}{vbLf}Fecha inicial y final: {dgvShowEvents.Item(3, LastRowCount).Value}{vbLf}Número de placos: {dgvShowEvents.Item(4, LastRowCount).Value}{vbLf}Número de entradas: {dgvShowEvents.Item(5, LastRowCount).Value}{vbLf}Edad mínima requerida para entrar: {dgvShowEvents.Item(6, LastRowCount).Value}{vbLf}Precio: {dgvShowEvents.Item(7, LastRowCount).Value}{vbLf}", "Información nueva agregada al sistema, dale un vistazo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Me.Select()
+        End If
     End Sub
 
     'estos metodos llaman a las ventanas, con un valor en los parametros del constructor de las clases que los requieran: addorEditEvent y addorEditGroup
-    Private Sub btnAddEventClic(sender As Object, e As EventArgs) Handles btnAddEvent.Click
+    Private Sub btnAddEventClic(sender As Object, e As EventArgs) Handles btnAddEvent.Click, ctxtMSAddEventos.Click
         Dim addEvent As addorEditEvent = New addorEditEvent(False) 'se puso el parametro en falso por que no es para editar
         addEvent.ShowDialog()
         FillDGV("SELECT * FROM Events", dgvShowEvents, 10, True)
         filter.Filas = dgvShowEvents.Rows.Count
         filter.setArrayData()
+        notfIc.BalloonTipIcon = ToolTipIcon.Info
+        notfIc.BalloonTipTitle = "Nuevo evento agregado"
+        notfIc.BalloonTipText = "Se ha agregado un nuevo evento. Haz clic para más información"
+        notfIc.ShowBalloonTip(5000)
+        Typeresource = TypeResourceFire.addevent
     End Sub
 
-    Private Sub btnEditEventsClic(sender As Object, e As EventArgs) Handles btnEditEvents.Click
+    Private Sub btnEditEventsClic(sender As Object, e As EventArgs) Handles btnEditEvents.Click, ctxtMSModEventos.Click
         Dim editEvent As addorEditEvent = New addorEditEvent(True)
         editEvent.ShowDialog()
         FillDGV("SELECT * FROM Events", dgvShowEvents, 10, True)
@@ -90,17 +130,17 @@ Public Class StartMenu
         filter.setArrayData()
     End Sub
 
-    Private Sub btnDeleteGroupClic(sender As Object, e As EventArgs) Handles btnDeleteGroup.Click
+    Private Sub btnDeleteGroupClic(sender As Object, e As EventArgs) Handles btnDeleteGroup.Click, ctxtMSDelGroups.Click
         Dim deleteGroup As DeleteGroups = New DeleteGroups
         deleteGroup.ShowDialog()
     End Sub
 
-    Private Sub btnGroupClic(sender As Object, e As EventArgs) Handles btnNewGroup.Click
+    Private Sub btnGroupClic(sender As Object, e As EventArgs) Handles btnNewGroup.Click, ctxtMSAddGroups.Click
         Dim addGroup As addorEditGroup = New addorEditGroup(False)
         addGroup.ShowDialog()
     End Sub
 
-    Private Sub btnEditClic(sender As Object, e As EventArgs) Handles btnEditGroups.Click
+    Private Sub btnEditClic(sender As Object, e As EventArgs) Handles btnEditGroups.Click, ctxtMSModGroups.Click
         Dim editGroup As addorEditGroup = New addorEditGroup(True)
         editGroup.ShowDialog()
     End Sub
@@ -114,25 +154,26 @@ Public Class StartMenu
                     MessageBox.Show("Se ha eliminado el evento!", "¡Hecho!", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     FillDGV("SELECT * FROM Events", dgvShowEvents, 10, True)
                     filter.Filas = dgvShowEvents.Rows.Count
-                    filter.setArrayData()
+                    Dim filterSAD As Thread = New Thread(AddressOf filter.setArrayData)
+                    filterSAD.Start()
                     TBoxEventName.Text = "Escriba el nombre del evento"
                 End If
             End If
         End If
     End Sub
 
-    Private Sub btnReembolsoClic(sender As Object, e As EventArgs) Handles btnReembolso.Click
+    Private Sub btnReembolsoClic(sender As Object, e As EventArgs) Handles btnReembolso.Click, ctxtMSReembolso.Click
         Dim r As reembolso = New reembolso
         r.ShowDialog()
     End Sub
 
-    Private Sub btnSellTicketsClic(sender As Object, e As EventArgs) Handles btnSellTickets.Click
+    Private Sub btnSellTicketsClic(sender As Object, e As EventArgs) Handles btnSellTickets.Click, ctxtMSSellTickets.Click
         Dim sellTickets As sellTickets = New sellTickets()
         sellTickets.ShowDialog()
         FillDGV("SELECT * FROM Events", dgvShowEvents, 10, True)
     End Sub
 
-    Private Sub btnSettingsClic(sender As Object, e As EventArgs) Handles btnSettings.Click
+    Private Sub btnSettingsClic(sender As Object, e As EventArgs) Handles btnSettings.Click, ctxtMSConfiguration.Click
         Dim settings As configuraciones = New configuraciones
         settings.ShowDialog()
     End Sub
@@ -144,6 +185,7 @@ Public Class StartMenu
             Return
         End If
 
+        filter.FilterColumn = 1
         filter.Filter(TBoxEventName.Text)
 
         If dgvShowEvents.Rows.Count = 0 Then
@@ -173,8 +215,27 @@ Public Class StartMenu
         btnSettings.BackColor = BackColor
     End Sub
 
-    Private Sub btnEventsHistoryClic(sender As Object, e As EventArgs) Handles btnEventsHistorys.Click
+    Private Sub btnEventsHistoryClic(sender As Object, e As EventArgs) Handles btnEventsHistorys.Click, ctxtMSFilterDatas.Click
         Dim filtradodedatos As EventsHistory = New EventsHistory
         filtradodedatos.ShowDialog()
+    End Sub
+
+    Private Sub ctxtClose(sender As Object, e As EventArgs) Handles ctxtMSClose.Click
+        Close()
+    End Sub
+
+    Private Sub ctxtMSHideClic(sender As Object, e As EventArgs) Handles ctxtMSHide.Click
+        If Visible = True Then
+            Visible = False
+            ctxtMSHide.Text = "Mostrar"
+        Else
+            Visible = True
+            ctxtMSHide.Text = "Ocultar"
+        End If
+    End Sub
+
+    Private Sub btnAddDltGroupToEventClic(sender As Object, e As EventArgs) Handles btnAddDltGroupToEvent.Click, ctxtMSParticipantsAdmin.Click
+        Dim participants As addGroupsToEvent = New addGroupsToEvent
+        participants.ShowDialog()
     End Sub
 End Class

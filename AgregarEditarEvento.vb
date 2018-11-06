@@ -24,7 +24,9 @@ Public Class addorEditEvent
     End Sub
 
     Sub FillCbEvents()
+        cbSlcEventToEdit.Enabled = False
         iDB.ExSelect("SELECT idEvents, name_events FROM Events", cbSlcEventToEdit)
+        cbSlcEventToEdit.Enabled = True
     End Sub
 
     'Validacion de exepciones "sentencias IF´s"
@@ -78,6 +80,16 @@ Public Class addorEditEvent
         Else
             editEvent()
         End If
+
+        TBoxEventName.Text = String.Empty
+        TBoxEventDirec.Text = String.Empty
+        TBoxCityEvent.Text = String.Empty
+        TBoxEventPrice.Text = String.Empty
+        mTBoxEndEventDate.Text = String.Empty
+        mTBoxStartEventDate.Text = String.Empty
+        nudMinimumAge.Value = 0
+        nudStagesNumbers.Value = 1
+        nudCtnEntradas.Value = 1
     End Sub
 
     'creamos un metodo para añadir un evento (INSERT), para usarlo despues

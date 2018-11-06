@@ -29,5 +29,11 @@
     <Setting Name="port" Type="System.UInt32" Scope="User">
       <Value Profile="(Default)">3306</Value>
     </Setting>
+    <Setting Name="eventsFinishedDate" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="eventsfinished" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

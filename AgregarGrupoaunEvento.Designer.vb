@@ -35,13 +35,13 @@ Partial Class addGroupsToEvent
         Me.Label2 = New System.Windows.Forms.Label()
         Me.gbDlteGroups = New System.Windows.Forms.GroupBox()
         Me.dgvShowEventGroups = New System.Windows.Forms.DataGridView()
-        Me.CBSlcEvents = New System.Windows.Forms.ComboBox()
-        Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.btnHelp = New System.Windows.Forms.PictureBox()
         Me.dgvSEGID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvAGTEDateActuation = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvAGTEHourActiation = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvSEGStage = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CBSlcEvents = New System.Windows.Forms.ComboBox()
+        Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.btnHelp = New System.Windows.Forms.PictureBox()
         Me.dgvSEGbtnDelete = New System.Windows.Forms.DataGridViewImageColumn()
         Me.gbAddGroups.SuspendLayout()
         CType(Me.nudStageNum, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -193,36 +193,6 @@ Partial Class addGroupsToEvent
         Me.dgvShowEventGroups.TabIndex = 0
         Me.dgvShowEventGroups.TabStop = False
         '
-        'CBSlcEvents
-        '
-        Me.CBSlcEvents.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CBSlcEvents.FormattingEnabled = True
-        Me.CBSlcEvents.Items.AddRange(New Object() {"---Seleccione un evento---"})
-        Me.CBSlcEvents.Location = New System.Drawing.Point(113, 8)
-        Me.CBSlcEvents.Name = "CBSlcEvents"
-        Me.CBSlcEvents.Size = New System.Drawing.Size(366, 22)
-        Me.CBSlcEvents.TabIndex = 5
-        '
-        'DataGridViewImageColumn1
-        '
-        Me.DataGridViewImageColumn1.HeaderText = "Eliminar grupo"
-        Me.DataGridViewImageColumn1.Image = Global.ForUTU.My.Resources.Resources.baseline_clear_RED_18dp_24
-        Me.DataGridViewImageColumn1.Name = "DataGridViewImageColumn1"
-        Me.DataGridViewImageColumn1.ReadOnly = True
-        Me.DataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.DataGridViewImageColumn1.Width = 97
-        '
-        'btnHelp
-        '
-        Me.btnHelp.Image = Global.ForUTU.My.Resources.Resources.baseline_help_outline_black_18dp
-        Me.btnHelp.Location = New System.Drawing.Point(486, 8)
-        Me.btnHelp.Name = "btnHelp"
-        Me.btnHelp.Size = New System.Drawing.Size(25, 25)
-        Me.btnHelp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.btnHelp.TabIndex = 4
-        Me.btnHelp.TabStop = False
-        '
         'dgvSEGID
         '
         Me.dgvSEGID.HeaderText = "ID Grupo"
@@ -247,6 +217,37 @@ Partial Class addGroupsToEvent
         Me.dgvSEGStage.Name = "dgvSEGStage"
         Me.dgvSEGStage.ReadOnly = True
         '
+        'CBSlcEvents
+        '
+        Me.CBSlcEvents.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CBSlcEvents.FormattingEnabled = True
+        Me.CBSlcEvents.Items.AddRange(New Object() {"---Seleccione un evento---"})
+        Me.CBSlcEvents.Location = New System.Drawing.Point(113, 8)
+        Me.CBSlcEvents.Name = "CBSlcEvents"
+        Me.CBSlcEvents.Size = New System.Drawing.Size(366, 22)
+        Me.CBSlcEvents.TabIndex = 5
+        '
+        'DataGridViewImageColumn1
+        '
+        Me.DataGridViewImageColumn1.HeaderText = "Eliminar grupo"
+        Me.DataGridViewImageColumn1.Image = Global.ForUTU.My.Resources.Resources.baseline_clear_RED_18dp_24
+        Me.DataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
+        Me.DataGridViewImageColumn1.Name = "DataGridViewImageColumn1"
+        Me.DataGridViewImageColumn1.ReadOnly = True
+        Me.DataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.DataGridViewImageColumn1.Width = 97
+        '
+        'btnHelp
+        '
+        Me.btnHelp.Image = Global.ForUTU.My.Resources.Resources.baseline_help_outline_black_18dp
+        Me.btnHelp.Location = New System.Drawing.Point(486, 8)
+        Me.btnHelp.Name = "btnHelp"
+        Me.btnHelp.Size = New System.Drawing.Size(25, 25)
+        Me.btnHelp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.btnHelp.TabIndex = 4
+        Me.btnHelp.TabStop = False
+        '
         'dgvSEGbtnDelete
         '
         Me.dgvSEGbtnDelete.HeaderText = "Eliminar grupo"
@@ -259,6 +260,7 @@ Partial Class addGroupsToEvent
         '
         'addGroupsToEvent
         '
+        Me.AcceptButton = Me.btnAddGroupToEvent
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.WhiteSmoke

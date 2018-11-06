@@ -22,7 +22,8 @@
                     ' btnSearchGroup.Enabled = True
                     'btnRestoreList.Enabled = False
                     filter.Filas = dgvShowGroups.Rows.Count
-                    filter.setArrayData()
+                    Dim filterSetArrayDataT As Threading.Thread = New Threading.Thread(AddressOf filter.setArrayData)
+                    filterSetArrayDataT.Start()
                     TBoxgroupName.Text = "Escriba el nombre del grupo"
                 End If
             End If
@@ -84,12 +85,18 @@
             Return
         End If
 
-        filter.Filter(TBoxgroupName.Text)
+        Dim filterFilterT As Threading.Thread = New Threading.Thread(AddressOf Filterdata)
+        filterFilterT.Start()
 
         If dgvShowGroups.Rows.Count = 0 Then
             lblNoData.Visible = True
         Else
             lblNoData.Visible = False
         End If
+    End Sub
+
+    Private Sub Filterdata()
+        filter.FilterColumn = 1
+        filter.Filter(TBoxgroupName.Text)
     End Sub
 End Class

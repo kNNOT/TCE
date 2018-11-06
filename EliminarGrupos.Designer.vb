@@ -23,6 +23,7 @@ Partial Class DeleteGroups
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvShowGroups = New System.Windows.Forms.DataGridView()
         Me.dgvSEID = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -57,17 +58,25 @@ Partial Class DeleteGroups
         Me.dgvShowGroups.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvShowGroups.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvShowGroups.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Arial", 8.25!)
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(188, Byte), Integer))
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvShowGroups.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvShowGroups.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvShowGroups.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvSEID, Me.dgvSENameEvent, Me.dgvSECityDir, Me.dgvSEDateStr, Me.dgvSEDateEnd, Me.dgvSEimgDelete})
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Arial", 8.25!)
         DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkMagenta
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(188, Byte), Integer))
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgvShowGroups.DefaultCellStyle = DataGridViewCellStyle2
-        Me.dgvShowGroups.GridColor = System.Drawing.Color.DarkMagenta
+        Me.dgvShowGroups.GridColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(188, Byte), Integer))
         Me.dgvShowGroups.Location = New System.Drawing.Point(12, 46)
         Me.dgvShowGroups.Name = "dgvShowGroups"
         Me.dgvShowGroups.ReadOnly = True
@@ -170,7 +179,7 @@ Partial Class DeleteGroups
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.DarkMagenta
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(188, Byte), Integer))
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel2.Location = New System.Drawing.Point(0, 27)
         Me.Panel2.Name = "Panel2"

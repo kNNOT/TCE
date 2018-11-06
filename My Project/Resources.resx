@@ -118,20 +118,26 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="baseline_clear_RED_18dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\baseline_clear_RED_18dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="baseline_keyboard_backspace_black_18dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\baseline_keyboard_backspace_black_18dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="if_database_678154" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\if_database_678154.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="thecodeeyetheme" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\thecodeeyetheme.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="windowstheme" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\windowstheme.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="baseline_delete_forever_black_18dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\baseline_delete_forever_black_18dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="baseline_history_black_18dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\baseline_history_black_18dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="if_database_678154" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_database_678154.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="baseline_keyboard_backspace_black_18dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\baseline_keyboard_backspace_black_18dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="baseline_help_outline_black_18dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icons\baseline_help_outline_black_18dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="baseline_clear_RED_18dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\baseline_clear_RED_18dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="baseline_check_black_18dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\baseline_check_black_18dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,11 +151,8 @@
   <data name="baseline_delete_black_18dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\baseline_delete_black_18dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="thecodeeyetheme" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\thecodeeyetheme.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="baseline_help_outline_black_18dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icons\baseline_help_outline_black_18dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="baseline_history_black_18dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\baseline_history_black_18dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="round_add_circle_outline_black_18dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icons\round_add_circle_outline_black_18dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -175,7 +178,7 @@
   <data name="if_server_298866" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\if_server_298866.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="windowstheme" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\windowstheme.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="TCEIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TCEIcon.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

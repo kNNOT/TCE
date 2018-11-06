@@ -23,23 +23,10 @@ Partial Class StartMenu
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(StartMenu))
         Me.btnSellTickets = New System.Windows.Forms.Button()
-        Me.msUser = New System.Windows.Forms.MenuStrip()
-        Me.InicioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AgregarEventosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ModificarEventosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AdministracionDeParticipantesgruposToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.AgregarGruposToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ModificarGruposToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EliminarGruposToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.HistorialDeEventosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.VentaDeEntradasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ConfiguraciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CerrarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AyudaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.dgvShowEvents = New System.Windows.Forms.DataGridView()
         Me.dgvSEID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvSENameEvent = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -68,13 +55,31 @@ Partial Class StartMenu
         Me.TBoxEventName = New System.Windows.Forms.TextBox()
         Me.lblNoData = New System.Windows.Forms.Label()
         Me.notfIc = New System.Windows.Forms.NotifyIcon(Me.components)
-        Me.msUser.SuspendLayout()
+        Me.ctxtMStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ctxtMSAddEventos = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ctxtMSModEventos = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ctxtMSParticipantsAdmin = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ctxtMSAddGroups = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ctxtMSModGroups = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ctxtMSDelGroups = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ctxtMSFilterDatas = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ctxtMSSellTickets = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ctxtMSReembolso = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ctxtMSConfiguration = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ctxtMSHide = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ctxtMSClose = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.dgvShowEvents, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbEventMenu.SuspendLayout()
         Me.gcGroupMenu.SuspendLayout()
         CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnSettings, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        Me.ctxtMStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnSellTickets
@@ -86,109 +91,8 @@ Partial Class StartMenu
         Me.btnSellTickets.Name = "btnSellTickets"
         Me.btnSellTickets.Size = New System.Drawing.Size(142, 34)
         Me.btnSellTickets.TabIndex = 20
-        Me.btnSellTickets.Text = "Venta de Entradas"
+        Me.btnSellTickets.Text = "Venta de entradas"
         Me.btnSellTickets.UseVisualStyleBackColor = True
-        '
-        'msUser
-        '
-        Me.msUser.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.msUser.Dock = System.Windows.Forms.DockStyle.None
-        Me.msUser.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InicioToolStripMenuItem, Me.AyudaToolStripMenuItem})
-        Me.msUser.Location = New System.Drawing.Point(0, 0)
-        Me.msUser.Name = "msUser"
-        Me.msUser.Size = New System.Drawing.Size(109, 24)
-        Me.msUser.TabIndex = 16
-        Me.msUser.Text = "msUser"
-        '
-        'InicioToolStripMenuItem
-        '
-        Me.InicioToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AgregarEventosToolStripMenuItem, Me.ModificarEventosToolStripMenuItem, Me.AdministracionDeParticipantesgruposToolStripMenuItem, Me.ToolStripSeparator1, Me.AgregarGruposToolStripMenuItem, Me.ModificarGruposToolStripMenuItem, Me.EliminarGruposToolStripMenuItem, Me.ToolStripSeparator2, Me.HistorialDeEventosToolStripMenuItem, Me.VentaDeEntradasToolStripMenuItem, Me.ToolStripSeparator3, Me.ConfiguraciónToolStripMenuItem, Me.CerrarToolStripMenuItem})
-        Me.InicioToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.InicioToolStripMenuItem.Name = "InicioToolStripMenuItem"
-        Me.InicioToolStripMenuItem.Size = New System.Drawing.Size(48, 20)
-        Me.InicioToolStripMenuItem.Text = "Inicio"
-        '
-        'AgregarEventosToolStripMenuItem
-        '
-        Me.AgregarEventosToolStripMenuItem.Name = "AgregarEventosToolStripMenuItem"
-        Me.AgregarEventosToolStripMenuItem.Size = New System.Drawing.Size(290, 22)
-        Me.AgregarEventosToolStripMenuItem.Text = "Agregar eventos"
-        '
-        'ModificarEventosToolStripMenuItem
-        '
-        Me.ModificarEventosToolStripMenuItem.Name = "ModificarEventosToolStripMenuItem"
-        Me.ModificarEventosToolStripMenuItem.Size = New System.Drawing.Size(290, 22)
-        Me.ModificarEventosToolStripMenuItem.Text = "Modificar eventos"
-        '
-        'AdministracionDeParticipantesgruposToolStripMenuItem
-        '
-        Me.AdministracionDeParticipantesgruposToolStripMenuItem.Name = "AdministracionDeParticipantesgruposToolStripMenuItem"
-        Me.AdministracionDeParticipantesgruposToolStripMenuItem.Size = New System.Drawing.Size(290, 22)
-        Me.AdministracionDeParticipantesgruposToolStripMenuItem.Text = "Administracion de participantes (grupos)"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(287, 6)
-        '
-        'AgregarGruposToolStripMenuItem
-        '
-        Me.AgregarGruposToolStripMenuItem.Name = "AgregarGruposToolStripMenuItem"
-        Me.AgregarGruposToolStripMenuItem.Size = New System.Drawing.Size(290, 22)
-        Me.AgregarGruposToolStripMenuItem.Text = "Agregar grupos"
-        '
-        'ModificarGruposToolStripMenuItem
-        '
-        Me.ModificarGruposToolStripMenuItem.Name = "ModificarGruposToolStripMenuItem"
-        Me.ModificarGruposToolStripMenuItem.Size = New System.Drawing.Size(290, 22)
-        Me.ModificarGruposToolStripMenuItem.Text = "Modificar grupos"
-        '
-        'EliminarGruposToolStripMenuItem
-        '
-        Me.EliminarGruposToolStripMenuItem.Name = "EliminarGruposToolStripMenuItem"
-        Me.EliminarGruposToolStripMenuItem.Size = New System.Drawing.Size(290, 22)
-        Me.EliminarGruposToolStripMenuItem.Text = "Eliminar grupos"
-        '
-        'ToolStripSeparator2
-        '
-        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(287, 6)
-        '
-        'HistorialDeEventosToolStripMenuItem
-        '
-        Me.HistorialDeEventosToolStripMenuItem.Name = "HistorialDeEventosToolStripMenuItem"
-        Me.HistorialDeEventosToolStripMenuItem.Size = New System.Drawing.Size(290, 22)
-        Me.HistorialDeEventosToolStripMenuItem.Text = "Historial de eventos"
-        '
-        'VentaDeEntradasToolStripMenuItem
-        '
-        Me.VentaDeEntradasToolStripMenuItem.Name = "VentaDeEntradasToolStripMenuItem"
-        Me.VentaDeEntradasToolStripMenuItem.Size = New System.Drawing.Size(290, 22)
-        Me.VentaDeEntradasToolStripMenuItem.Text = "Venta de entradas"
-        '
-        'ToolStripSeparator3
-        '
-        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(287, 6)
-        '
-        'ConfiguraciónToolStripMenuItem
-        '
-        Me.ConfiguraciónToolStripMenuItem.Name = "ConfiguraciónToolStripMenuItem"
-        Me.ConfiguraciónToolStripMenuItem.Size = New System.Drawing.Size(290, 22)
-        Me.ConfiguraciónToolStripMenuItem.Text = "Configuración"
-        '
-        'CerrarToolStripMenuItem
-        '
-        Me.CerrarToolStripMenuItem.Name = "CerrarToolStripMenuItem"
-        Me.CerrarToolStripMenuItem.Size = New System.Drawing.Size(290, 22)
-        Me.CerrarToolStripMenuItem.Text = "Cerrar"
-        '
-        'AyudaToolStripMenuItem
-        '
-        Me.AyudaToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.AyudaToolStripMenuItem.Name = "AyudaToolStripMenuItem"
-        Me.AyudaToolStripMenuItem.Size = New System.Drawing.Size(53, 20)
-        Me.AyudaToolStripMenuItem.Text = "Ayuda"
         '
         'dgvShowEvents
         '
@@ -202,8 +106,26 @@ Partial Class StartMenu
         Me.dgvShowEvents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvShowEvents.BackgroundColor = System.Drawing.Color.WhiteSmoke
         Me.dgvShowEvents.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.dgvShowEvents.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Arial", 8.25!)
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(188, Byte), Integer))
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvShowEvents.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvShowEvents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvShowEvents.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvSEID, Me.dgvSENameEvent, Me.dgvSECityDir, Me.dgvSEDateStr, Me.dgvSEStages, Me.dgvSEMinimumAge, Me.dgvSECtnTickets, Me.dgvSEPriceEvent, Me.dgvSEimgDelete})
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Arial", 8.25!)
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(188, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvShowEvents.DefaultCellStyle = DataGridViewCellStyle2
+        Me.dgvShowEvents.GridColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(188, Byte), Integer))
         Me.dgvShowEvents.Location = New System.Drawing.Point(185, 42)
         Me.dgvShowEvents.Name = "dgvShowEvents"
         Me.dgvShowEvents.ReadOnly = True
@@ -275,7 +197,7 @@ Partial Class StartMenu
         Me.gbEventMenu.Controls.Add(Me.btnEditEvents)
         Me.gbEventMenu.Controls.Add(Me.btnAddDltGroupToEvent)
         Me.gbEventMenu.Controls.Add(Me.btnAddEvent)
-        Me.gbEventMenu.Location = New System.Drawing.Point(12, 42)
+        Me.gbEventMenu.Location = New System.Drawing.Point(12, 7)
         Me.gbEventMenu.Name = "gbEventMenu"
         Me.gbEventMenu.Size = New System.Drawing.Size(167, 148)
         Me.gbEventMenu.TabIndex = 18
@@ -323,7 +245,7 @@ Partial Class StartMenu
         Me.gcGroupMenu.Controls.Add(Me.btnEditGroups)
         Me.gcGroupMenu.Controls.Add(Me.btnDeleteGroup)
         Me.gcGroupMenu.Controls.Add(Me.btnNewGroup)
-        Me.gcGroupMenu.Location = New System.Drawing.Point(12, 196)
+        Me.gcGroupMenu.Location = New System.Drawing.Point(12, 161)
         Me.gcGroupMenu.Name = "gcGroupMenu"
         Me.gcGroupMenu.Size = New System.Drawing.Size(167, 150)
         Me.gcGroupMenu.TabIndex = 19
@@ -422,6 +344,8 @@ Partial Class StartMenu
         '
         'Panel1
         '
+        Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.Controls.Add(Me.Panel2)
         Me.Panel1.Controls.Add(Me.TBoxEventName)
         Me.Panel1.Location = New System.Drawing.Point(185, 12)
@@ -431,7 +355,7 @@ Partial Class StartMenu
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.DarkMagenta
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(188, Byte), Integer))
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel2.Location = New System.Drawing.Point(0, 27)
         Me.Panel2.Name = "Panel2"
@@ -464,8 +388,113 @@ Partial Class StartMenu
         '
         'notfIc
         '
-        Me.notfIc.Text = "NotifyIcon1"
+        Me.notfIc.ContextMenuStrip = Me.ctxtMStrip
+        Me.notfIc.Icon = CType(resources.GetObject("notfIc.Icon"), System.Drawing.Icon)
+        Me.notfIc.Text = "The Code Eye [Ventas & Reservas]"
         Me.notfIc.Visible = True
+        '
+        'ctxtMStrip
+        '
+        Me.ctxtMStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ctxtMSAddEventos, Me.ctxtMSModEventos, Me.ctxtMSParticipantsAdmin, Me.ToolStripSeparator7, Me.ctxtMSAddGroups, Me.ctxtMSModGroups, Me.ctxtMSDelGroups, Me.ToolStripSeparator8, Me.ctxtMSFilterDatas, Me.ToolStripSeparator5, Me.ctxtMSSellTickets, Me.ctxtMSReembolso, Me.ToolStripSeparator6, Me.ctxtMSConfiguration, Me.ToolStripSeparator4, Me.ctxtMSHide, Me.ctxtMSClose})
+        Me.ctxtMStrip.Name = "ctxtMStrip"
+        Me.ctxtMStrip.Size = New System.Drawing.Size(291, 298)
+        '
+        'ctxtMSAddEventos
+        '
+        Me.ctxtMSAddEventos.Name = "ctxtMSAddEventos"
+        Me.ctxtMSAddEventos.Size = New System.Drawing.Size(290, 22)
+        Me.ctxtMSAddEventos.Text = "Agregar eventos"
+        '
+        'ctxtMSModEventos
+        '
+        Me.ctxtMSModEventos.Name = "ctxtMSModEventos"
+        Me.ctxtMSModEventos.Size = New System.Drawing.Size(290, 22)
+        Me.ctxtMSModEventos.Text = "Modificar eventos"
+        '
+        'ctxtMSParticipantsAdmin
+        '
+        Me.ctxtMSParticipantsAdmin.Name = "ctxtMSParticipantsAdmin"
+        Me.ctxtMSParticipantsAdmin.Size = New System.Drawing.Size(290, 22)
+        Me.ctxtMSParticipantsAdmin.Text = "Administración de participantes (grupos)"
+        '
+        'ToolStripSeparator7
+        '
+        Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
+        Me.ToolStripSeparator7.Size = New System.Drawing.Size(287, 6)
+        '
+        'ctxtMSAddGroups
+        '
+        Me.ctxtMSAddGroups.Name = "ctxtMSAddGroups"
+        Me.ctxtMSAddGroups.Size = New System.Drawing.Size(290, 22)
+        Me.ctxtMSAddGroups.Text = "Agregar grupos"
+        '
+        'ctxtMSModGroups
+        '
+        Me.ctxtMSModGroups.Name = "ctxtMSModGroups"
+        Me.ctxtMSModGroups.Size = New System.Drawing.Size(290, 22)
+        Me.ctxtMSModGroups.Text = "Modificar grupos"
+        '
+        'ctxtMSDelGroups
+        '
+        Me.ctxtMSDelGroups.Name = "ctxtMSDelGroups"
+        Me.ctxtMSDelGroups.Size = New System.Drawing.Size(290, 22)
+        Me.ctxtMSDelGroups.Text = "Eliminar grupos"
+        '
+        'ToolStripSeparator8
+        '
+        Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
+        Me.ToolStripSeparator8.Size = New System.Drawing.Size(287, 6)
+        '
+        'ctxtMSFilterDatas
+        '
+        Me.ctxtMSFilterDatas.Name = "ctxtMSFilterDatas"
+        Me.ctxtMSFilterDatas.Size = New System.Drawing.Size(290, 22)
+        Me.ctxtMSFilterDatas.Text = "Filtrado de datos"
+        '
+        'ToolStripSeparator5
+        '
+        Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(287, 6)
+        '
+        'ctxtMSSellTickets
+        '
+        Me.ctxtMSSellTickets.Name = "ctxtMSSellTickets"
+        Me.ctxtMSSellTickets.Size = New System.Drawing.Size(290, 22)
+        Me.ctxtMSSellTickets.Text = "Venta de entradas"
+        '
+        'ctxtMSReembolso
+        '
+        Me.ctxtMSReembolso.Name = "ctxtMSReembolso"
+        Me.ctxtMSReembolso.Size = New System.Drawing.Size(290, 22)
+        Me.ctxtMSReembolso.Text = "Reembolso"
+        '
+        'ToolStripSeparator6
+        '
+        Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
+        Me.ToolStripSeparator6.Size = New System.Drawing.Size(287, 6)
+        '
+        'ctxtMSConfiguration
+        '
+        Me.ctxtMSConfiguration.Name = "ctxtMSConfiguration"
+        Me.ctxtMSConfiguration.Size = New System.Drawing.Size(290, 22)
+        Me.ctxtMSConfiguration.Text = "Configuraciones"
+        '
+        'ToolStripSeparator4
+        '
+        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(287, 6)
+        '
+        'ctxtMSHide
+        '
+        Me.ctxtMSHide.Name = "ctxtMSHide"
+        Me.ctxtMSHide.Size = New System.Drawing.Size(290, 22)
+        Me.ctxtMSHide.Text = "Ocultar"
+        '
+        'ctxtMSClose
+        '
+        Me.ctxtMSClose.Name = "ctxtMSClose"
+        Me.ctxtMSClose.Size = New System.Drawing.Size(290, 22)
+        Me.ctxtMSClose.Text = "Salir"
         '
         'StartMenu
         '
@@ -483,15 +512,12 @@ Partial Class StartMenu
         Me.Controls.Add(Me.gbEventMenu)
         Me.Controls.Add(Me.dgvShowEvents)
         Me.Controls.Add(Me.btnSellTickets)
-        Me.Controls.Add(Me.msUser)
         Me.Font = New System.Drawing.Font("Arial", 8.25!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.MainMenuStrip = Me.msUser
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "StartMenu"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Inicio - {nombre de la empresa} [V&R]"
-        Me.msUser.ResumeLayout(False)
-        Me.msUser.PerformLayout()
         CType(Me.dgvShowEvents, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbEventMenu.ResumeLayout(False)
         Me.gcGroupMenu.ResumeLayout(False)
@@ -499,6 +525,7 @@ Partial Class StartMenu
         CType(Me.btnSettings, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.ctxtMStrip.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -506,9 +533,6 @@ Partial Class StartMenu
 
     Friend WithEvents btnSellTickets As Button
     Friend WithEvents btnAddEvent As Button
-    Friend WithEvents msUser As MenuStrip
-    Friend WithEvents InicioToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents AyudaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents dgvShowEvents As DataGridView
     Friend WithEvents gbEventMenu As GroupBox
     Friend WithEvents btnAddDltGroupToEvent As Button
@@ -520,19 +544,6 @@ Partial Class StartMenu
     Friend WithEvents btnEditEvents As Button
     Friend WithEvents btnEditGroups As Button
     Friend WithEvents DataGridViewImageColumn1 As DataGridViewImageColumn
-    Friend WithEvents AgregarEventosToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ModificarEventosToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents AdministracionDeParticipantesgruposToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
-    Friend WithEvents AgregarGruposToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ModificarGruposToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents EliminarGruposToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
-    Friend WithEvents HistorialDeEventosToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents VentaDeEntradasToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
-    Friend WithEvents ConfiguraciónToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents CerrarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents dgvSEID As DataGridViewTextBoxColumn
     Friend WithEvents dgvSENameEvent As DataGridViewTextBoxColumn
     Friend WithEvents dgvSECityDir As DataGridViewTextBoxColumn
@@ -549,4 +560,22 @@ Partial Class StartMenu
     Friend WithEvents TBoxEventName As TextBox
     Friend WithEvents lblNoData As Label
     Friend WithEvents notfIc As NotifyIcon
+    Friend WithEvents ctxtMStrip As ContextMenuStrip
+    Friend WithEvents ctxtMSAddEventos As ToolStripMenuItem
+    Friend WithEvents ctxtMSModEventos As ToolStripMenuItem
+    Friend WithEvents ctxtMSParticipantsAdmin As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator7 As ToolStripSeparator
+    Friend WithEvents ctxtMSAddGroups As ToolStripMenuItem
+    Friend WithEvents ctxtMSModGroups As ToolStripMenuItem
+    Friend WithEvents ctxtMSDelGroups As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator8 As ToolStripSeparator
+    Friend WithEvents ctxtMSFilterDatas As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator5 As ToolStripSeparator
+    Friend WithEvents ctxtMSSellTickets As ToolStripMenuItem
+    Friend WithEvents ctxtMSReembolso As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator6 As ToolStripSeparator
+    Friend WithEvents ctxtMSConfiguration As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
+    Friend WithEvents ctxtMSClose As ToolStripMenuItem
+    Friend WithEvents ctxtMSHide As ToolStripMenuItem
 End Class

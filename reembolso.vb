@@ -1,5 +1,6 @@
 ﻿Public Class reembolso
     Private idEvent As Integer
+    Private filter As TCEFilter
 
     'rellena el combobox de eventos, y deja el index seleccionado en 0
     Public Sub New()
@@ -12,9 +13,13 @@
     Private Sub SlcEventSIC(sender As Object, e As EventArgs) Handles cbSlcEvents.SelectedIndexChanged
         If cbSlcEvents.SelectedIndex = 0 Then
             dgvSSells.Rows.Clear()
+            TBoxCiClient.Enabled = False
         Else
             idEvent = returnID(cbSlcEvents.SelectedItem.ToString)
             FillDGV($"SELECT * FROM Tickets WHERE idEvent={idEvent}", dgvSSells, 6, True)
+            filter = New TCEFilter(dgvSSells, 6)
+            filter.setArrayData()
+            TBoxCiClient.Enabled = True
         End If
     End Sub
 
@@ -39,13 +44,28 @@
     End Sub
 
     Private Sub CIClientTC(sender As Object, e As EventArgs) Handles TBoxCiClient.TextChanged
-        'si la longitud de la cedula es 8 y el index del combobox no es 0, rellena el DGV con los resultados
-        If TBoxCiClient.Text.Length = 8 And cbSlcEvents.SelectedIndex <> 0 Then
-            FillDGV($"SELECT * FROM Tickets WHERE CI={TBoxCiClient.Text} AND idEvent={idEvent}", dgvSSells, 6, True)
-            'si la longitud es menor a 8, y el index del CB no es 0, va a mostrar todos los tickets
-        ElseIf TBoxCiClient.Text.Length < 8 And cbSlcEvents.SelectedIndex <> 0 Then
+        If TBoxCiClient.Text = String.Empty Or TBoxCiClient.Text = "Introduzca la cédula del cliente" Then
             FillDGV($"SELECT * FROM Tickets WHERE idEvent={idEvent}", dgvSSells, 6, True)
+            lblNoData.Visible = False
+            Return
         End If
+
+        filter.FilterColumn = 2
+        filter.Filter(TBoxCiClient.Text)
+
+        If dgvSSells.Rows.Count = 0 Then
+            lblNoData.Visible = True
+        Else
+            lblNoData.Visible = False
+        End If
+
+        'si la longitud de la cedula es 8 y el index del combobox no es 0, rellena el DGV con los resultados
+        ' If TBoxCiClient.Text.Length = 8 And cbSlcEvents.SelectedIndex <> 0 Then
+        'FillDGV($"SELECT * FROM Tickets WHERE CI={TBoxCiClient.Text} AND idEvent={idEvent}", dgvSSells, 6, True)
+        'si la longitud es menor a 8, y el index del CB no es 0, va a mostrar todos los tickets
+        'ElseIf TBoxCiClient.Text.Length < 8 And cbSlcEvents.SelectedIndex <> 0 Then
+        'FillDGV($"SELECT * FROM Tickets WHERE idEvent={idEvent}", dgvSSells, 6, True)
+        'End If
     End Sub
 
     Private Sub TBoxCIClientClic(sender As Object, e As EventArgs) Handles TBoxCiClient.Click

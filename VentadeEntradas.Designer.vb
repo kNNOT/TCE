@@ -35,7 +35,6 @@ Partial Class sellTickets
         Me.TBoxClientName = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lblCountTickets = New System.Windows.Forms.Label()
-        Me.btnHelp = New System.Windows.Forms.PictureBox()
         Me.lblShowTotalPrice = New System.Windows.Forms.Label()
         Me.btnCcrtSell = New System.Windows.Forms.Button()
         Me.TBoxAditionalValue = New System.Windows.Forms.TextBox()
@@ -44,6 +43,7 @@ Partial Class sellTickets
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.CBSlcEvent = New System.Windows.Forms.ComboBox()
+        Me.btnHelp = New System.Windows.Forms.PictureBox()
         Me.layout.SuspendLayout()
         CType(Me.nudTicketsNmbr, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbClientInfo.SuspendLayout()
@@ -179,16 +179,6 @@ Partial Class sellTickets
         Me.lblCountTickets.TabIndex = 20
         Me.lblCountTickets.Text = "Cantidad de entradas:"
         '
-        'btnHelp
-        '
-        Me.btnHelp.Image = Global.ForUTU.My.Resources.Resources.baseline_help_outline_black_18dp
-        Me.btnHelp.Location = New System.Drawing.Point(288, 191)
-        Me.btnHelp.Name = "btnHelp"
-        Me.btnHelp.Size = New System.Drawing.Size(25, 25)
-        Me.btnHelp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.btnHelp.TabIndex = 25
-        Me.btnHelp.TabStop = False
-        '
         'lblShowTotalPrice
         '
         Me.lblShowTotalPrice.AutoSize = True
@@ -268,8 +258,19 @@ Partial Class sellTickets
         Me.CBSlcEvent.Size = New System.Drawing.Size(184, 22)
         Me.CBSlcEvent.TabIndex = 30
         '
+        'btnHelp
+        '
+        Me.btnHelp.Image = Global.ForUTU.My.Resources.Resources.baseline_help_outline_black_18dp
+        Me.btnHelp.Location = New System.Drawing.Point(288, 191)
+        Me.btnHelp.Name = "btnHelp"
+        Me.btnHelp.Size = New System.Drawing.Size(25, 25)
+        Me.btnHelp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.btnHelp.TabIndex = 25
+        Me.btnHelp.TabStop = False
+        '
         'sellTickets
         '
+        Me.AcceptButton = Me.btnCcrtSell
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.WhiteSmoke

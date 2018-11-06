@@ -8,9 +8,9 @@
         Me.uMod = uMod
         cbMusicalGenre.SelectedIndex = 0
         If uMod = True Then
+            FillCbGroups()
             cbSlcGroup.Visible = True
             cbSlcGroup.SelectedIndex = 0
-            iDB.ExSelect("SELECT idGroups, nameGroup FROM Groups", cbSlcGroup)
             Me.Size = New Size(263, 255)
             layoutNewGroup.Location = New Point(-2, 20)
             Me.Text = "Modificar grupo"
@@ -20,6 +20,12 @@
         End If
 
         defaultmask = mTBoxCreationData.Text
+    End Sub
+
+    Private Sub FillCbGroups()
+        cbSlcGroup.Enabled = False
+        iDB.ExSelect("SELECT idGroups, nameGroup FROM Groups", cbSlcGroup)
+        cbSlcGroup.Enabled = True
     End Sub
 
     'metodo para añadir grupo, INSERT, no se ejecutara hasta llamarlo en un evento

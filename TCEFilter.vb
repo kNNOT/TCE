@@ -3,6 +3,7 @@
     Private dgv As DataGridView 'datagridview para filtar datos
     Private clmnCount As Integer 'Cantidad de columnas de datos
     Private rowsCount As Integer 'Cantidad de filas del datagridview
+    Private filtercolumns As Integer 'La posicion de la columna donde se filtraran los datos
 
     'Contructor que inicia los valores de las variales globales.
     Public Sub New(dgv As DataGridView, clmnCount As Integer)
@@ -14,6 +15,13 @@
     Public WriteOnly Property Filas() As Integer
         Set(value As Integer)
             rowsCount = value
+        End Set
+    End Property
+
+    'La columna que se filtrara el dato
+    Public WriteOnly Property FilterColumn() As Integer
+        Set(value As Integer)
+            filtercolumns = value
         End Set
     End Property
 
@@ -31,7 +39,7 @@
     Public Sub Filter(t As String)
         Dim indexesdgv(rowsCount) As Integer? 'Array con la cantidad total de filas que acepta enteros y valores nulos.
         For dgvArrayIndex = 0 To rowsCount - 1
-            If dgvData(1, dgvArrayIndex).Contains(t) Then
+            If dgvData(filtercolumns, dgvArrayIndex).Contains(t) Then
                 indexesdgv(dgvArrayIndex) = dgvArrayIndex
             Else
                 indexesdgv(dgvArrayIndex) = Nothing
@@ -47,6 +55,8 @@
                 ElseIf clmnCount = 8 Then
                     dgv.Rows.Add(dgvData(0, indexesdgv(i)), dgvData(1, indexesdgv(i)), dgvData(2, indexesdgv(i)), dgvData(3, indexesdgv(i)), dgvData(4, indexesdgv(i)),
                                  dgvData(5, indexesdgv(i)), dgvData(6, indexesdgv(i)), dgvData(7, indexesdgv(i)))
+                ElseIf clmnCount = 6 Then
+                    dgv.Rows.Add(dgvData(0, indexesdgv(i)), dgvData(1, indexesdgv(i)), dgvData(2, indexesdgv(i)), dgvData(3, indexesdgv(i)), dgvData(4, indexesdgv(i)), dgvData(5, indexesdgv(i)))
                 End If
             End If
         Next

@@ -61,6 +61,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>TCEIcon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data, Version=6.10.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -283,6 +286,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\windowstheme.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TCEIcon.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TCEIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
