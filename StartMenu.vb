@@ -1,24 +1,11 @@
 ﻿Imports System.Threading
 
-Public Enum TypeResourceFire
-    addevent = 0
-    editevent
-    deleteevent
-    addgroup
-    editgroup
-    deletegroup
-    participants
-    history
-    refund
-    tickets
-End Enum
-
 Public Class StartMenu
     Private filter As TCEFilter
-    Private Typeresource As Integer
 
     Public Sub New()
         InitializeComponent()
+        My.Settings.Reset()
         CheckForIllegalCrossThreadCalls = False
         FillDGV("SELECT * FROM Events", dgvShowEvents, 10, True)
         filter = New TCEFilter(dgvShowEvents, 8)
@@ -89,23 +76,15 @@ Public Class StartMenu
             End If
         Next
 
-            'Hacer que muestre la notificacion una vez por dia...
+        'Hacer que muestre la notificacion una vez por dia...
 
-            If My.Settings.eventsfinished = True Then
-                notfIc.BalloonTipIcon = ToolTipIcon.Info
-                notfIc.BalloonTipText = $"Hoy: {Date.Now.ToString("dd/MM/yyyy")} han finalizado {eventsFinished} eventos."
-                notfIc.BalloonTipTitle = "Eventos finalizados"
-                notfIc.ShowBalloonTip(5000)
-            End If
-
-    End Sub
-
-    Private Sub BallonTipClickedClic(sender As Object, e As EventArgs) Handles notfIc.BalloonTipClicked
-        Dim LastRowCount As Integer = dgvShowEvents.Rows.Count - 1
-        If Typeresource = 0 Then
-            MessageBox.Show($"Nombre del evento: {dgvShowEvents.Item(1, LastRowCount).Value}{vbLf}Ciudad y Dirección: {dgvShowEvents.Item(2, LastRowCount).Value}{vbLf}Fecha inicial y final: {dgvShowEvents.Item(3, LastRowCount).Value}{vbLf}Número de placos: {dgvShowEvents.Item(4, LastRowCount).Value}{vbLf}Número de entradas: {dgvShowEvents.Item(5, LastRowCount).Value}{vbLf}Edad mínima requerida para entrar: {dgvShowEvents.Item(6, LastRowCount).Value}{vbLf}Precio: {dgvShowEvents.Item(7, LastRowCount).Value}{vbLf}", "Información nueva agregada al sistema, dale un vistazo", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Me.Select()
+        If My.Settings.eventsfinished = True Then
+            notfIc.BalloonTipIcon = ToolTipIcon.Info
+            notfIc.BalloonTipText = $"Hoy: {Date.Now.ToString("dd/MM/yyyy")} han finalizado {eventsFinished} eventos."
+            notfIc.BalloonTipTitle = "Eventos finalizados"
+            notfIc.ShowBalloonTip(5000)
         End If
+
     End Sub
 
     'estos metodos llaman a las ventanas, con un valor en los parametros del constructor de las clases que los requieran: addorEditEvent y addorEditGroup
@@ -115,11 +94,6 @@ Public Class StartMenu
         FillDGV("SELECT * FROM Events", dgvShowEvents, 10, True)
         filter.Filas = dgvShowEvents.Rows.Count
         filter.setArrayData()
-        notfIc.BalloonTipIcon = ToolTipIcon.Info
-        notfIc.BalloonTipTitle = "Nuevo evento agregado"
-        notfIc.BalloonTipText = "Se ha agregado un nuevo evento. Haz clic para más información"
-        notfIc.ShowBalloonTip(5000)
-        Typeresource = TypeResourceFire.addevent
     End Sub
 
     Private Sub btnEditEventsClic(sender As Object, e As EventArgs) Handles btnEditEvents.Click, ctxtMSModEventos.Click
@@ -224,7 +198,7 @@ Public Class StartMenu
         Close()
     End Sub
 
-    Private Sub ctxtMSHideClic(sender As Object, e As EventArgs) Handles ctxtMSHide.Click
+    Private Sub ctxtMSHideClic(sender As Object, e As EventArgs) Handles ctxtMSHide.Click, notfIc.DoubleClick
         If Visible = True Then
             Visible = False
             ctxtMSHide.Text = "Mostrar"
@@ -237,5 +211,10 @@ Public Class StartMenu
     Private Sub btnAddDltGroupToEventClic(sender As Object, e As EventArgs) Handles btnAddDltGroupToEvent.Click, ctxtMSParticipantsAdmin.Click
         Dim participants As addGroupsToEvent = New addGroupsToEvent
         participants.ShowDialog()
+    End Sub
+
+    Private Sub disposeAll(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        notfIc.Visible = False
+        notfIc.Dispose()
     End Sub
 End Class

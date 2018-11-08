@@ -83,7 +83,6 @@ Partial Class addorEditEvent
         '
         Me.nudCtnEntradas.Location = New System.Drawing.Point(213, 94)
         Me.nudCtnEntradas.Maximum = New Decimal(New Integer() {1000000, 0, 0, 0})
-        Me.nudCtnEntradas.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.nudCtnEntradas.Name = "nudCtnEntradas"
         Me.nudCtnEntradas.Size = New System.Drawing.Size(82, 20)
         Me.nudCtnEntradas.TabIndex = 64

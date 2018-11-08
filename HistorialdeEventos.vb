@@ -71,13 +71,14 @@
         Dim firstDate As Date = mTBoxDateI.Text
         Dim secondDate As Date = mTBoxDateF.Text
         If firstDate > secondDate Then
-            Dim dlg As DialogResult = MessageBox.Show($"La primera fecha es mayor a la segunda fecha.{vbLf}Orden de fechas inválidas para la filtración de los eventos.{vbLf}¿Desea cambiar las fechas de orden?", "Fechas en orden incorrecto", MessageBoxButtons.YesNo, MessageBoxIcon.Error)
-            If dlg = DialogResult.Yes Then
-                mTBoxDateI.Text = secondDate
-                mTBoxDateF.Text = firstDate
-            ElseIf dlg = DialogResult.No Then
-                Return
-            End If
+            Dim dlg As DialogResult = MessageBox.Show($"La primera fecha es mayor a la segunda fecha.{vbLf}Orden de fechas inválidas para la filtración de los eventos.{vbLf}", "Fechas en orden incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            'If dlg = DialogResult.Yes Then
+            'mTBoxDateI.Text = secondDate
+            'mTBoxDateF.Text = firstDate
+            'lseIf dlg = DialogResult.No Then
+            '   Return
+            'End If
+            Return
         End If
 
         If dgvShowEventsPerDate.Rows.Count > 0 Then
@@ -114,9 +115,6 @@
                 iDB.ExSelect($"SELECT name_events FROM Events WHERE idEvents={id}", dgvShowEventsPerDate, 1, False)
             End If
         Next
-
-        mTBoxDateI.Text = String.Empty
-        mTBoxDateF.Text = String.Empty
     End Sub
 
     Private Sub dgvShowEventsPerDateRE(sender As Object, e As DataGridViewCellEventArgs) Handles dgvShowEventsPerDate.RowEnter

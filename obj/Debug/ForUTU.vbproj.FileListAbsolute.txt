@@ -141,3 +141,24 @@ D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\obj\Debug\ForUTU.vbproj.CopyCom
 D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\obj\Debug\ForUTU.exe
 D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\obj\Debug\ForUTU.xml
 D:\Juegos Alex\Proyectos Programacion\TCE\ForUTU\obj\Debug\ForUTU.pdb
+C:\Users\jeanr\Desktop\TCE-master\bin\Debug\ForUTU.exe.config
+C:\Users\jeanr\Desktop\TCE-master\bin\Debug\ForUTU.exe
+C:\Users\jeanr\Desktop\TCE-master\bin\Debug\ForUTU.pdb
+C:\Users\jeanr\Desktop\TCE-master\bin\Debug\ForUTU.xml
+C:\Users\jeanr\Desktop\TCE-master\obj\Debug\ForUTU.vbprojAssemblyReference.cache
+C:\Users\jeanr\Desktop\TCE-master\obj\Debug\ForUTU.addorEditGroup.resources
+C:\Users\jeanr\Desktop\TCE-master\obj\Debug\ForUTU.addGroupsToEvent.resources
+C:\Users\jeanr\Desktop\TCE-master\obj\Debug\ForUTU.addorEditEvent.resources
+C:\Users\jeanr\Desktop\TCE-master\obj\Debug\ForUTU.configuraciones.resources
+C:\Users\jeanr\Desktop\TCE-master\obj\Debug\ForUTU.DeleteGroups.resources
+C:\Users\jeanr\Desktop\TCE-master\obj\Debug\ForUTU.EventsHistory.resources
+C:\Users\jeanr\Desktop\TCE-master\obj\Debug\ForUTU.reembolso.resources
+C:\Users\jeanr\Desktop\TCE-master\obj\Debug\ForUTU.StartMenu.resources
+C:\Users\jeanr\Desktop\TCE-master\obj\Debug\ForUTU.Resources.resources
+C:\Users\jeanr\Desktop\TCE-master\obj\Debug\ForUTU.sellTickets.resources
+C:\Users\jeanr\Desktop\TCE-master\obj\Debug\ForUTU.vbproj.GenerateResource.cache
+C:\Users\jeanr\Desktop\TCE-master\obj\Debug\ForUTU.vbproj.CoreCompileInputs.cache
+C:\Users\jeanr\Desktop\TCE-master\obj\Debug\ForUTU.vbproj.CopyComplete
+C:\Users\jeanr\Desktop\TCE-master\obj\Debug\ForUTU.exe
+C:\Users\jeanr\Desktop\TCE-master\obj\Debug\ForUTU.xml
+C:\Users\jeanr\Desktop\TCE-master\obj\Debug\ForUTU.pdb
