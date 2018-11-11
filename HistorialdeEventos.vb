@@ -2,6 +2,8 @@
     Private idEvent As Integer?
     Private idGroup As Integer?
     Private defaultmask As String
+    Private filterCi As TCEFilter
+    Private filterGroup As TCEFilter
 
     Public Sub New()
         InitializeComponent()
@@ -10,7 +12,11 @@
         iDB.ExSelect("SELECT idGroups, nameGroup FROM Groups", cbSlcGroup)
         iDB.ExSelect("SELECT idEvents, name_events FROM Events", cbSlcEvent)
         iDB.ExSelect("SELECT nameGroup FROM Groups", dgvShowGroups, 1, True)
-        iDB.ExSelect("SELECT CI, name, surname FROM Clients", dgvShowClients, 3, True)
+        iDB.ExSelect("SELECT CI, name, surname FROM Clients", dgvShowaCli, 3, True)
+        filterCi = New TCEFilter(dgvShowaCli, 3)
+        filterGroup = New TCEFilter(dgvShowGroups, 1)
+        filterCi.setArrayData()
+        filterGroup.setArrayData()
         defaultmask = mTBoxDateF.Text
         CheckForIllegalCrossThreadCalls = False
 
@@ -20,20 +26,20 @@
             lblNoDataG.Visible = False
         End If
 
-        If dgvShowClients.Rows.Count = 0 Then
+        If dgvShowaCli.Rows.Count = 0 Then
             lblNoDataC.Visible = True
         Else
             lblNoDataC.Visible = False
         End If
     End Sub
 
-	Private Sub cbSlcEventSIC(sender As Object, e As EventArgs) Handles cbSlcEvent.SelectedIndexChanged
-		If cbSlcEvent.SelectedIndex = 0 Then
-			dgvShowClientsGoE.Rows.Clear()
+    Private Sub cbSlcEventSIC(sender As Object, e As EventArgs) Handles cbSlcEvent.SelectedIndexChanged
+        If cbSlcEvent.SelectedIndex = 0 Then
+            dgvShowClientsGoE.Rows.Clear()
             idEvent = Nothing
             lblNoDataHCS.Visible = False
         Else
-			idEvent = returnID(cbSlcEvent.SelectedItem.ToString)
+            idEvent = returnID(cbSlcEvent.SelectedItem.ToString)
             iDB.ExSelect($"SELECT c.CI, name, surname FROM Clients c, Tickets t, Events e WHERE c.CI=t.CI AND e.idEvents=t.idEvent AND e.idEvents={idEvent}", dgvShowClientsGoE, 3, True)
 
             If dgvShowClientsGoE.Rows.Count = 0 Then
@@ -42,16 +48,17 @@
                 lblNoDataHCS.Visible = False
             End If
         End If
-	End Sub
+    End Sub
 
-	Private Sub cbSlcGroupSIC(sender As Object, e As EventArgs) Handles cbSlcGroup.SelectedIndexChanged
-		If cbSlcGroup.SelectedIndex = 0 Then
-			dgvShowGroupsHE.Rows.Clear()
+    Private Sub cbSlcGroupSIC(sender As Object, e As EventArgs) Handles cbSlcGroup.SelectedIndexChanged
+        If cbSlcGroup.SelectedIndex = 0 Then
+            dgvShowGroupsHE.Rows.Clear()
             idGroup = Nothing
             lblNoDataHG.Visible = False
         Else
-			idGroup = returnID(cbSlcGroup.SelectedItem.ToString)
+            idGroup = returnID(cbSlcGroup.SelectedItem.ToString)
             iDB.ExSelect($"SELECT name_events FROM Events e, Groups g, Participants p WHERE e.idEvents= p.idEvents AND g.idGroups=p.idGroups AND g.idGroups={idGroup}", dgvShowGroupsHE, 1, True)
+            iDB.ExSelect($"SELECT name_events FROM Events e, Groups g, Participated p WHERE e.idEvents= p.idEvents AND g.idGroups=p.idGroups AND g.idGroups={idGroup}", dgvShowGroupsHE, 1, False)
 
             If dgvShowGroupsHE.Rows.Count = 0 Then
                 lblNoDataHG.Visible = True
@@ -59,7 +66,7 @@
                 lblNoDataHG.Visible = False
             End If
         End If
-	End Sub
+    End Sub
 
     Private Sub btnSearchEventDateClic(sender As Object, e As EventArgs) Handles btnSearchEventDate.Click
         If mTBoxDateI.Text = defaultmask Or mTBoxDateF.Text = defaultmask Then
@@ -136,6 +143,72 @@
             MessageBox.Show("La fecha final no es válida.", "Fecha inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
             mTBoxDateF.Select()
             Return
+        End If
+    End Sub
+
+    Private Sub TBoxGroupNameClic(sender As Object, e As EventArgs) Handles TBoxGroupName.Click
+        If TBoxGroupName.Text = "Escriba el nombre del grupo" Then
+            TBoxGroupName.Text = String.Empty
+        End If
+    End Sub
+
+    Private Sub TBoxCiClientClic(sender As Object, e As EventArgs) Handles TBoxCiClient.Click
+        If TBoxCiClient.Text = "Escriba la identificacion del cliente" Then
+            TBoxCiClient.Text = String.Empty
+        End If
+    End Sub
+
+    Private Sub TBoxCiClientTC(sender As Object, e As EventArgs) Handles TBoxCiClient.TextChanged
+        If TBoxCiClient.Text = "Escriba la identificacion del cliente" Then
+            Return
+        End If
+
+        If TBoxCiClient.Text = String.Empty Then
+            FillDGV("SELECT * FROM Clients", dgvShowaCli, 3, True)
+            lblNoDataC.Visible = False
+            Return
+        End If
+
+        filterCi.FilterColumn = 0
+        filterCi.Filter(TBoxCiClient.Text)
+
+        If dgvShowaCli.Rows.Count = 0 Then
+            lblNoDataC.Visible = True
+        Else
+            lblNoDataC.Visible = False
+        End If
+    End Sub
+
+    Private Sub TBoxGroupNameLeave(sender As Object, e As EventArgs) Handles TBoxGroupName.Leave
+        If TBoxGroupName.Text = String.Empty Then
+            TBoxGroupName.Text = "Escriba el nombre del grupo"
+        End If
+    End Sub
+
+    Private Sub TBoxCiClientLeave(sender As Object, e As EventArgs) Handles TBoxCiClient.Leave
+        If TBoxCiClient.Text = String.Empty Then
+            TBoxCiClient.Text = "Escriba la identificacion del cliente"
+        End If
+    End Sub
+
+    Private Sub TBoxGroupNameTC(sender As Object, e As EventArgs) Handles TBoxGroupName.TextChanged
+        If TBoxGroupName.Text = "Escriba el nombre del grupo" Then
+            Return
+        End If
+
+        If TBoxGroupName.Text = String.Empty Then
+            FillDGV("SELECT nameGroup FROM Groups", dgvShowGroups, 1, True)
+            lblNoDataG.Visible = False
+            Return
+        End If
+
+        filterGroup.FilterColumn = 0
+        filterGroup.Filter(TBoxGroupName.Text)
+
+        If dgvShowGroups.Rows.Count = 0 Then
+            lblNoDataG.Visible = True
+        Else
+            lblNoDataG.Visible = False
         End If
     End Sub
 End Class

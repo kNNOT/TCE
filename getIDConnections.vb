@@ -17,4 +17,25 @@
     Public Sub FillDGV(qry As String, dgv As DataGridView, columnsCount As Integer, fresh As Boolean)
         iDB.ExSelect(qry, dgv, columnsCount, fresh)
     End Sub
+
+    Sub ShortViewEvents(cb As ComboBox)
+        Dim id As Integer
+        Dim datei As Date
+        Dim listEvents As List(Of String) = New List(Of String)
+
+        For y = 1 To cb.Items.Count - 1
+            listEvents.Add(cb.Items.Item(y).ToString)
+        Next
+
+        cb.Items.Clear()
+        cb.Items.Add("---Seleccione un Evento---")
+        For Each idnevent As String In listEvents
+            id = returnID(idnevent)
+            datei = Convert.ToDateTime(iDB.ExSelect($"SELECT datei FROM Events WHERE idEvents={id}"))
+
+            If datei > Date.Now.ToString("dd/MM/yyyy") Then
+                cb.Items.Add(idnevent)
+            End If
+        Next
+    End Sub
 End Module

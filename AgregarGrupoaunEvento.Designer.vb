@@ -22,6 +22,7 @@ Partial Class addGroupsToEvent
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.gbAddGroups = New System.Windows.Forms.GroupBox()
         Me.nudStageNum = New System.Windows.Forms.NumericUpDown()
@@ -39,15 +40,13 @@ Partial Class addGroupsToEvent
         Me.dgvAGTEDateActuation = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvAGTEHourActiation = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvSEGStage = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvSEGbtnDelete = New System.Windows.Forms.DataGridViewImageColumn()
         Me.CBSlcEvents = New System.Windows.Forms.ComboBox()
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.btnHelp = New System.Windows.Forms.PictureBox()
-        Me.dgvSEGbtnDelete = New System.Windows.Forms.DataGridViewImageColumn()
         Me.gbAddGroups.SuspendLayout()
         CType(Me.nudStageNum, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbDlteGroups.SuspendLayout()
         CType(Me.dgvShowEventGroups, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -182,8 +181,17 @@ Partial Class addGroupsToEvent
         Me.dgvShowEventGroups.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvShowEventGroups.BackgroundColor = System.Drawing.Color.WhiteSmoke
         Me.dgvShowEventGroups.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.dgvShowEventGroups.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvShowEventGroups.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvShowEventGroups.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvSEGID, Me.dgvAGTEDateActuation, Me.dgvAGTEHourActiation, Me.dgvSEGStage, Me.dgvSEGbtnDelete})
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Arial", 8.25!)
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvShowEventGroups.DefaultCellStyle = DataGridViewCellStyle1
         Me.dgvShowEventGroups.Location = New System.Drawing.Point(6, 20)
         Me.dgvShowEventGroups.Name = "dgvShowEventGroups"
         Me.dgvShowEventGroups.ReadOnly = True
@@ -217,6 +225,16 @@ Partial Class addGroupsToEvent
         Me.dgvSEGStage.Name = "dgvSEGStage"
         Me.dgvSEGStage.ReadOnly = True
         '
+        'dgvSEGbtnDelete
+        '
+        Me.dgvSEGbtnDelete.HeaderText = "Eliminar grupo"
+        Me.dgvSEGbtnDelete.Image = Global.ForUTU.My.Resources.Resources.baseline_delete_forever_black_18dp
+        Me.dgvSEGbtnDelete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
+        Me.dgvSEGbtnDelete.Name = "dgvSEGbtnDelete"
+        Me.dgvSEGbtnDelete.ReadOnly = True
+        Me.dgvSEGbtnDelete.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvSEGbtnDelete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        '
         'CBSlcEvents
         '
         Me.CBSlcEvents.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -224,7 +242,7 @@ Partial Class addGroupsToEvent
         Me.CBSlcEvents.Items.AddRange(New Object() {"---Seleccione un evento---"})
         Me.CBSlcEvents.Location = New System.Drawing.Point(113, 8)
         Me.CBSlcEvents.Name = "CBSlcEvents"
-        Me.CBSlcEvents.Size = New System.Drawing.Size(366, 22)
+        Me.CBSlcEvents.Size = New System.Drawing.Size(398, 22)
         Me.CBSlcEvents.TabIndex = 5
         '
         'DataGridViewImageColumn1
@@ -238,26 +256,6 @@ Partial Class addGroupsToEvent
         Me.DataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.DataGridViewImageColumn1.Width = 97
         '
-        'btnHelp
-        '
-        Me.btnHelp.Image = Global.ForUTU.My.Resources.Resources.baseline_help_outline_black_18dp
-        Me.btnHelp.Location = New System.Drawing.Point(486, 8)
-        Me.btnHelp.Name = "btnHelp"
-        Me.btnHelp.Size = New System.Drawing.Size(25, 25)
-        Me.btnHelp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.btnHelp.TabIndex = 4
-        Me.btnHelp.TabStop = False
-        '
-        'dgvSEGbtnDelete
-        '
-        Me.dgvSEGbtnDelete.HeaderText = "Eliminar grupo"
-        Me.dgvSEGbtnDelete.Image = Global.ForUTU.My.Resources.Resources.baseline_delete_forever_black_18dp
-        Me.dgvSEGbtnDelete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
-        Me.dgvSEGbtnDelete.Name = "dgvSEGbtnDelete"
-        Me.dgvSEGbtnDelete.ReadOnly = True
-        Me.dgvSEGbtnDelete.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvSEGbtnDelete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        '
         'addGroupsToEvent
         '
         Me.AcceptButton = Me.btnAddGroupToEvent
@@ -266,7 +264,6 @@ Partial Class addGroupsToEvent
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(523, 439)
         Me.Controls.Add(Me.CBSlcEvents)
-        Me.Controls.Add(Me.btnHelp)
         Me.Controls.Add(Me.gbDlteGroups)
         Me.Controls.Add(Me.gbAddGroups)
         Me.Controls.Add(Me.Label1)
@@ -281,7 +278,6 @@ Partial Class addGroupsToEvent
         CType(Me.nudStageNum, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbDlteGroups.ResumeLayout(False)
         CType(Me.dgvShowEventGroups, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -294,7 +290,6 @@ Partial Class addGroupsToEvent
     Friend WithEvents dgvShowEventGroups As DataGridView
     Friend WithEvents Label8 As Label
     Friend WithEvents Label7 As Label
-    Friend WithEvents btnHelp As PictureBox
     Friend WithEvents CBSlcGroups As ComboBox
     Friend WithEvents CBSlcEvents As ComboBox
     Friend WithEvents btnAddGroupToEvent As Button

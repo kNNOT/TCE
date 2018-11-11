@@ -34,13 +34,11 @@ Partial Class DeleteGroups
         Me.dgvSEimgDelete = New System.Windows.Forms.DataGridViewImageColumn()
         Me.TBoxgroupName = New System.Windows.Forms.TextBox()
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.btnHelp = New System.Windows.Forms.PictureBox()
         Me.MsgModal = New System.Windows.Forms.ToolTip(Me.components)
         Me.lblNoData = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         CType(Me.dgvShowGroups, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -145,17 +143,6 @@ Partial Class DeleteGroups
         Me.DataGridViewImageColumn1.ToolTipText = "Haz clic para eliminar este grupo"
         Me.DataGridViewImageColumn1.Width = 135
         '
-        'btnHelp
-        '
-        Me.btnHelp.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnHelp.Image = Global.ForUTU.My.Resources.Resources.baseline_help_outline_black_18dp
-        Me.btnHelp.Location = New System.Drawing.Point(800, 13)
-        Me.btnHelp.Name = "btnHelp"
-        Me.btnHelp.Size = New System.Drawing.Size(25, 25)
-        Me.btnHelp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.btnHelp.TabIndex = 22
-        Me.btnHelp.TabStop = False
-        '
         'lblNoData
         '
         Me.lblNoData.AutoSize = True
@@ -174,7 +161,7 @@ Partial Class DeleteGroups
         Me.Panel1.Controls.Add(Me.TBoxgroupName)
         Me.Panel1.Location = New System.Drawing.Point(12, 12)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(782, 28)
+        Me.Panel1.Size = New System.Drawing.Size(813, 28)
         Me.Panel1.TabIndex = 28
         '
         'Panel2
@@ -183,7 +170,7 @@ Partial Class DeleteGroups
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel2.Location = New System.Drawing.Point(0, 27)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(782, 1)
+        Me.Panel2.Size = New System.Drawing.Size(813, 1)
         Me.Panel2.TabIndex = 29
         '
         'DeleteGroups
@@ -195,22 +182,18 @@ Partial Class DeleteGroups
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.lblNoData)
         Me.Controls.Add(Me.dgvShowGroups)
-        Me.Controls.Add(Me.btnHelp)
         Me.Font = New System.Drawing.Font("Arial", 8.25!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "DeleteGroups"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Eliminar grupos"
         CType(Me.dgvShowGroups, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents btnHelp As PictureBox
     Friend WithEvents dgvShowGroups As DataGridView
     Friend WithEvents TBoxgroupName As TextBox
     Friend WithEvents DataGridViewImageColumn1 As DataGridViewImageColumn

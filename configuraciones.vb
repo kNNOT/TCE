@@ -92,7 +92,7 @@
         End If
     End Sub
 
-    Private Sub btnApplyClicDataConecction(sender As Object, e As EventArgs) Handles btnApply.Click
+    Private Sub btnApplyClicDataConecction(sender As Object, e As EventArgs) Handles btnApply.Click, lblBtnApply.Click, imgBtnApply.Click, styleBtnApply.Click
         If rbRemoteServer.Checked Then
             My.Settings.server = TBoxIP.Text
             My.Settings.port = Convert.ToUInt32(TBoxPort.Text)
@@ -107,6 +107,7 @@
             My.Settings.db = TBoxDB.Text
         End If
         My.Settings.Save()
+        MessageBox.Show("Se ha guardado la configuración", "Configuración guardadas", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
     Private Sub ifCheked(sender As Object, e As EventArgs) Handles rbLocalServer.CheckedChanged
@@ -123,8 +124,10 @@
         End If
     End Sub
 
-    Private Sub btnApplySClic(sender As Object, e As EventArgs) Handles btnApplyS.Click
+    Private Sub btnApplySClic(sender As Object, e As EventArgs) Handles btnApplyS.Click, lblBtnApplyS.Click, imgBtnApplyS.Click, styleBtnApplyS.Click
         My.Settings.password = TBoxAcessPass.Text
+        My.Settings.Save()
+        MessageBox.Show("Se ha guardado la configuración", "Configuración guardada", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
     Private Sub chbDisableEmp_CheckedChanged(sender As Object, e As EventArgs) Handles chbDisableEmp.CheckedChanged

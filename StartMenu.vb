@@ -2,10 +2,10 @@
 
 Public Class StartMenu
     Private filter As TCEFilter
+    Private correctMpass As Boolean = True
 
     Public Sub New()
         InitializeComponent()
-        My.Settings.Reset()
         CheckForIllegalCrossThreadCalls = False
         FillDGV("SELECT * FROM Events", dgvShowEvents, 10, True)
         filter = New TCEFilter(dgvShowEvents, 8)
@@ -35,7 +35,11 @@ Public Class StartMenu
                 If countpass = 5 Then
                     Dim mpass = InputBox("Introduce la contraseña maestra para recuperar la sessión.\nLa contraseña maestra se encuentra en el manual del usuario.", "introduce la contraseña maestra")
                     If My.Settings.masterPassword = mpass Then
+                        correctMpass = True
                         Exit While
+                    ElseIf mpass = String.Empty Or mpass <> My.Settings.masterPassword Then
+                        MessageBox.Show("Consulte el manual de usuario para verificar la clave maestra y poder recuperar el sistema.", "Clave maestra erronea", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        correctMpass = False
                     End If
                 End If
             End While
@@ -45,36 +49,43 @@ Public Class StartMenu
         TgetEventsFinished.Start()
     End Sub
 
+
+    Private Sub StartMenuLoad(sender As Object, e As EventArgs) Handles Me.Load
+        If correctMpass = False Then
+            Close()
+        End If
+    End Sub
+
     'Agregar los de participants a participated
     Private Sub getEventsFinished()
-
+        Dim eventsFinished As Integer = 0
         If My.Settings.eventsFinishedDate < Date.Now.ToString("dd/MM/yyyy") Then
             My.Settings.eventsfinished = True
             My.Settings.eventsFinishedDate = Date.Now.ToString("dd/MM/yyyy")
+            My.Settings.Save()
+
+            Dim listIdEvents As List(Of Object) = New List(Of Object)
+            iDB.ExSelect("SELECT idEvents FROM Participants", listIdEvents)
+            For Each id As Object In listIdEvents
+                Dim datefEvent As Date = iDB.ExSelect($"SELECT datef FROM Events WHERE idEvents={id}")
+                If datefEvent < Date.Now.ToString("dd/MM/yyyy") Then
+                    eventsFinished = eventsFinished + 1
+                    Dim listIdGroupsParticipated As List(Of Object) = New List(Of Object)
+                    iDB.ExSelect($"SELECT idGroups FROM Participants WHERE idEvents={id}", listIdGroupsParticipated)
+
+                    For Each idGroup As Object In listIdGroupsParticipated
+                        Dim nameGroup As String = iDB.ExSelect($"SELECT nameGroup FROM Groups WHERE idGroups={idGroup}")
+                        Dim nameEvent As String = iDB.ExSelect($"SELECT name_events FROM Events WHERE idEvents={id}")
+                        Dim dateShow As String = iDB.ExSelect($"SELECT dateShow FROM Participants WHERE idEvents={id} AND idGroups={idGroup}")
+                        iDB.Query($"INSERT INTO Participated(idEvents,idGroups,nameEvent,nameGroup,dateShow) VALUES({id},{idGroup},'{nameEvent}','{nameGroup}','{dateShow}')")
+                        iDB.Query($"DELETE FROM Participants WHERE idEvents={id} AND idGroups={idGroup}")
+                    Next
+                End If
+            Next
         Else
             My.Settings.eventsfinished = False
+            My.Settings.Save()
         End If
-
-        My.Settings.Save()
-
-        Dim listIdEvents As List(Of Object) = New List(Of Object)
-        iDB.ExSelect("SELECT idEvents FROM Participants", listIdEvents)
-        Dim eventsFinished As Integer = 0
-        For Each id As Object In listIdEvents
-            Dim datefEvent As Date = iDB.ExSelect($"SELECT datef FROM Events WHERE idEvents={id}")
-            If datefEvent < Date.Now.ToString("dd/MM/yyyy") Then
-                eventsFinished = eventsFinished + 1
-                Dim listIdGroupsParticipated As List(Of Object) = New List(Of Object)
-                iDB.ExSelect($"SELECT idGroups FROM Participants WHERE idEvents={id}", listIdGroupsParticipated)
-
-                For Each idGroup As Object In listIdGroupsParticipated
-                    Dim nameGroup As String = iDB.ExSelect($"SELECT nameGroup FROM Groups WHERE idGroups={idGroup}")
-                    Dim nameEvent As String = iDB.ExSelect($"SELECT name_events FROM Events WHERE idEvents={id}")
-                    Dim dateShow As String = iDB.ExSelect($"SELECT dateShow FROM Participants WHERE idEvents={id} AND idGroups={idGroup}")
-                    iDB.Query($"INSERT INTO Participated(idEvents,idGroups,nameEvent,nameGroup,dateShow) VALUES({id},{idGroup},'{nameEvent}','{nameGroup}','{dateShow}')")
-                Next
-            End If
-        Next
 
         'Hacer que muestre la notificacion una vez por dia...
 
@@ -92,6 +103,7 @@ Public Class StartMenu
         Dim addEvent As addorEditEvent = New addorEditEvent(False) 'se puso el parametro en falso por que no es para editar
         addEvent.ShowDialog()
         FillDGV("SELECT * FROM Events", dgvShowEvents, 10, True)
+        dgvShowEvents.Sort(dgvShowEvents.Columns("dgvSEDateStr"), System.ComponentModel.ListSortDirection.Descending)
         filter.Filas = dgvShowEvents.Rows.Count
         filter.setArrayData()
     End Sub
@@ -100,6 +112,7 @@ Public Class StartMenu
         Dim editEvent As addorEditEvent = New addorEditEvent(True)
         editEvent.ShowDialog()
         FillDGV("SELECT * FROM Events", dgvShowEvents, 10, True)
+        dgvShowEvents.Sort(dgvShowEvents.Columns("dgvSEDateStr"), System.ComponentModel.ListSortDirection.Descending)
         filter.Filas = dgvShowEvents.Rows.Count
         filter.setArrayData()
     End Sub
@@ -215,6 +228,5 @@ Public Class StartMenu
 
     Private Sub disposeAll(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         notfIc.Visible = False
-        notfIc.Dispose()
     End Sub
 End Class

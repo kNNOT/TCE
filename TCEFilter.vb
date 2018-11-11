@@ -57,6 +57,10 @@
                                  dgvData(5, indexesdgv(i)), dgvData(6, indexesdgv(i)), dgvData(7, indexesdgv(i)))
                 ElseIf clmnCount = 6 Then
                     dgv.Rows.Add(dgvData(0, indexesdgv(i)), dgvData(1, indexesdgv(i)), dgvData(2, indexesdgv(i)), dgvData(3, indexesdgv(i)), dgvData(4, indexesdgv(i)), dgvData(5, indexesdgv(i)))
+                ElseIf clmnCount = 1 Then
+                    dgv.Rows.Add(dgvData(0, indexesdgv(i)))
+                ElseIf clmnCount = 3 Then
+                    dgv.Rows.Add(dgvData(0, indexesdgv(i)), dgvData(1, indexesdgv(i)), dgvData(2, indexesdgv(i)))
                 End If
             End If
         Next

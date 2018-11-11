@@ -98,7 +98,7 @@ Public Class DBConnection
     End Sub
 
     'Método que llena todo un datagridview con elemntos, estos elementos comunmente son todas las columnas y filas de la tabla necesaria.
-    Public Async Sub ExSelect(qry As String, dgv As DataGridView, clmnCount As Integer, fresh As Boolean)
+    Public Sub ExSelect(qry As String, dgv As DataGridView, clmnCount As Integer, fresh As Boolean)
         Try
             cmd = New MySqlCommand(qry, Conexion())
             reader = cmd.ExecuteReader()
@@ -106,7 +106,7 @@ Public Class DBConnection
                 dgv.Rows.Clear() 'Limpia todas las filas que hay en el datagridview
             End If
 
-            While Await reader.ReadAsync() 'si hay alguna fila para leer, devuelve True (entra al código del While); si no hay, devuelve False y no entra al código del While.
+            While reader.Read() 'si hay alguna fila para leer, devuelve True (entra al código del While); si no hay, devuelve False y no entra al código del While.
                 If clmnCount = 10 Then 'Numero de columnas de la ventana StartMenu
                     dgv.Rows.Add(reader.GetString(0), reader.GetString(1), $"{reader.GetString(2)}, {reader.GetString(3)}", $"{reader.GetString(4)} - {reader.GetString(5)}",
                                             reader.GetString(6), reader.GetString(7), reader.GetString(8), reader.GetString(9))

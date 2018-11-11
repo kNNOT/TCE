@@ -43,11 +43,13 @@ Partial Class EventsHistory
         Me.btnSearchEventDate = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.mTBoxDateF = New System.Windows.Forms.MaskedTextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.dgvShowEventsPerDate = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.mTBoxDateI = New System.Windows.Forms.MaskedTextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.tabHistoryClient = New System.Windows.Forms.TabPage()
@@ -58,17 +60,21 @@ Partial Class EventsHistory
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cbSlcEvent = New System.Windows.Forms.ComboBox()
         Me.tabShowGroups = New System.Windows.Forms.TabPage()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.TBoxGroupName = New System.Windows.Forms.TextBox()
+        Me.Panel6 = New System.Windows.Forms.Panel()
         Me.lblNoDataG = New System.Windows.Forms.Label()
         Me.dgvShowGroups = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tabShowClients = New System.Windows.Forms.TabPage()
+        Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.TBoxCiClient = New System.Windows.Forms.TextBox()
+        Me.Panel8 = New System.Windows.Forms.Panel()
         Me.lblNoDataC = New System.Windows.Forms.Label()
-        Me.dgvShowClients = New System.Windows.Forms.DataGridView()
+        Me.dgvShowaCli = New System.Windows.Forms.DataGridView()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.mTBoxDateI = New System.Windows.Forms.MaskedTextBox()
-        Me.mTBoxDateF = New System.Windows.Forms.MaskedTextBox()
         CType(Me.dgvShowGroupsHE, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabHistoryEvents.SuspendLayout()
         Me.tabHistoryGroups.SuspendLayout()
@@ -79,9 +85,11 @@ Partial Class EventsHistory
         Me.tabHistoryClient.SuspendLayout()
         CType(Me.dgvShowClientsGoE, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabShowGroups.SuspendLayout()
+        Me.Panel5.SuspendLayout()
         CType(Me.dgvShowGroups, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabShowClients.SuspendLayout()
-        CType(Me.dgvShowClients, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel7.SuspendLayout()
+        CType(Me.dgvShowaCli, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dgvShowGroupsHE
@@ -108,7 +116,7 @@ Partial Class EventsHistory
         Me.dgvShowGroupsHE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvShowGroupsHE.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvSHEventName})
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Arial", 8.25!)
         DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(188, Byte), Integer))
@@ -158,6 +166,7 @@ Partial Class EventsHistory
         '
         'tabHistoryGroups
         '
+        Me.tabHistoryGroups.BackColor = System.Drawing.Color.WhiteSmoke
         Me.tabHistoryGroups.Controls.Add(Me.lblNoDataHG)
         Me.tabHistoryGroups.Controls.Add(Me.dgvShowGroupsHE)
         Me.tabHistoryGroups.Controls.Add(Me.cbSlcGroup)
@@ -167,7 +176,6 @@ Partial Class EventsHistory
         Me.tabHistoryGroups.Size = New System.Drawing.Size(452, 451)
         Me.tabHistoryGroups.TabIndex = 0
         Me.tabHistoryGroups.Text = "Historial por grupo"
-        Me.tabHistoryGroups.UseVisualStyleBackColor = True
         '
         'lblNoDataHG
         '
@@ -184,6 +192,7 @@ Partial Class EventsHistory
         '
         'tabHistoryDate
         '
+        Me.tabHistoryDate.BackColor = System.Drawing.Color.WhiteSmoke
         Me.tabHistoryDate.Controls.Add(Me.lblNoDataHF)
         Me.tabHistoryDate.Controls.Add(Me.btnSearchEventDate)
         Me.tabHistoryDate.Controls.Add(Me.Label1)
@@ -196,7 +205,6 @@ Partial Class EventsHistory
         Me.tabHistoryDate.Size = New System.Drawing.Size(452, 451)
         Me.tabHistoryDate.TabIndex = 1
         Me.tabHistoryDate.Text = "Historial por fecha"
-        Me.tabHistoryDate.UseVisualStyleBackColor = True
         '
         'lblNoDataHF
         '
@@ -238,6 +246,18 @@ Partial Class EventsHistory
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(163, 24)
         Me.Panel3.TabIndex = 2
+        '
+        'mTBoxDateF
+        '
+        Me.mTBoxDateF.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.mTBoxDateF.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.mTBoxDateF.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.mTBoxDateF.Location = New System.Drawing.Point(87, 4)
+        Me.mTBoxDateF.Mask = "00/00/0000"
+        Me.mTBoxDateF.Name = "mTBoxDateF"
+        Me.mTBoxDateF.Size = New System.Drawing.Size(73, 16)
+        Me.mTBoxDateF.TabIndex = 29
+        Me.mTBoxDateF.ValidatingType = GetType(Date)
         '
         'Label3
         '
@@ -281,7 +301,7 @@ Partial Class EventsHistory
         Me.dgvShowEventsPerDate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvShowEventsPerDate.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1})
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke
         DataGridViewCellStyle4.Font = New System.Drawing.Font("Arial", 8.25!)
         DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
         DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(188, Byte), Integer))
@@ -313,6 +333,18 @@ Partial Class EventsHistory
         Me.Panel1.Size = New System.Drawing.Size(159, 24)
         Me.Panel1.TabIndex = 1
         '
+        'mTBoxDateI
+        '
+        Me.mTBoxDateI.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.mTBoxDateI.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.mTBoxDateI.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.mTBoxDateI.Location = New System.Drawing.Point(84, 4)
+        Me.mTBoxDateI.Mask = "00/00/0000"
+        Me.mTBoxDateI.Name = "mTBoxDateI"
+        Me.mTBoxDateI.Size = New System.Drawing.Size(73, 16)
+        Me.mTBoxDateI.TabIndex = 28
+        Me.mTBoxDateI.ValidatingType = GetType(Date)
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -333,6 +365,7 @@ Partial Class EventsHistory
         '
         'tabHistoryClient
         '
+        Me.tabHistoryClient.BackColor = System.Drawing.Color.WhiteSmoke
         Me.tabHistoryClient.Controls.Add(Me.lblNoDataHCS)
         Me.tabHistoryClient.Controls.Add(Me.dgvShowClientsGoE)
         Me.tabHistoryClient.Controls.Add(Me.cbSlcEvent)
@@ -341,7 +374,6 @@ Partial Class EventsHistory
         Me.tabHistoryClient.Size = New System.Drawing.Size(452, 451)
         Me.tabHistoryClient.TabIndex = 3
         Me.tabHistoryClient.Text = "Historial por clientes-show"
-        Me.tabHistoryClient.UseVisualStyleBackColor = True
         '
         'lblNoDataHCS
         '
@@ -380,7 +412,7 @@ Partial Class EventsHistory
         Me.dgvShowClientsGoE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvShowClientsGoE.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2, Me.Column1, Me.Column2})
         DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke
         DataGridViewCellStyle6.Font = New System.Drawing.Font("Arial", 8.25!)
         DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
         DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(188, Byte), Integer))
@@ -429,6 +461,8 @@ Partial Class EventsHistory
         '
         'tabShowGroups
         '
+        Me.tabShowGroups.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.tabShowGroups.Controls.Add(Me.Panel5)
         Me.tabShowGroups.Controls.Add(Me.lblNoDataG)
         Me.tabShowGroups.Controls.Add(Me.dgvShowGroups)
         Me.tabShowGroups.Location = New System.Drawing.Point(4, 23)
@@ -436,7 +470,35 @@ Partial Class EventsHistory
         Me.tabShowGroups.Size = New System.Drawing.Size(452, 451)
         Me.tabShowGroups.TabIndex = 5
         Me.tabShowGroups.Text = "Grupos"
-        Me.tabShowGroups.UseVisualStyleBackColor = True
+        '
+        'Panel5
+        '
+        Me.Panel5.Controls.Add(Me.TBoxGroupName)
+        Me.Panel5.Controls.Add(Me.Panel6)
+        Me.Panel5.Location = New System.Drawing.Point(3, 3)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(443, 26)
+        Me.Panel5.TabIndex = 32
+        '
+        'TBoxGroupName
+        '
+        Me.TBoxGroupName.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TBoxGroupName.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TBoxGroupName.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.TBoxGroupName.Location = New System.Drawing.Point(3, 4)
+        Me.TBoxGroupName.Name = "TBoxGroupName"
+        Me.TBoxGroupName.Size = New System.Drawing.Size(439, 16)
+        Me.TBoxGroupName.TabIndex = 34
+        Me.TBoxGroupName.Text = "Escriba el nombre del grupo"
+        '
+        'Panel6
+        '
+        Me.Panel6.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(188, Byte), Integer))
+        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel6.Location = New System.Drawing.Point(0, 25)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(443, 1)
+        Me.Panel6.TabIndex = 33
         '
         'lblNoDataG
         '
@@ -475,7 +537,7 @@ Partial Class EventsHistory
         Me.dgvShowGroups.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvShowGroups.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3})
         DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.WhiteSmoke
         DataGridViewCellStyle8.Font = New System.Drawing.Font("Arial", 8.25!)
         DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText
         DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(188, Byte), Integer))
@@ -483,12 +545,12 @@ Partial Class EventsHistory
         DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgvShowGroups.DefaultCellStyle = DataGridViewCellStyle8
         Me.dgvShowGroups.GridColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(188, Byte), Integer))
-        Me.dgvShowGroups.Location = New System.Drawing.Point(3, 3)
+        Me.dgvShowGroups.Location = New System.Drawing.Point(3, 35)
         Me.dgvShowGroups.Name = "dgvShowGroups"
         Me.dgvShowGroups.ReadOnly = True
         Me.dgvShowGroups.RowHeadersVisible = False
         Me.dgvShowGroups.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvShowGroups.Size = New System.Drawing.Size(446, 444)
+        Me.dgvShowGroups.Size = New System.Drawing.Size(446, 412)
         Me.dgvShowGroups.TabIndex = 25
         '
         'DataGridViewTextBoxColumn3
@@ -499,14 +561,44 @@ Partial Class EventsHistory
         '
         'tabShowClients
         '
+        Me.tabShowClients.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.tabShowClients.Controls.Add(Me.Panel7)
         Me.tabShowClients.Controls.Add(Me.lblNoDataC)
-        Me.tabShowClients.Controls.Add(Me.dgvShowClients)
+        Me.tabShowClients.Controls.Add(Me.dgvShowaCli)
         Me.tabShowClients.Location = New System.Drawing.Point(4, 23)
         Me.tabShowClients.Name = "tabShowClients"
         Me.tabShowClients.Size = New System.Drawing.Size(452, 451)
         Me.tabShowClients.TabIndex = 4
         Me.tabShowClients.Text = "Clientes"
-        Me.tabShowClients.UseVisualStyleBackColor = True
+        '
+        'Panel7
+        '
+        Me.Panel7.Controls.Add(Me.TBoxCiClient)
+        Me.Panel7.Controls.Add(Me.Panel8)
+        Me.Panel7.Location = New System.Drawing.Point(6, 3)
+        Me.Panel7.Name = "Panel7"
+        Me.Panel7.Size = New System.Drawing.Size(443, 26)
+        Me.Panel7.TabIndex = 33
+        '
+        'TBoxCiClient
+        '
+        Me.TBoxCiClient.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TBoxCiClient.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TBoxCiClient.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.TBoxCiClient.Location = New System.Drawing.Point(3, 4)
+        Me.TBoxCiClient.Name = "TBoxCiClient"
+        Me.TBoxCiClient.Size = New System.Drawing.Size(439, 16)
+        Me.TBoxCiClient.TabIndex = 34
+        Me.TBoxCiClient.Text = "Escriba la identificacion del cliente"
+        '
+        'Panel8
+        '
+        Me.Panel8.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(188, Byte), Integer))
+        Me.Panel8.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel8.Location = New System.Drawing.Point(0, 25)
+        Me.Panel8.Name = "Panel8"
+        Me.Panel8.Size = New System.Drawing.Size(443, 1)
+        Me.Panel8.TabIndex = 33
         '
         'lblNoDataC
         '
@@ -521,19 +613,19 @@ Partial Class EventsHistory
         Me.lblNoDataC.Text = "No se han encontrado datos"
         Me.lblNoDataC.Visible = False
         '
-        'dgvShowClients
+        'dgvShowaCli
         '
-        Me.dgvShowClients.AllowUserToAddRows = False
-        Me.dgvShowClients.AllowUserToDeleteRows = False
-        Me.dgvShowClients.AllowUserToResizeColumns = False
-        Me.dgvShowClients.AllowUserToResizeRows = False
-        Me.dgvShowClients.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.dgvShowaCli.AllowUserToAddRows = False
+        Me.dgvShowaCli.AllowUserToDeleteRows = False
+        Me.dgvShowaCli.AllowUserToResizeColumns = False
+        Me.dgvShowaCli.AllowUserToResizeRows = False
+        Me.dgvShowaCli.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dgvShowClients.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgvShowClients.BackgroundColor = System.Drawing.Color.WhiteSmoke
-        Me.dgvShowClients.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.dgvShowClients.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
+        Me.dgvShowaCli.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvShowaCli.BackgroundColor = System.Drawing.Color.WhiteSmoke
+        Me.dgvShowaCli.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.dgvShowaCli.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle9.Font = New System.Drawing.Font("Arial", 8.25!)
@@ -541,25 +633,25 @@ Partial Class EventsHistory
         DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(188, Byte), Integer))
         DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvShowClients.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle9
-        Me.dgvShowClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvShowClients.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column3, Me.DataGridViewTextBoxColumn4, Me.Column4})
+        Me.dgvShowaCli.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle9
+        Me.dgvShowaCli.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvShowaCli.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column3, Me.DataGridViewTextBoxColumn4, Me.Column4})
         DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle10.BackColor = System.Drawing.Color.WhiteSmoke
         DataGridViewCellStyle10.Font = New System.Drawing.Font("Arial", 8.25!)
         DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText
         DataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(188, Byte), Integer))
         DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvShowClients.DefaultCellStyle = DataGridViewCellStyle10
-        Me.dgvShowClients.GridColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(188, Byte), Integer))
-        Me.dgvShowClients.Location = New System.Drawing.Point(3, 3)
-        Me.dgvShowClients.Name = "dgvShowClients"
-        Me.dgvShowClients.ReadOnly = True
-        Me.dgvShowClients.RowHeadersVisible = False
-        Me.dgvShowClients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvShowClients.Size = New System.Drawing.Size(446, 444)
-        Me.dgvShowClients.TabIndex = 26
+        Me.dgvShowaCli.DefaultCellStyle = DataGridViewCellStyle10
+        Me.dgvShowaCli.GridColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(188, Byte), Integer))
+        Me.dgvShowaCli.Location = New System.Drawing.Point(3, 35)
+        Me.dgvShowaCli.Name = "dgvShowaCli"
+        Me.dgvShowaCli.ReadOnly = True
+        Me.dgvShowaCli.RowHeadersVisible = False
+        Me.dgvShowaCli.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvShowaCli.Size = New System.Drawing.Size(446, 412)
+        Me.dgvShowaCli.TabIndex = 26
         '
         'Column3
         '
@@ -578,30 +670,6 @@ Partial Class EventsHistory
         Me.Column4.HeaderText = "Apellido"
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
-        '
-        'mTBoxDateI
-        '
-        Me.mTBoxDateI.BackColor = System.Drawing.SystemColors.Window
-        Me.mTBoxDateI.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.mTBoxDateI.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.mTBoxDateI.Location = New System.Drawing.Point(84, 4)
-        Me.mTBoxDateI.Mask = "00/00/0000"
-        Me.mTBoxDateI.Name = "mTBoxDateI"
-        Me.mTBoxDateI.Size = New System.Drawing.Size(73, 16)
-        Me.mTBoxDateI.TabIndex = 28
-        Me.mTBoxDateI.ValidatingType = GetType(Date)
-        '
-        'mTBoxDateF
-        '
-        Me.mTBoxDateF.BackColor = System.Drawing.SystemColors.Window
-        Me.mTBoxDateF.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.mTBoxDateF.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.mTBoxDateF.Location = New System.Drawing.Point(87, 4)
-        Me.mTBoxDateF.Mask = "00/00/0000"
-        Me.mTBoxDateF.Name = "mTBoxDateF"
-        Me.mTBoxDateF.Size = New System.Drawing.Size(73, 16)
-        Me.mTBoxDateF.TabIndex = 29
-        Me.mTBoxDateF.ValidatingType = GetType(Date)
         '
         'EventsHistory
         '
@@ -631,10 +699,14 @@ Partial Class EventsHistory
         CType(Me.dgvShowClientsGoE, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabShowGroups.ResumeLayout(False)
         Me.tabShowGroups.PerformLayout()
+        Me.Panel5.ResumeLayout(False)
+        Me.Panel5.PerformLayout()
         CType(Me.dgvShowGroups, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabShowClients.ResumeLayout(False)
         Me.tabShowClients.PerformLayout()
-        CType(Me.dgvShowClients, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel7.ResumeLayout(False)
+        Me.Panel7.PerformLayout()
+        CType(Me.dgvShowaCli, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -661,7 +733,7 @@ Partial Class EventsHistory
     Friend WithEvents cbSlcEvent As ComboBox
     Friend WithEvents dgvShowGroups As DataGridView
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents dgvShowClients As DataGridView
+    Friend WithEvents dgvShowaCli As DataGridView
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
@@ -676,4 +748,10 @@ Partial Class EventsHistory
     Friend WithEvents lblNoDataHF As Label
     Friend WithEvents mTBoxDateF As MaskedTextBox
     Friend WithEvents mTBoxDateI As MaskedTextBox
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents Panel6 As Panel
+    Friend WithEvents TBoxGroupName As TextBox
+    Friend WithEvents Panel7 As Panel
+    Friend WithEvents TBoxCiClient As TextBox
+    Friend WithEvents Panel8 As Panel
 End Class

@@ -6,17 +6,18 @@
     Private dataClient As Boolean
 
     Public Sub New()
-		InitializeComponent()
-		FillCBEvents()
-		CBSlcEvent.SelectedIndex = 0
-		CBSlcTEntrada.SelectedIndex = 0
-	End Sub
+        InitializeComponent()
+        FillCBEvents()
+        CBSlcEvent.SelectedIndex = 0
+        CBSlcTEntrada.SelectedIndex = 0
+    End Sub
 
-	Sub FillCBEvents()
-		iDB.ExSelect("SELECT idEvents, name_events FROM Events", CBSlcEvent)
-	End Sub
+    Sub FillCBEvents()
+        iDB.ExSelect("SELECT idEvents, name_events FROM Events", CBSlcEvent)
+        ShortViewEvents(CBSlcEvent)
+    End Sub
 
-	Private Sub cbSlcEventSIC(sender As Object, e As EventArgs) Handles CBSlcEvent.SelectedIndexChanged
+    Private Sub cbSlcEventSIC(sender As Object, e As EventArgs) Handles CBSlcEvent.SelectedIndexChanged
 		If CBSlcEvent.SelectedIndex = 0 Then
 			gbClientInfo.Enabled = False
 			btnCcrtSell.Enabled = False

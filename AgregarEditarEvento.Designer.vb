@@ -42,13 +42,11 @@ Partial Class addorEditEvent
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnHelp = New System.Windows.Forms.PictureBox()
         Me.cbSlcEventToEdit = New System.Windows.Forms.ComboBox()
         Me.layoutAddNewEvent.SuspendLayout()
         CType(Me.nudCtnEntradas, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nudMinimumAge, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nudStagesNumbers, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'layoutAddNewEvent
@@ -73,7 +71,6 @@ Partial Class addorEditEvent
         Me.layoutAddNewEvent.Controls.Add(Me.Label6)
         Me.layoutAddNewEvent.Controls.Add(Me.Label2)
         Me.layoutAddNewEvent.Controls.Add(Me.Label1)
-        Me.layoutAddNewEvent.Controls.Add(Me.btnHelp)
         Me.layoutAddNewEvent.Location = New System.Drawing.Point(-2, -1)
         Me.layoutAddNewEvent.Name = "layoutAddNewEvent"
         Me.layoutAddNewEvent.Size = New System.Drawing.Size(374, 223)
@@ -249,16 +246,6 @@ Partial Class addorEditEvent
         Me.Label1.TabIndex = 46
         Me.Label1.Text = "Nombre:"
         '
-        'btnHelp
-        '
-        Me.btnHelp.Image = Global.ForUTU.My.Resources.Resources.baseline_help_outline_black_18dp
-        Me.btnHelp.Location = New System.Drawing.Point(337, 182)
-        Me.btnHelp.Name = "btnHelp"
-        Me.btnHelp.Size = New System.Drawing.Size(25, 25)
-        Me.btnHelp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.btnHelp.TabIndex = 45
-        Me.btnHelp.TabStop = False
-        '
         'cbSlcEventToEdit
         '
         Me.cbSlcEventToEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
@@ -291,7 +278,6 @@ Partial Class addorEditEvent
         CType(Me.nudCtnEntradas, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nudMinimumAge, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nudStagesNumbers, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -314,7 +300,6 @@ Partial Class addorEditEvent
     Friend WithEvents Label6 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents btnHelp As PictureBox
     Friend WithEvents cbSlcEventToEdit As ComboBox
     Friend WithEvents nudCtnEntradas As NumericUpDown
     Friend WithEvents Label4 As Label

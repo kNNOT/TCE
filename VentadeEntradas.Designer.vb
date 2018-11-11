@@ -43,11 +43,9 @@ Partial Class sellTickets
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.CBSlcEvent = New System.Windows.Forms.ComboBox()
-        Me.btnHelp = New System.Windows.Forms.PictureBox()
         Me.layout.SuspendLayout()
         CType(Me.nudTicketsNmbr, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbClientInfo.SuspendLayout()
-        CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'layout
@@ -56,7 +54,6 @@ Partial Class sellTickets
         Me.layout.Controls.Add(Me.nudTicketsNmbr)
         Me.layout.Controls.Add(Me.gbClientInfo)
         Me.layout.Controls.Add(Me.lblCountTickets)
-        Me.layout.Controls.Add(Me.btnHelp)
         Me.layout.Controls.Add(Me.lblShowTotalPrice)
         Me.layout.Controls.Add(Me.btnCcrtSell)
         Me.layout.Location = New System.Drawing.Point(-4, 68)
@@ -258,16 +255,6 @@ Partial Class sellTickets
         Me.CBSlcEvent.Size = New System.Drawing.Size(184, 22)
         Me.CBSlcEvent.TabIndex = 30
         '
-        'btnHelp
-        '
-        Me.btnHelp.Image = Global.ForUTU.My.Resources.Resources.baseline_help_outline_black_18dp
-        Me.btnHelp.Location = New System.Drawing.Point(288, 191)
-        Me.btnHelp.Name = "btnHelp"
-        Me.btnHelp.Size = New System.Drawing.Size(25, 25)
-        Me.btnHelp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.btnHelp.TabIndex = 25
-        Me.btnHelp.TabStop = False
-        '
         'sellTickets
         '
         Me.AcceptButton = Me.btnCcrtSell
@@ -292,7 +279,6 @@ Partial Class sellTickets
         CType(Me.nudTicketsNmbr, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbClientInfo.ResumeLayout(False)
         Me.gbClientInfo.PerformLayout()
-        CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -309,7 +295,6 @@ Partial Class sellTickets
     Friend WithEvents TBoxClientName As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents lblCountTickets As Label
-    Friend WithEvents btnHelp As PictureBox
     Friend WithEvents lblShowTotalPrice As Label
     Friend WithEvents btnCcrtSell As Button
     Friend WithEvents nudTicketsNmbr As NumericUpDown

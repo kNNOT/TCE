@@ -47,7 +47,6 @@ Partial Class StartMenu
         Me.btnNewGroup = New System.Windows.Forms.Button()
         Me.btnReembolso = New System.Windows.Forms.Button()
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.btnHelp = New System.Windows.Forms.PictureBox()
         Me.btnSettings = New System.Windows.Forms.PictureBox()
         Me.btnEventsHistorys = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -76,7 +75,6 @@ Partial Class StartMenu
         CType(Me.dgvShowEvents, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbEventMenu.SuspendLayout()
         Me.gcGroupMenu.SuspendLayout()
-        CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnSettings, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.ctxtMStrip.SuspendLayout()
@@ -308,22 +306,11 @@ Partial Class StartMenu
         Me.DataGridViewImageColumn1.ToolTipText = "Haz clic para eliminar este evento"
         Me.DataGridViewImageColumn1.Width = 106
         '
-        'btnHelp
-        '
-        Me.btnHelp.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnHelp.Image = Global.ForUTU.My.Resources.Resources.baseline_help_outline_black_18dp
-        Me.btnHelp.Location = New System.Drawing.Point(1200, 12)
-        Me.btnHelp.Name = "btnHelp"
-        Me.btnHelp.Size = New System.Drawing.Size(25, 25)
-        Me.btnHelp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.btnHelp.TabIndex = 21
-        Me.btnHelp.TabStop = False
-        '
         'btnSettings
         '
         Me.btnSettings.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnSettings.Image = Global.ForUTU.My.Resources.Resources.baseline_settings_black_18dp
-        Me.btnSettings.Location = New System.Drawing.Point(1169, 11)
+        Me.btnSettings.Location = New System.Drawing.Point(1200, 11)
         Me.btnSettings.Name = "btnSettings"
         Me.btnSettings.Size = New System.Drawing.Size(25, 25)
         Me.btnSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -350,7 +337,7 @@ Partial Class StartMenu
         Me.Panel1.Controls.Add(Me.TBoxEventName)
         Me.Panel1.Location = New System.Drawing.Point(185, 12)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(978, 28)
+        Me.Panel1.Size = New System.Drawing.Size(1009, 28)
         Me.Panel1.TabIndex = 29
         '
         'Panel2
@@ -359,7 +346,7 @@ Partial Class StartMenu
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel2.Location = New System.Drawing.Point(0, 27)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(978, 1)
+        Me.Panel2.Size = New System.Drawing.Size(1009, 1)
         Me.Panel2.TabIndex = 29
         '
         'TBoxEventName
@@ -506,7 +493,6 @@ Partial Class StartMenu
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnEventsHistorys)
         Me.Controls.Add(Me.btnReembolso)
-        Me.Controls.Add(Me.btnHelp)
         Me.Controls.Add(Me.btnSettings)
         Me.Controls.Add(Me.gcGroupMenu)
         Me.Controls.Add(Me.gbEventMenu)
@@ -521,7 +507,6 @@ Partial Class StartMenu
         CType(Me.dgvShowEvents, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbEventMenu.ResumeLayout(False)
         Me.gcGroupMenu.ResumeLayout(False)
-        CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnSettings, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
@@ -540,7 +525,6 @@ Partial Class StartMenu
     Friend WithEvents btnDeleteGroup As Button
     Friend WithEvents btnNewGroup As Button
     Friend WithEvents btnSettings As PictureBox
-    Friend WithEvents btnHelp As PictureBox
     Friend WithEvents btnEditEvents As Button
     Friend WithEvents btnEditGroups As Button
     Friend WithEvents DataGridViewImageColumn1 As DataGridViewImageColumn

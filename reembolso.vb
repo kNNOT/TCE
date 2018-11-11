@@ -6,6 +6,7 @@
     Public Sub New()
         InitializeComponent()
         iDB.ExSelect("SELECT idEvents, name_events FROM Events", cbSlcEvents)
+        ShortViewEvents(cbSlcEvents)
         cbSlcEvents.SelectedIndex = 0
     End Sub
 

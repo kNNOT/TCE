@@ -30,9 +30,7 @@ Partial Class addorEditGroup
         Me.mTBoxCreationData = New System.Windows.Forms.MaskedTextBox()
         Me.TBoxGroupName = New System.Windows.Forms.TextBox()
         Me.cbSlcGroup = New System.Windows.Forms.ComboBox()
-        Me.btnHelp = New System.Windows.Forms.PictureBox()
         Me.layoutNewGroup.SuspendLayout()
-        CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'layoutNewGroup
@@ -43,7 +41,6 @@ Partial Class addorEditGroup
         Me.layoutNewGroup.Controls.Add(Me.Label1)
         Me.layoutNewGroup.Controls.Add(Me.mTBoxCreationData)
         Me.layoutNewGroup.Controls.Add(Me.TBoxGroupName)
-        Me.layoutNewGroup.Controls.Add(Me.btnHelp)
         Me.layoutNewGroup.Location = New System.Drawing.Point(-2, -3)
         Me.layoutNewGroup.Name = "layoutNewGroup"
         Me.layoutNewGroup.Size = New System.Drawing.Size(251, 198)
@@ -121,18 +118,6 @@ Partial Class addorEditGroup
         Me.cbSlcGroup.TabIndex = 19
         Me.cbSlcGroup.Visible = False
         '
-        'btnHelp
-        '
-        Me.btnHelp.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnHelp.Image = Global.ForUTU.My.Resources.Resources.baseline_help_outline_black_18dp
-        Me.btnHelp.Location = New System.Drawing.Point(212, 156)
-        Me.btnHelp.Name = "btnHelp"
-        Me.btnHelp.Size = New System.Drawing.Size(25, 25)
-        Me.btnHelp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.btnHelp.TabIndex = 12
-        Me.btnHelp.TabStop = False
-        '
         'addorEditGroup
         '
         Me.AcceptButton = Me.btnAddGroup
@@ -148,7 +133,6 @@ Partial Class addorEditGroup
         Me.Text = "Agregar grupo"
         Me.layoutNewGroup.ResumeLayout(False)
         Me.layoutNewGroup.PerformLayout()
-        CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -160,6 +144,5 @@ Partial Class addorEditGroup
     Friend WithEvents Label1 As Label
     Friend WithEvents mTBoxCreationData As MaskedTextBox
     Friend WithEvents TBoxGroupName As TextBox
-    Friend WithEvents btnHelp As PictureBox
     Friend WithEvents cbSlcGroup As ComboBox
 End Class

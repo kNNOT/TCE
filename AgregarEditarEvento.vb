@@ -27,6 +27,7 @@ Public Class addorEditEvent
         cbSlcEventToEdit.Enabled = False
         iDB.ExSelect("SELECT idEvents, name_events FROM Events", cbSlcEventToEdit)
         cbSlcEventToEdit.Enabled = True
+        ShortViewEvents(cbSlcEventToEdit)
     End Sub
 
     'Validacion de exepciones "sentencias IF´s"
@@ -151,17 +152,5 @@ Public Class addorEditEvent
             mTBoxEndEventDate.Select()
             Return
         End If
-    End Sub
-
-    Private Sub btnHelpClic(sender As Object, e As EventArgs) Handles btnHelp.Click
-        MessageBox.Show($"Llene todos los campos vacíos para agregar un nuevo evento. {vbLf}Seleccione un elemento en la lista (si ésta aparece) para modificar un evento.", "Mensaje de ayuda", MessageBoxButtons.OK, MessageBoxIcon.Information)
-    End Sub
-
-    Private Sub btnHelpME(sender As Object, e As EventArgs) Handles btnHelp.MouseEnter
-        btnHelp.BackColor = Color.FromArgb(160, 160, 160)
-    End Sub
-
-    Private Sub btnHelpML(sender As Object, e As EventArgs) Handles btnHelp.MouseLeave
-        btnHelp.BackColor = Me.BackColor
     End Sub
 End Class
